@@ -1,0 +1,145 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:padding="10dp"
+    tools:context="com.kratos18.kratos2k18.ShowDetailsActivity">
+
+    <LinearLayout
+        android:layout_marginTop="100dp"
+        android:id="@+id/ll"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        android:padding="10dp"
+        tools:ignore="UselessParent">
+
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+
+            <TextView
+                android:id="@+id/tvtvname"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Name:"
+                android:textAppearance="@style/Base.TextAppearance.AppCompat.Large"
+
+                />
+
+            <TextView
+                android:id="@+id/tv_name"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="10dp"
+                android:layout_toRightOf="@id/tvtvname"
+                android:text="Arun"
+                android:textAppearance="@style/Base.TextAppearance.AppCompat.Large"
+
+                />
+
+        </RelativeLayout>
+
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+
+            <TextView
+                android:id="@+id/tvtvcollegename"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="College:"
+                android:textAppearance="@style/Base.TextAppearance.AppCompat.Large"
+
+                />
+
+            <TextView
+                android:id="@+id/tv_clgname"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="10dp"
+                android:layout_toRightOf="@id/tvtvcollegename"
+                android:text="EEC"
+                android:textAppearance="@style/Base.TextAppearance.AppCompat.Large"
+
+                />
+
+        </RelativeLayout>
+
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+
+            <TextView
+                android:id="@+id/tvtvphone"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Phone:"
+                android:textAppearance="@style/Base.TextAppearance.AppCompat.Large"
+
+                />
+
+            <TextView
+                android:id="@+id/tv_phonenumber"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="10dp"
+                android:layout_toRightOf="@id/tvtvphone"
+                android:text="9940245619"
+                android:textAppearance="@style/Base.TextAppearance.AppCompat.Large"
+
+                />
+
+        </RelativeLayout>
+
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+
+            <TextView
+                android:id="@+id/tvtvdept"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Dept:"
+                android:textAppearance="@style/Base.TextAppearance.AppCompat.Large"
+
+                />
+
+            <TextView
+                android:id="@+id/tv_deptname"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="10dp"
+                android:layout_toRightOf="@id/tvtvdept"
+                android:text="CSE"
+                android:textAppearance="@style/Base.TextAppearance.AppCompat.Large"
+
+                />
+
+
+        </RelativeLayout>
+
+        <TextView
+            android:id="@+id/tv_UUID"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:gravity="center"
+            android:padding="10dp"
+            android:text="KR994024516"
+            android:textAppearance="@style/Base.TextAppearance.AppCompat.Large"
+            android:textColor="@color/colorPrimaryDark"
+            android:textStyle="bold" />
+
+    </LinearLayout>
+
+    <Button
+        style="@style/Widget.AppCompat.Button.Colored"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+       android:layout_below="@id/ll"
+        android:id="@+id/btn_participate"
+        android:text="Participating.." />
+</RelativeLayout>
+

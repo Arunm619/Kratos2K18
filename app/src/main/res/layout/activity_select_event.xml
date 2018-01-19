@@ -1,0 +1,133 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context="com.kratos18.kratos2k18.SelectEvent">
+
+    <TextView
+        android:id="@+id/tv_tv_selectevent"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:gravity="center"
+        android:text="Select Event"
+        android:textAppearance="@style/Base.TextAppearance.AppCompat.Large"
+        android:textSize="24sp" />
+
+    <LinearLayout
+        android:id="@+id/ll"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/tv_tv_selectevent"
+        android:orientation="vertical">
+
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="30dp"
+            android:gravity="center"
+            android:text="Technical Events"
+            android:textAppearance="@style/Base.TextAppearance.AppCompat.Medium"
+            android:textColor="@color/colorPrimaryDark"
+            android:textStyle="bold" />
+
+        <RadioGroup
+
+
+            android:layout_width="match_parent"
+            android:layout_height="match_parent">
+
+            <RadioButton
+                android:id="@+id/rb_connections"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Connections" />
+
+            <RadioButton
+                android:id="@+id/rb_codewars"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Code wars" />
+
+            <RadioButton
+                android:id="@+id/rb_trespassers"
+
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Trespassers" />
+
+            <RadioButton
+                android:id="@+id/rb_googleit"
+
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Google it" />
+
+
+            <TextView
+
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:gravity="center"
+                android:text="Non-Technical Events"
+                android:textAppearance="@style/Base.TextAppearance.AppCompat.Medium"
+                android:textColor="@color/colorPrimaryDark"
+                android:textStyle="bold" />
+
+            <RadioButton
+                android:id="@+id/rb_futsal"
+
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Futsal / box cricket" />
+
+            <RadioButton
+                android:id="@+id/rb_midcitymadness"
+
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Midcity madness" />
+
+            <RadioButton
+                android:id="@+id/rb_prisonbreak"
+
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Prison break" />
+
+            <RadioButton
+                android:id="@+id/rb_maathiyosi"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Maathi yosi" />
+
+            <RadioButton
+                android:id="@+id/rb_homicide"
+
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Homicide" />
+
+            <RadioButton
+                android:id="@+id/rb_gaming"
+
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Gaming" />
+
+        </RadioGroup>
+
+
+    </LinearLayout>
+
+    <Button
+        style="@style/Widget.AppCompat.Button.Colored"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/ll"
+        android:layout_marginTop="20dp"
+        android:text="Go!" />
+
+</RelativeLayout>

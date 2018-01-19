@@ -1,0 +1,55 @@
+{
+  "project_info": {
+    "project_number": "913782090589",
+    "firebase_url": "https://kratos2k18-896f6.firebaseio.com",
+    "project_id": "kratos2k18-896f6",
+    "storage_bucket": "kratos2k18-896f6.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:913782090589:android:e9be52a318f8dcdb",
+        "android_client_info": {
+          "package_name": "com.kratos18.kratos2k18"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "913782090589-833b25sci3c98iclbqkkccpfjmgujs2q.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.kratos18.kratos2k18",
+            "certificate_hash": "48a0c69f565c6ce379dcd9a6dcdab08dd6db37fd"
+          }
+        },
+        {
+          "client_id": "913782090589-gh8ng1g5s66sku48sli359ud1jbb241k.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyCJZGJJKeWi0b4N8EPeGRZgQ3zjqH2fGuc"
+        }
+      ],
+      "services": {
+        "analytics_service": {
+          "status": 1
+        },
+        "appinvite_service": {
+          "status": 2,
+          "other_platform_oauth_client": [
+            {
+              "client_id": "913782090589-gh8ng1g5s66sku48sli359ud1jbb241k.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        },
+        "ads_service": {
+          "status": 2
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

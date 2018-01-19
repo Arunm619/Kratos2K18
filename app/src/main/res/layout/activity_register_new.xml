@@ -1,0 +1,110 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context="com.kratos18.kratos2k18.RegisterNew">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="vertical"
+        android:padding="10dp"
+        android:paddingBottom="100dp"
+        android:paddingTop="100dp">
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:gravity="center"
+            android:text="NEW REGISTRATION"
+            android:textAppearance="@style/Base.TextAppearance.AppCompat.Medium"
+            android:typeface="serif" />
+        <!--NAME-->
+        <android.support.design.widget.TextInputLayout
+            android:id="@+id/input_layout_name"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+
+            <EditText
+                android:id="@+id/input_name"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:hint="Full Name" />
+
+        </android.support.design.widget.TextInputLayout>
+
+
+        <!--EMAIL-->
+        <android.support.design.widget.TextInputLayout
+            android:id="@+id/input_layout_email"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+
+            <EditText
+                android:id="@+id/input_email"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:hint="Email" />
+
+        </android.support.design.widget.TextInputLayout>
+
+        <!-- Number -->
+
+        <android.support.design.widget.TextInputLayout
+            android:id="@+id/input_layout_number"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+
+            <EditText
+                android:id="@+id/input_phonenumber"
+              android:inputType="number"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:hint="Mobile Number" />
+
+        </android.support.design.widget.TextInputLayout>
+
+
+        <!-- CLG -->
+
+        <android.support.design.widget.TextInputLayout
+            android:id="@+id/input_layout_Collegename"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+
+            <EditText
+                android:id="@+id/input_collegename"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:hint="College name" />
+
+        </android.support.design.widget.TextInputLayout>
+
+        <!-- Dept -->
+
+        <android.support.design.widget.TextInputLayout
+            android:id="@+id/input_layout_dept"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+
+            <EditText
+                android:id="@+id/input_deptname"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:hint="Dept name" />
+
+        </android.support.design.widget.TextInputLayout>
+
+        <Button
+android:layout_marginTop="50dp"
+            android:id="@+id/btn_submit"
+            style="@style/Widget.AppCompat.Button.Colored"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Create Account!" />
+
+    </LinearLayout>
+</RelativeLayout>
