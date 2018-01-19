@@ -6,19 +6,26 @@ import android.view.View;
 import android.widget.Button;
 import android.widget.TextView;
 
+import com.google.firebase.database.DatabaseReference;
+import com.google.firebase.database.FirebaseDatabase;
 import com.google.gson.Gson;
 
-public class ShowDetailsActivity extends AppCompatActivity {
+public class LunchIncharge extends AppCompatActivity {
     TextView tv_name, tv_food, tv_phone, tv_UUID, tv_clgname, tv_deptname;
-    Button btn_participate;
+    Button btn_foodsupplied;
+    FirebaseDatabase database;
+    DatabaseReference myRef;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_show_details);
+        setContentView(R.layout.activity_lunch_incharge);
         Gson gson = new Gson();
         String studentDataObjectAsAString = getIntent().getStringExtra("MyStudentObjectAsString");
-        Student student = gson.fromJson(studentDataObjectAsAString, Student.class);
+        final Student student = gson.fromJson(studentDataObjectAsAString, Student.class);
+
+        database = FirebaseDatabase.getInstance();
+        myRef = database.getReferenceFromUrl("https://kratos2k18-896f6.firebaseio.com/Users");
 
         tv_clgname = findViewById(R.id.tv_clgname);
         tv_deptname = findViewById(R.id.tv_deptname);
@@ -26,7 +33,7 @@ public class ShowDetailsActivity extends AppCompatActivity {
         tv_phone = findViewById(R.id.tv_phonenumber);
         tv_UUID = findViewById(R.id.tv_UUID);
         tv_food = findViewById(R.id.tv_food);
-        btn_participate = findViewById(R.id.btn_participate);
+        btn_foodsupplied = findViewById(R.id.btn_foodsupplied);
 
         tv_UUID.setText(student.getUUID());
         tv_clgname.setText(student.getCollegename());
@@ -36,11 +43,17 @@ public class ShowDetailsActivity extends AppCompatActivity {
         tv_food.setText(String.valueOf(student.isAte()));
 
 
-        btn_participate.setOnClickListener(new View.OnClickListener() {
+        btn_foodsupplied.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                //set that uuid to the events...
+
+
+                myRef.child(student.getUUID()).child("ate").setValue(true);
+
             }
         });
     }
+
+
 }
+

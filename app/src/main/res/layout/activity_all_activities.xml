@@ -5,39 +5,57 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     tools:context="com.kratos18.kratos2k18.AllActivities">
-<LinearLayout
-    android:layout_width="match_parent"
-    android:orientation="vertical"
-    android:layout_height="match_parent">
-    <Button
+
+    <LinearLayout
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:text="Register"
-        android:id="@+id/btn_register"
-        />
-    <Button
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:text="CSV"
-        android:id="@+id/btn_csv"
+        android:layout_height="match_parent"
+        android:orientation="vertical">
 
-        />
-    <Button
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:text="Mark QR"
-        android:id="@+id/btn_markqr"
+        <Button
+            android:id="@+id/btn_register"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Register" />
 
-        />
-    <Button
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:text="Scan QR"
-        android:id="@+id/btn_scanqr"
+        <Button
+            android:id="@+id/btn_csv"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="CSV"
 
-        />
+            />
 
+        <Button
+            android:id="@+id/btn_markqr"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Mark QR"
 
-</LinearLayout>
+            />
+
+        <Button
+            android:id="@+id/btn_scanqr"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Scan QR"
+
+            />
+
+        <Button
+            android:id="@+id/btn_selectevent"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Selectevent "
+
+            />
+
+        <Button
+            android:id="@+id/btn_lunch"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Lunch "
+
+            />
+    </LinearLayout>
 
 </RelativeLayout>

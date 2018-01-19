@@ -4,8 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:padding="10dp"
-    tools:context="com.kratos18.kratos2k18.ShowDetailsActivity">
+    tools:context="com.kratos18.kratos2k18.LunchIncharge">
 
     <LinearLayout
         android:id="@+id/ll"
@@ -98,26 +97,26 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content">
 
-        <TextView
-            android:id="@+id/tvtvdept"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="Dept:"
-            android:textAppearance="@style/Base.TextAppearance.AppCompat.Large"
+            <TextView
+                android:id="@+id/tvtvdept"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Dept:"
+                android:textAppearance="@style/Base.TextAppearance.AppCompat.Large"
 
-            />
+                />
 
-        <TextView
-            android:layout_toRightOf="@id/tvtvdept"
+            <TextView
+                android:layout_toRightOf="@id/tvtvdept"
 
-            android:id="@+id/tv_deptname"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginLeft="10dp"
-            android:text="CSE"
-            android:textAppearance="@style/Base.TextAppearance.AppCompat.Large"
+                android:id="@+id/tv_deptname"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="10dp"
+                android:text="CSE"
+                android:textAppearance="@style/Base.TextAppearance.AppCompat.Large"
 
-            />
+                />
 
         </RelativeLayout>
 
@@ -165,11 +164,10 @@
     </LinearLayout>
 
     <Button
-        android:id="@+id/btn_participate"
+        android:id="@+id/btn_foodsupplied"
         style="@style/Widget.AppCompat.Button.Colored"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_below="@id/ll"
-        android:text="Participating.." />
+        android:text="Food Supplied" />
 </RelativeLayout>
-

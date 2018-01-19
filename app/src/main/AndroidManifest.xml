@@ -21,7 +21,9 @@
         <activity android:name=".ScanQRActivity" />
         <activity android:name=".MarkQRActivity" />
         <activity android:name=".ShowDetailsActivity" />
-        <activity android:name=".SelectEvent"></activity>
+        <activity android:name=".SelectEvent" />
+        <activity android:name=".LunchActivity" />
+        <activity android:name=".LunchIncharge"></activity>
     </application>
 
 </manifest>

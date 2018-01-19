@@ -52,6 +52,7 @@ public class RegisterNew extends AppCompatActivity {
                 student.setTextphone(phonenumber);
                 student.setUUID("KR-" + phonenumber);
                 student.setQrcode("Null");
+                student.setAte(false);
 
                 myRef.child(student.getUUID()).setValue(student);
 

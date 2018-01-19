@@ -7,6 +7,7 @@ package com.kratos18.kratos2k18;
 class Student {
     private int Form_id;
     private String Form_date;
+    private boolean ate;
     private String Status;
     private String Textname, Collegename, Email42, Dept;
     private Long Textphone;
@@ -139,5 +140,13 @@ class Student {
         Dept = dept;
         Textphone = textphone;
         Mc4wp_checkbox = mc4wp_checkbox;
+    }
+
+    public boolean isAte() {
+        return ate;
+    }
+
+    public void setAte(boolean ate) {
+        this.ate = ate;
     }
 }
