@@ -49,6 +49,8 @@ public class LunchIncharge extends AppCompatActivity {
 
 
                 myRef.child(student.getUUID()).child("ate").setValue(true);
+               tv_food.setText("True");
+                finish();
 
             }
         });

@@ -5,71 +5,39 @@ package com.kratos18.kratos2k18;
  */
 
 class Student {
-    private int Form_id;
-    private String Form_date;
+
     private boolean ate;
-    private String Status;
-    private String Textname, Collegename, Email42, Dept;
+    private String Textname, Collegename, Email, Dept;
     private Long Textphone;
     private String Qrcode;
-
-    public String getQrcode() {
-        return Qrcode;
-    }
-
-    public void setQrcode(String qrcode) {
-        Qrcode = qrcode;
-    }
-
-    private String Mc4wp_checkbox;
-
+    private String Gender;
 
     private String UUID;
 
-
-    Student() {
-
+    public Student() {
     }
 
     @Override
     public String toString() {
         return "Student{" +
-                "Form_id=" + Form_id +
-                ", Form_date='" + Form_date + '\'' +
-                ", Status='" + Status + '\'' +
+                "ate=" + ate +
                 ", Textname='" + Textname + '\'' +
                 ", Collegename='" + Collegename + '\'' +
-                ", Email42='" + Email42 + '\'' +
+                ", Email='" + Email + '\'' +
                 ", Dept='" + Dept + '\'' +
                 ", Textphone=" + Textphone +
                 ", Qrcode='" + Qrcode + '\'' +
-                ", Mc4wp_checkbox='" + Mc4wp_checkbox + '\'' +
+                ", Gender='" + Gender + '\'' +
                 ", UUID='" + UUID + '\'' +
                 '}';
     }
 
-    public int getForm_id() {
-        return Form_id;
+    public boolean isAte() {
+        return ate;
     }
 
-    public void setForm_id(int form_id) {
-        Form_id = form_id;
-    }
-
-    public String getForm_date() {
-        return Form_date;
-    }
-
-    public void setForm_date(String form_date) {
-        Form_date = form_date;
-    }
-
-    public String getStatus() {
-        return Status;
-    }
-
-    public void setStatus(String status) {
-        Status = status;
+    public void setAte(boolean ate) {
+        this.ate = ate;
     }
 
     public String getTextname() {
@@ -88,12 +56,12 @@ class Student {
         Collegename = collegename;
     }
 
-    public String getEmail42() {
-        return Email42;
+    public String getEmail() {
+        return Email;
     }
 
-    public void setEmail42(String email42) {
-        Email42 = email42;
+    public void setEmail(String email) {
+        Email = email;
     }
 
     public String getDept() {
@@ -112,14 +80,21 @@ class Student {
         Textphone = textphone;
     }
 
-    public String getMc4wp_checkbox() {
-        return Mc4wp_checkbox;
+    public String getQrcode() {
+        return Qrcode;
     }
 
-    public void setMc4wp_checkbox(String mc4wp_checkbox) {
-        Mc4wp_checkbox = mc4wp_checkbox;
+    public void setQrcode(String qrcode) {
+        Qrcode = qrcode;
     }
 
+    public String getGender() {
+        return Gender;
+    }
+
+    public void setGender(String gender) {
+        Gender = gender;
+    }
 
     public String getUUID() {
         return UUID;
@@ -129,24 +104,15 @@ class Student {
         this.UUID = UUID;
     }
 
-
-    public Student(int form_id, String form_date, String status, String textname, String collegename, String email42, String dept, Long textphone, String mc4wp_checkbox) {
-        Form_id = form_id;
-        Form_date = form_date;
-        Status = status;
+    public Student(boolean ate, String textname, String collegename, String email, String dept, Long textphone, String qrcode, String gender, String UUID) {
+        this.ate = ate;
         Textname = textname;
         Collegename = collegename;
-        Email42 = email42;
+        Email = email;
         Dept = dept;
         Textphone = textphone;
-        Mc4wp_checkbox = mc4wp_checkbox;
-    }
-
-    public boolean isAte() {
-        return ate;
-    }
-
-    public void setAte(boolean ate) {
-        this.ate = ate;
+        Qrcode = qrcode;
+        Gender = gender;
+        this.UUID = UUID;
     }
 }

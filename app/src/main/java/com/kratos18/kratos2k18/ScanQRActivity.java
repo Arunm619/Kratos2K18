@@ -67,7 +67,7 @@ public class ScanQRActivity extends AppCompatActivity {
                                 Student student = snapshot.getValue(Student.class);
                                // Toast.makeText(ScanQRActivity.this, "Student name"+student.getTextname(), Toast.LENGTH_SHORT).show();
 
-                                if (student.getQrcode().equals(result.getContents())) {
+                                if (student != null && student.getQrcode().equals(result.getContents())) {
                                     Intent intent = new Intent(ScanQRActivity.this, ShowDetailsActivity.class);
                                     Gson gson = new Gson();
                                     String studentDataObjectAsAString = gson.toJson(student);

@@ -6,23 +6,40 @@
     android:layout_height="match_parent"
     tools:context="com.kratos18.kratos2k18.LunchActivity">
 
-
-    <TextView
-        android:layout_marginTop="30dp"
-        android:id="@+id/tvtvscanqr"
+    <android.support.v7.widget.CardView xmlns:card_view="http://schemas.android.com/apk/res-auto"
+        android:id="@+id/card_view"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:gravity="center"
-        android:text="Type UUID and Scan"
-        android:textAppearance="@style/Base.TextAppearance.AppCompat.Large"/>
-    <Button
-        android:layout_marginTop="30dp"
-        android:id="@+id/btn_scanqr"
-        style="@style/Widget.AppCompat.Button.Colored"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_below="@id/tvtvscanqr"
-        android:text="Scan QR"/>
+        android:layout_centerHorizontal="true"
+        android:layout_centerInParent="true"
+        android:layout_gravity="center"
+        card_view:cardCornerRadius="4dp"
+        card_view:cardElevation="2dp">
 
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+
+            <TextView
+                android:id="@+id/tvtvscanqr"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="30dp"
+                android:gravity="center"
+                android:text="Type UUID and Scan"
+                android:textAppearance="@style/Base.TextAppearance.AppCompat.Large" />
+
+            <Button
+                android:id="@+id/btn_scanqr"
+                style="@style/Widget.AppCompat.Button.Colored"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_below="@id/tvtvscanqr"
+                android:layout_marginTop="30dp"
+                android:text="Scan QR" />
+        </RelativeLayout>
+
+
+    </android.support.v7.widget.CardView>
 
 </RelativeLayout>

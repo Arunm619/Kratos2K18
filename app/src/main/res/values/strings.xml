@@ -1,3 +1,24 @@
 <resources>
     <string name="app_name">Kratos 2K18</string>
+    <string name="paper_presentation">Paper Presentation</string>
+    <string name="Winners">Winners List</string>
+    <string name="project">Project Display</string>
+    <string name="Connections">Connections</string>
+    <string name="codears">Code wars</string>
+    <string name="trespassers">Trespassers</string>
+    <string name="Googleit">Google it</string>
+    <string name="Homicide">Homicide</string>
+    <string name="PrisonBreak">Prison Break</string>
+    <string name="Maathiyosi">Maathiyosi</string>
+    <string name="Midcity">Midcity Madness</string>
+    <string name="technical_events">TECHNICAL EVENTS</string>
+    <string name="non_technical_events">NON TECHNICAL EVENTS</string>
+    <string name="first_prize">First Prize -</string>
+    <string name="second_prize">Second Prize -</string>
+    <string name="third_prize">Third Prize -</string>
+    <string name="Winner">Winner goes here</string>
+    <string name="homicie">Homicide</string>
+    <string name="prison">Prison  Break</string>
+    <string name="mathi">Maathi Yosi</string>
+    <string name="midcity">Midcity Madness</string>
 </resources>

@@ -14,11 +14,11 @@ import com.google.firebase.database.FirebaseDatabase;
 public class RegisterNew extends AppCompatActivity {
     EditText et_name, et_collegename, et_phone, et_email, et_deptname;
     String name, clgname, email, deptname, UniqueUserID;
-    Long phonenumber;
+    String phonenumber;
     Button btn_register;
 
     FirebaseDatabase database;
-    DatabaseReference myRef;
+    DatabaseReference myRef, ListRef;
 
 
     @Override
@@ -37,27 +37,35 @@ public class RegisterNew extends AppCompatActivity {
 
         database = FirebaseDatabase.getInstance();
         myRef = database.getReferenceFromUrl("https://kratos2k18-896f6.firebaseio.com/Users");
-
+        ListRef = database.getReferenceFromUrl("https://kratos2k18-896f6.firebaseio.com/AddedNumbers");
 
         btn_register.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
 
-                isnullcheck();
-                Student student = new Student();
-                student.setTextname(name);
-                student.setCollegename(clgname);
-                student.setDept(deptname);
-                student.setEmail42(email);
-                student.setTextphone(phonenumber);
-                student.setUUID("KR-" + phonenumber);
-                student.setQrcode("Null");
-                student.setAte(false);
+                int a = isnullcheck();
+                if (a != -1) {
+                    Student student = new Student();
+                    student.setTextname(name);
+                    student.setCollegename(clgname);
+                    student.setDept(deptname);
+                    student.setEmail(email);
+                    student.setTextphone(Long.valueOf(phonenumber));
+                    student.setUUID("KR-" + phonenumber);
+                    student.setQrcode("Null");
+                    student.setAte(false);
 
-                myRef.child(student.getUUID()).setValue(student);
+                    myRef.child(student.getUUID()).setValue(student);
+                    String rkey = ListRef.push().getKey();
 
-                Toast.makeText(RegisterNew.this, "Awesome! Succesfully registered...", Toast.LENGTH_SHORT).show();
+                    ListRef.child(rkey).setValue(phonenumber);
 
+                    //pollRef.child("comments").push();
+                    //commentRef.setValue(comment);
+
+                    Toast.makeText(RegisterNew.this, "Awesome! Succesfully registered...", Toast.LENGTH_SHORT).show();
+
+                }
 
             }
         });
@@ -65,25 +73,28 @@ public class RegisterNew extends AppCompatActivity {
 
     }
 
-    private void isnullcheck() {
+    private int isnullcheck() {
 
         name = et_name.getText().toString().trim();
         clgname = et_collegename.getText().toString().trim();
-        phonenumber = Long.valueOf(et_phone.getText().toString().trim());
+        phonenumber = et_phone.getText().toString().trim();
         email = et_email.getText().toString().trim();
         deptname = et_deptname.getText().toString().trim();
-        //boolean a = false;
-        if (TextUtils.isEmpty(name))
+
+
+        if (TextUtils.isEmpty(name)) {
             Toast.makeText(this, "Enter Name", Toast.LENGTH_SHORT).show();
-
-        else if (TextUtils.isEmpty(clgname))
+            return -1;
+        } else if (TextUtils.isEmpty(clgname)) {
             Toast.makeText(this, "Enter College Name", Toast.LENGTH_SHORT).show();
-        else if (TextUtils.isDigitsOnly(String.valueOf(phonenumber)))
+            return -1;
+        } else if (TextUtils.isEmpty(String.valueOf(phonenumber))) {
             Toast.makeText(this, "Enter Phone number", Toast.LENGTH_SHORT).show();
-
-        else if (TextUtils.isEmpty(deptname))
+            return -1;
+        } else if (TextUtils.isEmpty(deptname)) {
             Toast.makeText(this, "Enter dept name", Toast.LENGTH_SHORT).show();
-
-
+            return -1;
+        }
+        return 0;
     }
 }

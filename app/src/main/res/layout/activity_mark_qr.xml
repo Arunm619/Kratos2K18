@@ -17,6 +17,7 @@
     <!-- UUID -->
 
     <LinearLayout
+
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_below="@id/tvtvscanqr"
@@ -41,12 +42,31 @@
 
     </LinearLayout>
 
-    <Button
-        android:id="@+id/btn_setqrcode"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_centerHorizontal="true"
-        android:layout_centerVertical="true"
 
-        android:text="Set QR" />
+    <LinearLayout
+        android:layout_centerHorizontal="true"
+        android:layout_centerInParent="true" android:orientation="vertical"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+
+
+        <Button
+            android:layout_gravity="center"
+            style="@style/Widget.AppCompat.Button.Colored"
+            android:id="@+id/btn_checkredundancy"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+
+            android:text="Check Redundancy" />
+
+        <Button
+            android:layout_gravity="center"
+            android:id="@+id/btn_setqrcode"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+
+            style="@style/Widget.AppCompat.Button.Colored"
+            android:text="Set QR" />
+    </LinearLayout>
+
 </RelativeLayout>
