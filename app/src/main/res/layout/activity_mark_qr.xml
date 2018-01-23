@@ -57,7 +57,7 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
 
-            android:text="Check Redundancy" />
+            android:text="Approval" />
 
         <Button
             android:layout_gravity="center"

@@ -144,6 +144,8 @@ btn_checkredundancy.setOnClickListener(new View.OnClickListener() {
             QRCODEValue = result.getContents();
             myRef.child("KR-" + userid).child("Qrcode").setValue(QRCODEValue);
 
+//            myRef.child("QRCODES").child(QRCODEValue).setValue("KR-"+userid);
+
             Toast.makeText(MarkQRActivity.this, "Successfully set ", Toast.LENGTH_SHORT).show();
 
 

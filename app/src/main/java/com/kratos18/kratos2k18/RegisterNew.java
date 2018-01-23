@@ -18,7 +18,7 @@ public class RegisterNew extends AppCompatActivity {
     Button btn_register;
 
     FirebaseDatabase database;
-    DatabaseReference myRef, ListRef;
+    DatabaseReference myRef;
 
 
     @Override
@@ -37,7 +37,7 @@ public class RegisterNew extends AppCompatActivity {
 
         database = FirebaseDatabase.getInstance();
         myRef = database.getReferenceFromUrl("https://kratos2k18-896f6.firebaseio.com/Users");
-        ListRef = database.getReferenceFromUrl("https://kratos2k18-896f6.firebaseio.com/AddedNumbers");
+       // ListRef = database.getReferenceFromUrl("https://kratos2k18-896f6.firebaseio.com/AddedNumbers");
 
         btn_register.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -56,9 +56,6 @@ public class RegisterNew extends AppCompatActivity {
                     student.setAte(false);
 
                     myRef.child(student.getUUID()).setValue(student);
-                    String rkey = ListRef.push().getKey();
-
-                    ListRef.child(rkey).setValue(phonenumber);
 
                     //pollRef.child("comments").push();
                     //commentRef.setValue(comment);

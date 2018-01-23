@@ -24,7 +24,7 @@ public class CollectCSV extends AppCompatActivity {
 
 
     FirebaseDatabase database;
-    DatabaseReference myRef, ListRef;
+    DatabaseReference myRef;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -34,7 +34,7 @@ public class CollectCSV extends AppCompatActivity {
 
         database = FirebaseDatabase.getInstance();
         myRef = database.getReferenceFromUrl("https://kratos2k18-896f6.firebaseio.com/Users");
-        ListRef = database.getReferenceFromUrl("https://kratos2k18-896f6.firebaseio.com/AddedNumbers");
+       // ListRef = database.getReferenceFromUrl("https://kratos2k18-896f6.firebaseio.com/AddedNumbers");
 
         readdata();
         //send the array list to firebase...
@@ -80,8 +80,8 @@ public class CollectCSV extends AppCompatActivity {
                     student.setAte(false);
                     myRef.child(student.getUUID()).setValue(student);
 
-                    String rkey = ListRef.push().getKey();
-                    ListRef.child(rkey).setValue(Long.parseLong(tokens[7]));
+                  //  String rkey = ListRef.push().getKey();
+                 //   ListRef.child(rkey).setValue(Long.parseLong(tokens[7]));
                     studentsdatafromcsv.add(student);
 
 

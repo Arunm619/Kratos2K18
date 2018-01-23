@@ -1,0 +1,66 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context="com.kratos18.kratos2k18.ChooseWinners">
+
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:gravity="center"
+        android:id="@+id/tvWinnersTV"
+        android:padding="10dp"
+        android:text="Choose Winners for "
+        android:textAppearance="@style/Base.TextAppearance.AppCompat.Large" />
+
+    <TextView
+        android:id="@+id/tvtvevent"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Evnet"
+        android:textAppearance="@style/Base.TextAppearance.AppCompat.Medium"
+        android:layout_below="@id/tvWinnersTV"
+        android:textStyle="bold"
+
+        android:gravity="center"
+        />
+<LinearLayout
+    android:layout_width="match_parent"
+    android:orientation="vertical"
+    android:layout_below="@id/tvtvevent"
+    android:layout_height="wrap_content">
+
+
+    <EditText
+        android:hint="Type winner 1 phone number"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:id="@+id/et_typewinner1"/>
+
+    <EditText
+        android:hint="Type winner 2 phone number"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:id="@+id/et_typewinner2"/>
+
+    <EditText
+        android:hint="Type winner 3 phone number"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:id="@+id/et_typewinner3"/>
+
+</LinearLayout>
+
+    <Button
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:id="@+id/btn_submitwinners"
+        android:text="Submit"
+        style="@style/Widget.AppCompat.Button.Colored"
+        android:layout_alignParentBottom="true"
+        android:layout_centerInParent="true"
+        android:layout_marginBottom="30dp"/>
+
+</RelativeLayout>

@@ -24,7 +24,8 @@
         <activity android:name=".SelectEvent" />
         <activity android:name=".LunchActivity" />
         <activity android:name=".LunchIncharge" />
-        <activity android:name=".WinnersActivity"></activity>
+        <activity android:name=".WinnersActivity" />
+        <activity android:name=".ChooseWinners"></activity>
     </application>
 
 </manifest>
