@@ -38,15 +38,18 @@
         android:hint="Type winner 1 phone number"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
+        android:inputType="number"
         android:id="@+id/et_typewinner1"/>
 
     <EditText
         android:hint="Type winner 2 phone number"
+        android:inputType="number"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:id="@+id/et_typewinner2"/>
 
     <EditText
+        android:inputType="number"
         android:hint="Type winner 3 phone number"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"

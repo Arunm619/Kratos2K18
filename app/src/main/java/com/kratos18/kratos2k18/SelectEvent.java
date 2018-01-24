@@ -2,6 +2,7 @@ package com.kratos18.kratos2k18;
 
 import android.content.Intent;
 import android.content.SharedPreferences;
+import android.os.Build;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.View;
@@ -9,6 +10,8 @@ import android.widget.Button;
 import android.widget.RadioButton;
 import android.widget.RadioGroup;
 import android.widget.Toast;
+
+import java.util.Objects;
 
 public class SelectEvent extends AppCompatActivity {
     RadioGroup rg_events;
@@ -31,6 +34,11 @@ public class SelectEvent extends AppCompatActivity {
 
         SharedPreferences pref = getApplicationContext().getSharedPreferences("MyPref", 0); // 0 - for private mode
         final SharedPreferences.Editor editor = pref.edit();
+        String a = pref.getString("selectedevent",null);
+        if (a != null) {
+            startActivity(new Intent(SelectEvent.this, ScanQRActivity.class));
+            finish();
+        }
 
         btn_selectevent = findViewById(R.id.btn_selecteventbtn);
         btn_selectevent.setOnClickListener(new View.OnClickListener() {
@@ -50,8 +58,7 @@ public class SelectEvent extends AppCompatActivity {
                     editor.commit();
 
 
-
-                    startActivity(new Intent(SelectEvent.this,ScanQRActivity.class));
+                    startActivity(new Intent(SelectEvent.this, ScanQRActivity.class));
                     finish();
                 }
             }

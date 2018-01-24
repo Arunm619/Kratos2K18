@@ -3,14 +3,26 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
+  android:id="@+id/rl_marqr"
     android:layout_height="match_parent"
     tools:context="com.kratos18.kratos2k18.MarkQRActivity">
 
     <TextView
+       android:id="@+id/tvtvScan"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:gravity="center"
+        android:textStyle="bold"
+        android:text="SET QR - Registration Desk2"
+        android:textAppearance="@style/Base.TextAppearance.AppCompat.Large"
+        android:textColor="@color/colorPrimaryDark"/>
+    <TextView
+        android:layout_below="@id/tvtvScan"
         android:id="@+id/tvtvscanqr"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:gravity="center"
+
         android:text="Type UUID and Scan"
         android:textAppearance="@style/Base.TextAppearance.AppCompat.Large"
         android:textColor="@color/colorPrimaryDark" />
@@ -21,7 +33,8 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_below="@id/tvtvscanqr"
-        android:layout_margin="10dp"
+        android:id="@+id/llholder"
+        android:layout_marginTop="100dp"
         android:gravity="center"
         android:orientation="horizontal">
 
@@ -45,7 +58,9 @@
 
     <LinearLayout
         android:layout_centerHorizontal="true"
-        android:layout_centerInParent="true" android:orientation="vertical"
+        android:orientation="vertical"
+        android:layout_marginTop="100dp"
+       android:layout_below="@id/llholder"
         android:layout_width="match_parent"
         android:layout_height="wrap_content">
 

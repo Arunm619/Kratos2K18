@@ -5,6 +5,9 @@ import android.content.SharedPreferences;
 import android.os.Parcelable;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+import android.view.Menu;
+import android.view.MenuInflater;
+import android.view.MenuItem;
 import android.view.View;
 import android.widget.Button;
 import android.widget.TextView;
@@ -141,33 +144,34 @@ public class ScanQRActivity extends AppCompatActivity {
 
         }
     }
+
+
+
+    @Override
+    public boolean onCreateOptionsMenu(Menu menu)
+    {
+        MenuInflater menuInflater = getMenuInflater();
+        menuInflater.inflate(R.menu.menu, menu);
+        return true;
+    }
+
+    @Override
+    public boolean onOptionsItemSelected(MenuItem item)
+    {
+
+        switch (item.getItemId())
+        {
+            case R.id.choosewinners:
+               startActivity(new Intent(ScanQRActivity.this,ChooseWinners.class));
+
+                return true;
+
+
+            default:
+                return super.onOptionsItemSelected(item);
+        }
+    }
+
 }
 
 
-
-/*
-*
-            Query query = myRef.child("Kr-123")
-                    .child("Qrcode")
-                    .equalTo(result.getContents());
-            query.addListenerForSingleValueEvent(new ValueEventListener() {
-                @Override
-                public void onDataChange(DataSnapshot dataSnapshot) {
-                    for (DataSnapshot singleSnapshot : dataSnapshot.getChildren()) {
-
-                        Student student = singleSnapshot.getValue(Student.class);
-                        Intent intent = new Intent(ScanQRActivity.this, ShowDetailsActivity.class);
-                        intent.putExtra("Studentobj", (Parcelable) student);
-                        startActivity(intent);
-
-                    }
-                }
-
-                @Override
-                public void onCancelled(DatabaseError databaseError) {
-
-                }
-            });
-
-*
-* */

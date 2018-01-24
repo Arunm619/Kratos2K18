@@ -1,10 +1,13 @@
 package com.kratos18.kratos2k18;
 
+import android.content.Intent;
 import android.content.SharedPreferences;
+import android.support.design.widget.Snackbar;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
+import android.widget.RelativeLayout;
 import android.widget.TextView;
 import android.widget.Toast;
 
@@ -18,6 +21,7 @@ public class ShowDetailsActivity extends AppCompatActivity {
     FirebaseDatabase database;
     DatabaseReference myRef;
     String event;
+    RelativeLayout rl_showdetails;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -30,6 +34,7 @@ public class ShowDetailsActivity extends AppCompatActivity {
         Gson gson = new Gson();
         String studentDataObjectAsAString = getIntent().getStringExtra("MyStudentObjectAsString");
         final Student student = gson.fromJson(studentDataObjectAsAString, Student.class);
+        rl_showdetails=findViewById(R.id.rl_showdetails);
         tv_eventname = findViewById(R.id.tv_eventname);
         tv_clgname = findViewById(R.id.tv_clgname);
         tv_deptname = findViewById(R.id.tv_deptname);
@@ -82,8 +87,14 @@ public class ShowDetailsActivity extends AppCompatActivity {
                         myRef.child(getString(R.string.midcity)).child(student.getUUID()).setValue(student);
                         break;
                 }
-                Toast.makeText(ShowDetailsActivity.this, "Added successfully.", Toast.LENGTH_SHORT).show();
+                Snackbar.make(rl_showdetails, "Awesome! Succesfully Added...", Snackbar.LENGTH_INDEFINITE).setAction("Okay", new View.OnClickListener() {
+                    @Override
+                    public void onClick(View view) {
+                     startActivity(new Intent(ShowDetailsActivity.this,ScanQRActivity.class));
 
+
+                    }
+                }).show();
             }
         });
     }
