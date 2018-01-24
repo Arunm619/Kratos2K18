@@ -2,6 +2,7 @@
 <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/rl_reg"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     tools:context="com.kratos18.kratos2k18.RegisterNew">
@@ -10,6 +11,7 @@
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:orientation="vertical"
+
         android:padding="10dp"
         android:paddingBottom="100dp"
         android:paddingTop="100dp">
@@ -21,6 +23,7 @@
             android:gravity="center"
             android:text="NEW REGISTRATION"
             android:textAppearance="@style/Base.TextAppearance.AppCompat.Medium"
+            android:textColor="@color/colorPrimaryDark"
             android:typeface="serif" />
         <!--NAME-->
         <android.support.design.widget.TextInputLayout
@@ -60,10 +63,10 @@
 
             <EditText
                 android:id="@+id/input_phonenumber"
-              android:inputType="number"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:hint="Mobile Number" />
+                android:hint="Mobile Number"
+                android:inputType="number" />
 
         </android.support.design.widget.TextInputLayout>
 
@@ -98,12 +101,22 @@
 
         </android.support.design.widget.TextInputLayout>
 
+
         <Button
-android:layout_marginTop="50dp"
+            android:layout_marginTop="10dp"
+
+            android:id="@+id/btn_validatenumber"
+            style="@style/Widget.AppCompat.Button.Colored"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Validate Account" />
+
+        <Button
             android:id="@+id/btn_submit"
             style="@style/Widget.AppCompat.Button.Colored"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
+            android:layout_marginTop="10dp"
             android:text="Create Account!" />
 
     </LinearLayout>

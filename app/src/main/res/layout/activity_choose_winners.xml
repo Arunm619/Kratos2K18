@@ -11,6 +11,7 @@
         android:layout_height="wrap_content"
         android:gravity="center"
         android:id="@+id/tvWinnersTV"
+
         android:padding="10dp"
         android:text="Choose Winners for "
         android:textAppearance="@style/Base.TextAppearance.AppCompat.Large" />

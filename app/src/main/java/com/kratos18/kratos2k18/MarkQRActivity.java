@@ -142,7 +142,7 @@ btn_checkredundancy.setOnClickListener(new View.OnClickListener() {
         IntentResult result = IntentIntegrator.parseActivityResult(requestCode, resultCode, data);
         if (result.getContents() != null) {
             QRCODEValue = result.getContents();
-            myRef.child("KR-" + userid).child("Qrcode").setValue(QRCODEValue);
+            myRef.child("KR-" + userid).child("qrcode").setValue(QRCODEValue);
 
 //            myRef.child("QRCODES").child(QRCODEValue).setValue("KR-"+userid);
 
