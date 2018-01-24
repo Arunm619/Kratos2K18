@@ -1,5 +1,6 @@
 package com.kratos18.kratos2k18;
 
+import android.annotation.SuppressLint;
 import android.content.Intent;
 import android.content.SharedPreferences;
 import android.os.Parcelable;
@@ -24,31 +25,64 @@ import com.google.zxing.integration.android.IntentIntegrator;
 import com.google.zxing.integration.android.IntentResult;
 
 public class ScanQRActivity extends AppCompatActivity {
-    Button btn_scanqr,btn_addtoevent;
+    Button btn_scanqr, btn_addtoevent;
     FirebaseDatabase database;
     DatabaseReference myRef;
     TextView tv_eventname;
+    TextView tv_memberscount;
+    Button btn_viewparticipants;
+    String eventname;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_scan_qr);
         btn_scanqr = findViewById(R.id.btn_scanqr);
         database = FirebaseDatabase.getInstance();
-        myRef = database.getReferenceFromUrl("https://kratos2k18-896f6.firebaseio.com/Users");
-        btn_addtoevent=findViewById(R.id.btn_addtoevent);
+        myRef = database.getReferenceFromUrl("https://kratos2k18-896f6.firebaseio.com/Events");
+        btn_addtoevent = findViewById(R.id.btn_addtoevent);
         SharedPreferences pref = getApplicationContext().getSharedPreferences("MyPref", 0); // 0 - for private mode
         SharedPreferences.Editor editor = pref.edit();
+        eventname = pref.getString("selectedevent", null);
+        tv_eventname = findViewById(R.id.tv_eventname);
+        tv_eventname.setText(eventname); // getting Event name
+        btn_viewparticipants = findViewById(R.id.btn_viewparticipants);
+        tv_memberscount = findViewById(R.id.tvmemberscount);
+        tv_memberscount.setText("Loading...");
 
-        tv_eventname= findViewById(R.id.tv_eventname);
-        tv_eventname.setText(pref.getString("selectedevent", null)); // getting Event name
+
+        myRef.child(eventname).addListenerForSingleValueEvent(new ValueEventListener() {
+            @Override
+            public void onDataChange(DataSnapshot dataSnapshot) {
+                int count = (int) dataSnapshot.getChildrenCount();
+               // Toast.makeText(ScanQRActivity.this, "" + dataSnapshot.getValue(), Toast.LENGTH_SHORT).show();
+                if (count == 0)
+                    tv_memberscount.setText(getString(R.string.noofparticipants) + R.string.zerocount);
+                else if (count > 0) {
+                    tv_memberscount.setText("No of Participants :" + count);
+
+                }
+            }
+
+            @Override
+            public void onCancelled(DatabaseError databaseError) {
+
+            }
+        });
 
 
+        btn_viewparticipants.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                startActivity(new Intent(ScanQRActivity.this, ViewParticipants.class));
+            }
+        });
 
         btn_addtoevent.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
 
-               checkqr();
+                checkqr();
 
             }
         });
@@ -72,7 +106,6 @@ public class ScanQRActivity extends AppCompatActivity {
         intentIntegrator.initiateScan();
 
     }
-
 
 
     @Override
@@ -134,8 +167,6 @@ public class ScanQRActivity extends AppCompatActivity {
 //            });
 
 
-
-
         } else
 
         {
@@ -146,23 +177,19 @@ public class ScanQRActivity extends AppCompatActivity {
     }
 
 
-
     @Override
-    public boolean onCreateOptionsMenu(Menu menu)
-    {
+    public boolean onCreateOptionsMenu(Menu menu) {
         MenuInflater menuInflater = getMenuInflater();
         menuInflater.inflate(R.menu.menu, menu);
         return true;
     }
 
     @Override
-    public boolean onOptionsItemSelected(MenuItem item)
-    {
+    public boolean onOptionsItemSelected(MenuItem item) {
 
-        switch (item.getItemId())
-        {
+        switch (item.getItemId()) {
             case R.id.choosewinners:
-               startActivity(new Intent(ScanQRActivity.this,ChooseWinners.class));
+                startActivity(new Intent(ScanQRActivity.this, ChooseWinners.class));
 
                 return true;
 

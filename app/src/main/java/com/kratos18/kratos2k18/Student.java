@@ -13,6 +13,15 @@ class Student {
     private String Gender;
 
     private String UUID;
+    String participatedevents;
+
+    public String getParticipatedevents() {
+        return participatedevents;
+    }
+
+    public void setParticipatedevents(String participatedevents) {
+        this.participatedevents = participatedevents;
+    }
 
     public Student() {
     }

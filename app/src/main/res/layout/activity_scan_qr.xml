@@ -9,13 +9,14 @@
 
     <TextView
         android:id="@+id/tvtvscanqr"
-        android:layout_centerInParent="true"
+     android:layout_below="@id/tv_eventname"
 
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_marginTop="30dp"
+        android:layout_marginTop="60dp"
         android:gravity="center"
-        android:text="Tap the button to Scan the Participant. Hit Participate in the next Screen to add."
+        android:layout_marginBottom="20dp"
+        android:text="@string/contentforscaanactivity"
         android:textAppearance="@style/Base.TextAppearance.AppCompat.Medium" />
 
     <TextView
@@ -24,7 +25,7 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:gravity="center"
-        android:text="Event name "
+        android:text="@string/event_name"
 
         android:textColor="@color/colorPrimaryDark"
         android:textSize="24sp"
@@ -40,7 +41,7 @@
         android:layout_height="wrap_content"
         android:layout_below="@id/tvtvscanqr"
         android:layout_marginTop="30dp"
-        android:text="Scan QR" />
+        android:text="@string/scan_qr" />
 
     <Button
         android:id="@+id/btn_addtoevent"
@@ -49,7 +50,30 @@
         android:layout_height="wrap_content"
         android:layout_below="@id/btn_scanqr"
 
-        android:text="Add Participant " />
+        android:text="@string/add_participant" />
 
+
+    <Button
+        android:id="@+id/btn_viewparticipants"
+        style="@style/Widget.AppCompat.Button.Colored"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/btn_addtoevent"
+
+        android:text="@string/View_participant" />
+
+
+    <TextView
+android:layout_marginTop="20dp"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/btn_viewparticipants"
+        android:textStyle="bold"
+        android:textColor="@color/colorPrimaryDark"
+        android:text="@string/members_5"
+        android:gravity="center"
+        android:id="@+id/tvmemberscount"
+        android:textAppearance="@style/Base.TextAppearance.AppCompat.Medium"
+        />
 
 </RelativeLayout>

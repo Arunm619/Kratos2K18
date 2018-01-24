@@ -7,7 +7,7 @@ import android.view.View;
 import android.widget.Button;
 
 public class AllActivities extends AppCompatActivity {
-    Button btn_choosewinner, btn_winners, btn_register, btn_selectevent, btn_scanqr, btn_markqr, btn_csv, btn_lunch;
+    Button btn_admin,btn_choosewinner, btn_winners, btn_register, btn_selectevent, btn_scanqr, btn_markqr, btn_csv, btn_lunch;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -21,6 +21,14 @@ public class AllActivities extends AppCompatActivity {
         btn_selectevent = findViewById(R.id.btn_selectevent);
         btn_lunch = findViewById(R.id.btn_lunch);
 btn_choosewinner = findViewById(R.id.btn_choosewinner);
+
+        btn_admin=findViewById(R.id.btn_admin);
+        btn_admin.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                startActivity(new Intent(AllActivities.this, Admin.class));
+            }
+        });
         btn_choosewinner.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {

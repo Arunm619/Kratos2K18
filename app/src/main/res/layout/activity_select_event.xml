@@ -91,27 +91,27 @@ android:id="@+id/rg_events"
 
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="Midcity madness" />
+                android:text="@string/Midcity" />
 
             <RadioButton
                 android:id="@+id/rb_prisonbreak"
 
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="Prison break" />
+                android:text="@string/PrisonBreak" />
 
             <RadioButton
                 android:id="@+id/rb_maathiyosi"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="Maathi yosi" />
+                android:text="@string/Maathiyosi" />
 
             <RadioButton
                 android:id="@+id/rb_homicide"
 
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="Homicide" />
+                android:text="@string/Homicide" />
 
             <RadioButton
                 android:id="@+id/rb_gaming"

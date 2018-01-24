@@ -34,7 +34,7 @@ public class SelectEvent extends AppCompatActivity {
 
         SharedPreferences pref = getApplicationContext().getSharedPreferences("MyPref", 0); // 0 - for private mode
         final SharedPreferences.Editor editor = pref.edit();
-        String a = pref.getString("selectedevent",null);
+        String a = pref.getString("selectedevent", null);
         if (a != null) {
             startActivity(new Intent(SelectEvent.this, ScanQRActivity.class));
             finish();
@@ -52,8 +52,9 @@ public class SelectEvent extends AppCompatActivity {
                     // find the radiobutton by returned id
                     RadioButton selectedRadioButton = (RadioButton) findViewById(selectedId);
                     Toast.makeText(getApplicationContext(), selectedRadioButton.getText().toString() + " is selected", Toast.LENGTH_SHORT).show();
-
-                    editor.putString("selectedevent", selectedRadioButton.getText().toString().trim()); // Storing string
+                    String nameoftheevent = selectedRadioButton.getText().toString().trim();
+                    //  Toast.makeText(SelectEvent.this, ""+nameoftheevent, Toast.LENGTH_SHORT).show();
+                    editor.putString("selectedevent", nameoftheevent); // Storing string
                     editor.apply();
                     editor.commit();
 

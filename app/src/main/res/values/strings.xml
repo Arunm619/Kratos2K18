@@ -12,7 +12,7 @@
     <string name="Googleit">Google it</string>
     <string name="Homicide">Homicide</string>
     <string name="PrisonBreak">Prison Break</string>
-    <string name="Maathiyosi">Maathiyosi</string>
+    <string name="Maathiyosi">Maathi Yosi</string>
     <string name="Midcity">Midcity Madness</string>
     <string name="technical_events">TECHNICAL EVENTS</string>
     <string name="non_technical_events">NON TECHNICAL EVENTS</string>
@@ -27,4 +27,14 @@
     <string name="connections">Connections</string>
     <string name="Google_it">Google It</string>
     <string name="ChooseWinners">Choose Winners</string>
+    <string name="contentforscaanactivity">Tap the button to Scan the Participant. Hit Participate in the next Screen to add.</string>
+    <string name="event_name">Event name</string>
+    <string name="scan_qr">Scan QR</string>
+    <string name="add_participant">Add Participant</string>
+    <string name="View_participant">view participants</string>
+    <string name="members_5">Members = 5</string>
+    <string name="zerocount">Yet to begin.</string>
+    <string name="noofparticipants">No of Participants</string>
+    <string name="p">Participants</string>
+    <string name="m" />
 </resources>

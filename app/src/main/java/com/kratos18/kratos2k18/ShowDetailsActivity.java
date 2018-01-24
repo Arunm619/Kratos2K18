@@ -19,7 +19,7 @@ public class ShowDetailsActivity extends AppCompatActivity {
     TextView tv_name, tv_food, tv_phone, tv_UUID, tv_clgname, tv_deptname, tv_eventname;
     Button btn_participate;
     FirebaseDatabase database;
-    DatabaseReference myRef;
+    DatabaseReference myRef,homeref;
     String event;
     RelativeLayout rl_showdetails;
 
@@ -45,8 +45,9 @@ public class ShowDetailsActivity extends AppCompatActivity {
         btn_participate = findViewById(R.id.btn_participate);
         event = pref.getString("selectedevent", null);
         database = FirebaseDatabase.getInstance();
-        myRef = database.getReferenceFromUrl("https://kratos2k18-896f6.firebaseio.com/Events");
 
+        myRef = database.getReferenceFromUrl("https://kratos2k18-896f6.firebaseio.com/Events");
+        homeref=database.getReferenceFromUrl("https://kratos2k18-896f6.firebaseio.com/Users");
 
         tv_UUID.setText(student.getUUID());
         tv_clgname.setText(student.getCollegename());
@@ -64,6 +65,7 @@ public class ShowDetailsActivity extends AppCompatActivity {
                 switch (event) {
                     case "Connections":
                         myRef.child(getString(R.string.connections)).child(student.getUUID()).setValue(student);
+                        homeref.child(student.getUUID()).child("participatedevents").setValue("Connections");
                         break;
                     case "Code wars":
                         myRef.child(getString(R.string.codears)).child(student.getUUID()).setValue(student);

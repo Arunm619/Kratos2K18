@@ -75,6 +75,7 @@ public class CollectCSV extends AppCompatActivity {
                     student.setDept(tokens[6]);
                     student.setTextphone(Long.parseLong(tokens[7]));
                     //student.setMc4wp_checkbox(tokens[8]);
+                    student.setParticipatedevents(" ");
                     student.setUUID("KR-" + tokens[7]);
                     student.setQrcode("Null");
                     student.setAte(false);
