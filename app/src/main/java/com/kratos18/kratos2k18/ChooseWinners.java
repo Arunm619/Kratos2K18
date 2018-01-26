@@ -46,14 +46,14 @@ public class ChooseWinners extends AppCompatActivity {
             @Override
             public void onClick(View view) {
 
-                myRef.child(getString(R.string.paper_presentation)).child("Winner1").setValue("Kr-" );
-                myRef.child(getString(R.string.paper_presentation)).child("Winner2").setValue("Kr-" );
-                myRef.child(getString(R.string.paper_presentation)).child("Winner3").setValue("Kr-" );
+                myRef.child(getString(R.string.paper_presentation)).child("Winner1").setValue("KR-" );
+                myRef.child(getString(R.string.paper_presentation)).child("Winner2").setValue("KR-" );
+                myRef.child(getString(R.string.paper_presentation)).child("Winner3").setValue("KR-" );
 
 
-                myRef.child(getString(R.string.project)).child("Winner1").setValue("Kr-" );
-                myRef.child(getString(R.string.project)).child("Winner2").setValue("Kr-" );
-                myRef.child(getString(R.string.project)).child("Winner3").setValue("Kr-" );
+                myRef.child(getString(R.string.project)).child("Winner1").setValue("KR-" );
+                myRef.child(getString(R.string.project)).child("Winner2").setValue("KR-" );
+                myRef.child(getString(R.string.project)).child("Winner3").setValue("KR-" );
 
 
                 String winner1 = et_w1.getText().toString(), winner2 = et_w2.getText().toString(), winner3 = et_w3.getText().toString();
@@ -69,58 +69,60 @@ public class ChooseWinners extends AppCompatActivity {
                 } else {
                     switch (eventname) {
                         case "Connections":
-                            myRef.child(getString(R.string.connections)).child("Winner1").setValue("Kr-" + winner1);
-                            myRef.child(getString(R.string.connections)).child("Winner2").setValue("Kr-" + winner2);
-                            myRef.child(getString(R.string.connections)).child("Winner3").setValue("Kr-" + winner3);
+                            myRef.child(getString(R.string.connections)).child("Winner1").setValue("KR-" + winner1);
+                            myRef.child(getString(R.string.connections)).child("Winner2").setValue("KR-" + winner2);
+                            myRef.child(getString(R.string.connections)).child("Winner3").setValue("KR-" + winner3);
                             break;
                         case "Code wars":
-                            myRef.child(getString(R.string.codears)).child("Winner1").setValue("Kr-" + winner1);
-                            myRef.child(getString(R.string.codears)).child("Winner2").setValue("Kr-" + winner2);
-                            myRef.child(getString(R.string.codears)).child("Winner3").setValue("Kr-" + winner3);
+                            myRef.child(getString(R.string.codears)).child("Winner1").setValue("KR-" + winner1);
+                            myRef.child(getString(R.string.codears)).child("Winner2").setValue("KR-" + winner2);
+                            myRef.child(getString(R.string.codears)).child("Winner3").setValue("KR-" + winner3);
                             break;
                         case "Trespassers":
                             // myRef.child(getString(R.string.trespassers)).child(student.getUUID()).setValue(student);
-                            myRef.child(getString(R.string.trespassers)).child("Winner1").setValue("Kr-" + winner1);
-                            myRef.child(getString(R.string.trespassers)).child("Winner2").setValue("Kr-" + winner2);
-                            myRef.child(getString(R.string.trespassers)).child("Winner3").setValue("Kr-" + winner3);
+                            myRef.child(getString(R.string.trespassers)).child("Winner1").setValue("KR-" + winner1);
+                            myRef.child(getString(R.string.trespassers)).child("Winner2").setValue("KR-" + winner2);
+                            myRef.child(getString(R.string.trespassers)).child("Winner3").setValue("KR-" + winner3);
 
                             break;
                         case "Google it":
                             // myRef.child(getString(R.string.Google_it)).child(student.getUUID()).setValue(student);
-                            myRef.child(getString(R.string.Google_it)).child("Winner1").setValue("Kr-" + winner1);
-                            myRef.child(getString(R.string.Google_it)).child("Winner2").setValue("Kr-" + winner2);
-                            myRef.child(getString(R.string.Google_it)).child("Winner3").setValue("Kr-" + winner3);
+                            myRef.child(getString(R.string.Google_it)).child("Winner1").setValue("KR-" + winner1);
+                            myRef.child(getString(R.string.Google_it)).child("Winner2").setValue("KR-" + winner2);
+                            myRef.child(getString(R.string.Google_it)).child("Winner3").setValue("KR-" + winner3);
 
                             break;
                         case "Homicide":
                             // myRef.child(getString(R.string.homicie)).child(student.getUUID()).setValue(student);
-                            myRef.child(getString(R.string.homicie)).child("Winner1").setValue("Kr-" + winner1);
-                            myRef.child(getString(R.string.homicie)).child("Winner2").setValue("Kr-" + winner2);
-                            myRef.child(getString(R.string.homicie)).child("Winner3").setValue("Kr-" + winner3);
+                            myRef.child(getString(R.string.homicie)).child("Winner1").setValue("KR-" + winner1);
+                            myRef.child(getString(R.string.homicie)).child("Winner2").setValue("KR-" + winner2);
+                            myRef.child(getString(R.string.homicie)).child("Winner3").setValue("KR-" + winner3);
 
                             break;
                         case "Prison break":
                             // myRef.child(getString(R.string.prison)).child(student.getUUID()).setValue(student);
-                            myRef.child(getString(R.string.prison)).child("Winner1").setValue("Kr-" + winner1);
-                            myRef.child(getString(R.string.prison)).child("Winner2").setValue("Kr-" + winner2);
-                            myRef.child(getString(R.string.prison)).child("Winner3").setValue("Kr-" + winner3);
+                            myRef.child(getString(R.string.prison)).child("Winner1").setValue("KR-" + winner1);
+                            myRef.child(getString(R.string.prison)).child("Winner2").setValue("KR-" + winner2);
+                            myRef.child(getString(R.string.prison)).child("Winner3").setValue("KR-" + winner3);
 
                             break;
                         case "Maathi yosi":
                             //myRef.child(getString(R.string.mathi)).child(student.getUUID()).setValue(student);
-                            myRef.child(getString(R.string.mathi)).child("Winner1").setValue("Kr-" + winner1);
-                            myRef.child(getString(R.string.mathi)).child("Winner2").setValue("Kr-" + winner2);
-                            myRef.child(getString(R.string.mathi)).child("Winner3").setValue("Kr-" + winner3);
+                            myRef.child(getString(R.string.mathi)).child("Winner1").setValue("KR-" + winner1);
+                            myRef.child(getString(R.string.mathi)).child("Winner2").setValue("KR-" + winner2);
+                            myRef.child(getString(R.string.mathi)).child("Winner3").setValue("KR-" + winner3);
 
                             break;
                         case "Midcity madness":
                             //myRef.child(getString(R.string.midcity)).child(student.getUUID()).setValue(student);
-                            myRef.child(getString(R.string.midcity)).child("Winner1").setValue("Kr-" + winner1);
-                            myRef.child(getString(R.string.midcity)).child("Winner2").setValue("Kr-" + winner2);
-                            myRef.child(getString(R.string.midcity)).child("Winner3").setValue("Kr-" + winner3);
+                            myRef.child(getString(R.string.midcity)).child("Winner1").setValue("KR-" + winner1);
+                            myRef.child(getString(R.string.midcity)).child("Winner2").setValue("KR-" + winner2);
+                            myRef.child(getString(R.string.midcity)).child("Winner3").setValue("KR-" + winner3);
 
                             break;
                     }
+
+
                     Toast.makeText(ChooseWinners.this, "Winners successfully.", Toast.LENGTH_SHORT).show();
                 }
 

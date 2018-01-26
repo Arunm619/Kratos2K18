@@ -127,7 +127,7 @@ public class ViewParticipants extends AppCompatActivity {
 
                                            default:
                                                 Toast.makeText(ViewParticipants.this, dialog.getItems().get(which).toString(), Toast.LENGTH_SHORT).show();
-                                                
+
 
                                         }
 

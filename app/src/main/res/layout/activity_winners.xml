@@ -5,248 +5,248 @@
     android:layout_height="match_parent"
     tools:context="com.kratos18.kratos2k18.WinnersActivity">
 
-
-    <TextView
-        android:id="@+id/tvevent"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_alignParentTop="true"
-        android:text="Event"
-        android:gravity="center"
-        android:textAppearance="@style/Base.TextAppearance.AppCompat.Large"
-        />
-    <RelativeLayout
-        android:layout_below="@id/tvevent"
-        android:id="@+id/rl_winners"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:padding="10dp">
-
-
-
-
-        <TextView
-
-            android:id="@+id/tvfp"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_toRightOf="@id/tvtvfp"
-
-            android:text="@string/Winner"
-            android:textAppearance="@style/Base.TextAppearance.AppCompat.Medium" />
-
-        <TextView
-            android:id="@+id/tvsp"
-            android:layout_width="wrap_content"
-
-            android:layout_height="wrap_content"
-            android:layout_below="@id/tvtvfp"
-            android:layout_toRightOf="@id/tvtvsp"
-            android:text="@string/Winner"
-
-            android:textAppearance="@style/Base.TextAppearance.AppCompat.Medium" />
-
-        <TextView
-            android:id="@+id/tvtp"
-
-
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_below="@id/tvtvsp"
-            android:layout_toRightOf="@id/tvtvtp"
-            android:text="@string/Winner"
-            android:textAppearance="@style/Base.TextAppearance.AppCompat.Medium" />
-
-        <TextView
-            android:id="@+id/tvtvfp"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="@string/first_prize"
-            android:textAppearance="@style/Base.TextAppearance.AppCompat.Medium"
-            android:textStyle="bold" />
-
-        <TextView
-            android:id="@+id/tvtvsp"
-            android:layout_width="wrap_content"
-
-            android:layout_height="wrap_content"
-            android:layout_below="@id/tvtvfp"
-            android:text="@string/second_prize"
-            android:textAppearance="@style/Base.TextAppearance.AppCompat.Medium"
-
-            android:textStyle="bold" />
-
-        <TextView
-            android:id="@+id/tvtvtp"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_below="@id/tvtvsp"
-            android:text="@string/third_prize"
-            android:textAppearance="@style/Base.TextAppearance.AppCompat.Medium"
-            android:textStyle="bold" />
-
-
-    </RelativeLayout>
-
-    <TextView
-        android:id="@+id/tvWinnersTV"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_below="@id/rl_winners"
-        android:gravity="center"
-        android:text="@string/Winners"
-        android:textAppearance="@style/Base.TextAppearance.AppCompat.Large"
-        android:textSize="26sp" />
-
-    <View
-        android:layout_width="match_parent"
-        android:layout_height="2dp"
-        android:background="@color/colorPrimaryDark" />
-
-    <ScrollView
+    <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent"
+        android:orientation="vertical">
 
-        android:layout_below="@id/tvWinnersTV">
-
-        <LinearLayout
+        <TextView
+            android:id="@+id/tvWinnersTV"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:orientation="vertical">
+            android:gravity="center"
+            android:padding="10dp"
+            android:text="@string/Winners"
+            android:textAppearance="@style/Base.TextAppearance.AppCompat.Large" />
 
-            <View
-                android:layout_width="match_parent"
-                android:layout_height="2dp"
-                android:background="@color/colorPrimaryDark" />
+        <LinearLayout
+            android:id="@+id/teams"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_below="@id/tvWinnersTV"
+            android:baselineAligned="false"
+            android:orientation="horizontal"
 
-
-            <TextView
-                android:id="@+id/tvtvtechnical"
-                android:layout_width="match_parent"
-
-                android:layout_height="wrap_content"
-                android:gravity="center"
-                android:text="@string/technical_events"
-                android:textAppearance="@style/Base.TextAppearance.AppCompat.Large" />
-
-            <View
-                android:layout_width="match_parent"
-                android:layout_height="2dp"
-                android:background="@color/colorPrimaryDark" />
-
-            <TextView
-                android:id="@+id/tvtvpaperpresentation"
-                android:layout_width="match_parent"
-
-                android:layout_height="wrap_content"
-                android:gravity="center"
-                android:text="@string/paper_presentation"
-                android:textAppearance="@style/Base.TextAppearance.AppCompat.Large" />
-
-            <TextView
-                android:id="@+id/tvtvprojectdisplay"
-                android:layout_width="match_parent"
-
-                android:layout_height="wrap_content"
-                android:gravity="center"
-                android:text="@string/project"
-                android:textAppearance="@style/Base.TextAppearance.AppCompat.Large" />
-
-            <TextView
-                android:id="@+id/tvtvconnections"
-                android:layout_width="match_parent"
-
-                android:layout_height="wrap_content"
-                android:gravity="center"
-                android:text="@string/Connections"
-                android:textAppearance="@style/Base.TextAppearance.AppCompat.Large" />
-
-            <TextView
-                android:id="@+id/tvtvcodewars"
-                android:layout_width="match_parent"
-
-                android:layout_height="wrap_content"
-                android:gravity="center"
-                android:text="@string/codears"
-                android:textAppearance="@style/Base.TextAppearance.AppCompat.Large" />
-
-            <TextView
-                android:id="@+id/tvtvtrespassers"
-                android:layout_width="match_parent"
-
-                android:layout_height="wrap_content"
-                android:gravity="center"
-                android:text="@string/trespassers"
-                android:textAppearance="@style/Base.TextAppearance.AppCompat.Large" />
-
-            <TextView
-                android:id="@+id/tvtvGoogleit"
-                android:layout_width="match_parent"
-
-                android:layout_height="wrap_content"
-                android:gravity="center"
-                android:text="@string/Googleit"
-                android:textAppearance="@style/Base.TextAppearance.AppCompat.Large" />
-
-            <View
-                android:layout_width="match_parent"
-                android:layout_height="2dp"
-                android:background="@color/colorPrimaryDark" />
-
-            <TextView
-                android:id="@+id/tvtvnontechnical"
-                android:layout_width="match_parent"
-
-                android:layout_height="wrap_content"
-                android:gravity="center"
-                android:text="@string/non_technical_events"
-                android:textAppearance="@style/Base.TextAppearance.AppCompat.Large" />
-
-            <View
-                android:layout_width="match_parent"
-                android:layout_height="2dp"
-                android:background="@color/colorPrimaryDark" />
+            android:weightSum="2">
 
 
-            <TextView
-                android:id="@+id/tvtvhomicide"
-                android:layout_width="match_parent"
+            <LinearLayout
+                android:id="@+id/Technicalevents"
+                android:layout_width="0dp"
+                android:layout_height="match_parent"
+                android:layout_weight="1"
+                android:orientation="vertical">
 
-                android:layout_height="wrap_content"
-                android:gravity="center"
-                android:text="@string/Homicide"
-                android:textAppearance="@style/Base.TextAppearance.AppCompat.Large" />
+                <TextView
+                    android:id="@+id/tvtvtechnical"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
 
-            <TextView
-                android:id="@+id/tvtvPrisonBreak"
-                android:layout_width="match_parent"
+                    android:gravity="center"
+                    android:text="@string/technical_events"
+                    android:textAppearance="@style/Base.TextAppearance.AppCompat.Large"
+                    android:textColor="@color/colorPrimary" />
 
-                android:layout_height="wrap_content"
-                android:gravity="center"
-                android:text="@string/PrisonBreak"
-                android:textAppearance="@style/Base.TextAppearance.AppCompat.Large" />
+                <TextView
+                    android:id="@+id/tvtvpaperpresentation"
+                    android:layout_width="match_parent"
 
-            <TextView
-                android:id="@+id/tvtvMaathiyosi"
-                android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:gravity="center"
+                    android:text="@string/paper_presentation"
+                    android:textAppearance="@style/Base.TextAppearance.AppCompat.Medium" />
 
-                android:layout_height="wrap_content"
-                android:gravity="center"
-                android:text="@string/Maathiyosi"
-                android:textAppearance="@style/Base.TextAppearance.AppCompat.Large" />
+                <TextView
+                    android:id="@+id/tvtvprojectdisplay"
+                    android:layout_width="match_parent"
 
-            <TextView
-                android:id="@+id/tvtvMidcity"
-                android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:gravity="center"
+                    android:text="@string/project"
+                    android:textAppearance="@style/Base.TextAppearance.AppCompat.Medium" />
 
-                android:layout_height="wrap_content"
-                android:gravity="center"
-                android:text="@string/Midcity"
-                android:textAppearance="@style/Base.TextAppearance.AppCompat.Large" />
+                <TextView
+                    android:id="@+id/tvtvconnections"
+                    android:layout_width="match_parent"
+
+                    android:layout_height="wrap_content"
+                    android:gravity="center"
+                    android:text="@string/Connections"
+                    android:textAppearance="@style/Base.TextAppearance.AppCompat.Medium" />
+
+                <TextView
+                    android:id="@+id/tvtvcodewars"
+                    android:layout_width="match_parent"
+
+                    android:layout_height="wrap_content"
+                    android:gravity="center"
+                    android:text="@string/codears"
+                    android:textAppearance="@style/Base.TextAppearance.AppCompat.Medium" />
+
+                <TextView
+                    android:id="@+id/tvtvtrespassers"
+                    android:layout_width="match_parent"
+
+                    android:layout_height="wrap_content"
+                    android:gravity="center"
+                    android:text="@string/trespassers"
+                    android:textAppearance="@style/Base.TextAppearance.AppCompat.Medium" />
+
+                <TextView
+                    android:id="@+id/tvtvGoogleit"
+                    android:layout_width="match_parent"
+
+                    android:layout_height="wrap_content"
+                    android:gravity="center"
+                    android:text="@string/Googleit"
+                    android:textAppearance="@style/Base.TextAppearance.AppCompat.Medium" />
+
+
+            </LinearLayout>
+
+            <LinearLayout
+                android:id="@+id/NonTechnicalevents"
+                android:layout_width="0dp"
+                android:layout_height="match_parent"
+                android:layout_weight="1"
+                android:orientation="vertical">
+
+                <TextView
+                    android:id="@+id/tvtvnontechnical"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:gravity="center"
+                    android:text="@string/non_technical_events"
+                    android:textAppearance="@style/Base.TextAppearance.AppCompat.Large"
+                    android:textColor="@color/colorPrimary" />
+
+                <TextView
+                    android:id="@+id/tvtvhomicide"
+                    android:layout_width="match_parent"
+
+                    android:layout_height="wrap_content"
+                    android:gravity="center"
+                    android:text="@string/Homicide"
+                    android:textAppearance="@style/Base.TextAppearance.AppCompat.Medium" />
+
+                <TextView
+                    android:id="@+id/tvtvPrisonBreak"
+                    android:layout_width="match_parent"
+
+                    android:layout_height="wrap_content"
+                    android:gravity="center"
+                    android:text="@string/PrisonBreak"
+                    android:textAppearance="@style/Base.TextAppearance.AppCompat.Medium" />
+
+                <TextView
+                    android:id="@+id/tvtvMaathiyosi"
+                    android:layout_width="match_parent"
+
+                    android:layout_height="wrap_content"
+                    android:gravity="center"
+                    android:text="@string/Maathiyosi"
+                    android:textAppearance="@style/Base.TextAppearance.AppCompat.Medium" />
+
+                <TextView
+                    android:id="@+id/tvtvMidcity"
+                    android:layout_width="match_parent"
+
+                    android:layout_height="wrap_content"
+                    android:gravity="center"
+                    android:text="@string/Midcity"
+                    android:textAppearance="@style/Base.TextAppearance.AppCompat.Medium" />
+
+
+            </LinearLayout>
 
 
         </LinearLayout>
 
-    </ScrollView>
+
+        <TextView
+            android:id="@+id/tvevent"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+
+            android:gravity="center"
+            android:text="Event"
+            android:textAppearance="@style/Base.TextAppearance.AppCompat.Large" />
+
+
+        <RelativeLayout
+            android:id="@+id/rl_winners"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:padding="15dp">
+
+
+            <TextView
+
+                android:id="@+id/tvfp"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_toRightOf="@id/tvtvfp"
+
+
+                android:text="@string/Winner"
+                android:textAppearance="@style/Base.TextAppearance.AppCompat.Medium" />
+
+            <TextView
+                android:id="@+id/tvsp"
+                android:layout_width="wrap_content"
+
+                android:layout_height="wrap_content"
+                android:layout_below="@id/tvtvfp"
+                android:layout_toRightOf="@id/tvtvsp"
+                android:text="@string/Winner"
+
+                android:textAppearance="@style/Base.TextAppearance.AppCompat.Medium" />
+
+            <TextView
+                android:id="@+id/tvtp"
+
+
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_below="@id/tvtvsp"
+                android:layout_toRightOf="@id/tvtvtp"
+                android:text="@string/Winner"
+                android:textAppearance="@style/Base.TextAppearance.AppCompat.Medium" />
+
+            <TextView
+                android:id="@+id/tvtvfp"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/first_prize"
+                android:textAppearance="@style/Base.TextAppearance.AppCompat.Medium"
+                android:textColor="@color/colorPrimary"
+                android:textStyle="bold" />
+
+            <TextView
+                android:id="@+id/tvtvsp"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_below="@id/tvtvfp"
+                android:text="@string/second_prize"
+                android:textAppearance="@style/Base.TextAppearance.AppCompat.Medium"
+                android:textColor="@color/colorPrimary"
+
+                android:textStyle="bold" />
+
+            <TextView
+                android:id="@+id/tvtvtp"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_below="@id/tvtvsp"
+                android:text="@string/third_prize"
+                android:textAppearance="@style/Base.TextAppearance.AppCompat.Medium"
+                android:textColor="@color/colorPrimary"
+                android:textStyle="bold" />
+
+
+        </RelativeLayout>
+
+
+    </LinearLayout>
 
 </RelativeLayout>
