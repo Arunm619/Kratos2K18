@@ -82,14 +82,24 @@ public class Admin extends AppCompatActivity {
     }
 
     private void findtheuser() {
-        myRef.child(person).addListenerForSingleValueEvent(new ValueEventListener() {
+        myRef.child(person).
+                addListenerForSingleValueEvent(new ValueEventListener() {
             @Override
             public void onDataChange(DataSnapshot dataSnapshot) {
 
                 Student student = dataSnapshot.getValue(Student.class);
-                //Toast.makeText(Admin.this, ""+dataSnapshot.getValue(), Toast.LENGTH_SHORT).show();
-                setviews(student);
-                //findevents(student);
+
+              if (student!=null)
+              {
+                  setviews(student);
+
+              }
+
+else
+              {
+                  Toast.makeText(Admin.this, "Student does not exist!", Toast.LENGTH_SHORT).show();
+
+              }////findevents(student);
 
             }
 

@@ -48,19 +48,28 @@ public class ScanQRActivity extends AppCompatActivity {
         tv_eventname.setText(eventname); // getting Event name
         btn_viewparticipants = findViewById(R.id.btn_viewparticipants);
         tv_memberscount = findViewById(R.id.tvmemberscount);
-        tv_memberscount.setText("Loading...");
+        tv_memberscount.setText(R.string.Loading);
 
 
-        myRef.child(eventname).addListenerForSingleValueEvent(new ValueEventListener() {
+        myRef.child(eventname).addValueEventListener(new ValueEventListener() {
             @Override
             public void onDataChange(DataSnapshot dataSnapshot) {
-                int count = (int) dataSnapshot.getChildrenCount();
-               // Toast.makeText(ScanQRActivity.this, "" + dataSnapshot.getValue(), Toast.LENGTH_SHORT).show();
-                if (count == 0)
-                    tv_memberscount.setText(getString(R.string.noofparticipants) + R.string.zerocount);
-                else if (count > 0) {
-                    tv_memberscount.setText("No of Participants :" + count);
 
+                // Toast.makeText(ScanQRActivity.this, "" + dataSnapshot.getChildrenCount(), Toast.LENGTH_SHORT).show();
+
+                // int count;
+                if (dataSnapshot.getValue() == null) {
+                    tv_memberscount.setText(getString(R.string.zerocountparticipants));
+
+                } else {
+                    int count = (int) dataSnapshot.getChildrenCount();
+                    // Toast.makeText(ScanQRActivity.this, "" + dataSnapshot.getValue(), Toast.LENGTH_SHORT).show();
+                    if (count == 0)
+                        tv_memberscount.setText(getString(R.string.zerocountparticipants));
+                    else if (count > 0) {
+                        tv_memberscount.setText(getString(R.string.NoofParticipants) + count);
+
+                    }
                 }
             }
 
@@ -126,13 +135,14 @@ public class ScanQRActivity extends AppCompatActivity {
 //                                }
 
                                 if (student != null && student.getQrcode().equals(result.getContents())) {
-                                    Toast.makeText(ScanQRActivity.this, "Found...Pls wait" + result.getContents(), Toast.LENGTH_SHORT).show();
+                                    Toast.makeText(ScanQRActivity.this, "Found...Pls wait.." + student.getTextname(), Toast.LENGTH_SHORT).show();
                                     Intent intent = new Intent(ScanQRActivity.this, ShowDetailsActivity.class);
                                     Gson gson = new Gson();
                                     String studentDataObjectAsAString = gson.toJson(student);
                                     intent.putExtra("MyStudentObjectAsString", studentDataObjectAsAString);
 
                                     startActivity(intent);
+                                    break;
                                 }
 
                             }
@@ -142,29 +152,6 @@ public class ScanQRActivity extends AppCompatActivity {
                         public void onCancelled(DatabaseError databaseError) {
                         }
                     });
-
-
-//            Toast.makeText(this, ""+result.getContents(), Toast.LENGTH_SHORT).show();
-//
-//            myRef.child(result.getContents()).addListenerForSingleValueEvent(new ValueEventListener() {
-//                @Override
-//                public void onDataChange(DataSnapshot dataSnapshot) {
-////                    if (dataSnapshot.exists()) {
-////                        Toast.makeText(ScanQRActivity.this, "V="+dataSnapshot.getValue(), Toast.LENGTH_SHORT).show();
-////
-////                    } else
-////                        Toast.makeText(ScanQRActivity.this, "No"+dataSnapshot.toString(), Toast.LENGTH_SHORT).show();
-////                }
-//
-//                    Toast.makeText(ScanQRActivity.this, "Value"+dataSnapshot.getValue(), Toast.LENGTH_SHORT).show();
-//
-//
-//                }
-//                @Override
-//                public void onCancelled(DatabaseError databaseError) {
-//
-//                }
-//            });
 
 
         } else

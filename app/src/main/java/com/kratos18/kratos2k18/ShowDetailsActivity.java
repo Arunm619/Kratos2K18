@@ -79,13 +79,14 @@ public class ShowDetailsActivity extends AppCompatActivity {
                     case "Homicide":
                         myRef.child(getString(R.string.homicie)).child(student.getUUID()).setValue(student);
                         break;
-                    case "Prison break":
+                    case "Prison Break":
                         myRef.child(getString(R.string.prison)).child(student.getUUID()).setValue(student);
                         break;
-                    case "Maathi yosi":
+
+                    case "Maathi Yosi":
                         myRef.child(getString(R.string.mathi)).child(student.getUUID()).setValue(student);
                         break;
-                    case "Midcity madness":
+                    case "Midcity Madness":
                         myRef.child(getString(R.string.midcity)).child(student.getUUID()).setValue(student);
                         break;
                 }
@@ -93,6 +94,7 @@ public class ShowDetailsActivity extends AppCompatActivity {
                     @Override
                     public void onClick(View view) {
                      startActivity(new Intent(ShowDetailsActivity.this,ScanQRActivity.class));
+                     finish();
 
 
                     }

@@ -25,7 +25,7 @@
     <string name="mathi">Maathi Yosi</string>
     <string name="midcity">Midcity Madness</string>
     <string name="connections">Connections</string>
-    <string name="Google_it">Google It</string>
+    <string name="Google_it">Google it</string>
     <string name="ChooseWinners">Choose Winners</string>
     <string name="contentforscaanactivity">Tap the button to Scan the Participant. Hit Participate in the next Screen to add.</string>
     <string name="event_name">Event name</string>
@@ -37,4 +37,7 @@
     <string name="noofparticipants">No of Participants</string>
     <string name="p">Participants</string>
     <string name="m" />
+    <string name="Loading">Loading...</string>
+    <string name="zerocountparticipants">Yet To Begin.</string>
+    <string name="NoofParticipants">No of Participants :</string>
 </resources>
