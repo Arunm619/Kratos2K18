@@ -40,4 +40,7 @@
     <string name="Loading">Loading...</string>
     <string name="zerocountparticipants">Yet To Begin.</string>
     <string name="NoofParticipants">No of Participants :</string>
+    <string name="referral_page">Referral Page</string>
+    <string name="PromotionalKing">Promotions </string>
+    <string name="referral">Promotions Winner</string>
 </resources>

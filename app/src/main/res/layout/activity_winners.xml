@@ -156,6 +156,14 @@
                     android:text="@string/Midcity"
                     android:textAppearance="@style/Base.TextAppearance.AppCompat.Medium" />
 
+                <TextView
+                    android:id="@+id/tvtvReferralWinner"
+                    android:layout_width="match_parent"
+
+                    android:layout_height="wrap_content"
+                    android:gravity="center"
+                    android:text="@string/PromotionalKing"
+                    android:textAppearance="@style/Base.TextAppearance.AppCompat.Medium" />
 
             </LinearLayout>
 
@@ -200,7 +208,8 @@
                 android:layout_toRightOf="@id/tvtvsp"
                 android:text="@string/Winner"
 
-                android:textAppearance="@style/Base.TextAppearance.AppCompat.Medium" />
+                android:textAppearance="@style/Base.TextAppearance.AppCompat.Medium"
+                android:layout_toEndOf="@id/tvtvsp" />
 
             <TextView
                 android:id="@+id/tvtp"

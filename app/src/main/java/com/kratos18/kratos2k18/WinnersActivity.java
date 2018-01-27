@@ -19,13 +19,13 @@ import java.util.ArrayList;
 
 public class WinnersActivity extends AppCompatActivity {
     TextView tv_paperpresenation, tv_projectdisplay, tv_connections, tv_codewars, tv_trespassers, tv_googleit;
-    TextView tv_homicide, tv_prisonbreak, tv_midcitymadness, TV_mathiyosi;
+    TextView  tv_promotions,tv_homicide, tv_prisonbreak, tv_midcitymadness, TV_mathiyosi;
 
 
     TextView tv_fp, tv_sp, tv_tp, tvevent;
 
     FirebaseDatabase database;
-    DatabaseReference myRef, userref;
+    DatabaseReference myRef, userref,proref;
 
 
     @Override
@@ -46,7 +46,7 @@ public class WinnersActivity extends AppCompatActivity {
         database = FirebaseDatabase.getInstance();
         myRef = database.getReferenceFromUrl("https://kratos2k18-896f6.firebaseio.com/Winners");
         userref = database.getReferenceFromUrl("https://kratos2k18-896f6.firebaseio.com/Users");
-
+        proref = database.getReferenceFromUrl("https://kratos2k18-896f6.firebaseio.com/Referral");
         tv_fp.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
@@ -538,6 +538,48 @@ public class WinnersActivity extends AppCompatActivity {
                 });
             }
         });
+
+        tv_promotions.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                proref.addValueEventListener(new ValueEventListener() {
+                    @Override
+                    public void onDataChange(DataSnapshot dataSnapshot) {
+
+
+                        //parent index
+
+                        int max = -1;
+
+                        DataSnapshot dswinner = null;
+                        for (DataSnapshot ds : dataSnapshot.getChildren()) {
+                            if ((int) ds.getChildrenCount() > max) {
+                                max = (int) ds.getChildrenCount();
+                                dswinner = ds;
+                            }
+
+
+                        }
+                        assert dswinner != null;
+                        String value=dswinner.getKey().trim();
+
+                        new MaterialDialog.Builder(WinnersActivity.this)
+                                .title(R.string.referral)
+                                .content("Winner - "+value)
+                                .positiveText("Okay")
+                                .show();
+
+                    }
+
+                    @Override
+                    public void onCancelled(DatabaseError databaseError) {
+
+                    }
+                });
+
+
+            }
+        });
     }
 
 
@@ -553,6 +595,7 @@ public class WinnersActivity extends AppCompatActivity {
         tv_paperpresenation = findViewById(R.id.tvtvpaperpresentation);
         tv_projectdisplay = findViewById(R.id.tvtvprojectdisplay);
         tv_trespassers = findViewById(R.id.tvtvtrespassers);
+tv_promotions=findViewById(R.id.tvtvReferralWinner);
 
     }
 }

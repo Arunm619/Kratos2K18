@@ -9,7 +9,7 @@
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:layout_marginTop="40dp"
+
         android:orientation="vertical">
 
         <Button
@@ -91,6 +91,15 @@
             android:text="Admin"
 
             />
+        <Button
+        android:id="@+id/btn_referral"
+        style="@style/Widget.AppCompat.Button.Colored"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Referral"
+
+        />
+
 
     </LinearLayout>
 

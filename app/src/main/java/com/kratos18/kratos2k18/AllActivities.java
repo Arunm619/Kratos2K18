@@ -7,12 +7,14 @@ import android.view.View;
 import android.widget.Button;
 
 public class AllActivities extends AppCompatActivity {
-    Button btn_admin,btn_choosewinner, btn_winners, btn_register, btn_selectevent, btn_scanqr, btn_markqr, btn_csv, btn_lunch;
+    Button btn_referral,btn_admin,btn_choosewinner, btn_winners, btn_register, btn_selectevent, btn_scanqr, btn_markqr, btn_csv, btn_lunch;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_all_activities);
+        btn_referral=findViewById(R.id.btn_referral);
+
         btn_winners=findViewById(R.id.btn_winners);
         btn_csv = findViewById(R.id.btn_csv);
         btn_register = findViewById(R.id.btn_register);
@@ -21,7 +23,13 @@ public class AllActivities extends AppCompatActivity {
         btn_selectevent = findViewById(R.id.btn_selectevent);
         btn_lunch = findViewById(R.id.btn_lunch);
 btn_choosewinner = findViewById(R.id.btn_choosewinner);
+        btn_referral.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                startActivity(new Intent(AllActivities.this, Referral.class));
 
+            }
+        });
         btn_admin=findViewById(R.id.btn_admin);
         btn_admin.setOnClickListener(new View.OnClickListener() {
             @Override
