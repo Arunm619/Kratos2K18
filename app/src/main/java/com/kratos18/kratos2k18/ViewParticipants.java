@@ -93,6 +93,7 @@ public class ViewParticipants extends AppCompatActivity {
                     public void onDataChange(DataSnapshot ds) {
                         Student student = ds.getValue(Student.class);
 
+
                         String name = student.getTextname();
                         String clg = student.getCollegename();
                         String Phone = String.valueOf(student.getTextphone());

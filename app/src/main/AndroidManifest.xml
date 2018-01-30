@@ -8,30 +8,44 @@
     <application
         android:allowBackup="true"
         android:icon="@drawable/kratos_logo_fx"
-        android:label="@string/app_name_eventname"
+        android:label="@string/app_name_admin"
         android:roundIcon="@drawable/kratos_logo_fx"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
         <activity android:name=".CollectCSV" />
-        <activity android:name=".RegisterNew" />
+        <activity android:name=".RegisterNew">
+
+
+        </activity>
         <activity android:name=".AllActivities">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
+
         </activity>
         <activity android:name=".ScanQRActivity" />
-        <activity android:name=".MarkQRActivity" />
+        <activity android:name=".MarkQRActivity">
+
+
+        </activity>
         <activity android:name=".ShowDetailsActivity" />
-        <activity android:name=".SelectEvent" />
+        <activity android:name=".SelectEvent">
+
+
+        </activity>
         <activity android:name=".LunchActivity" />
         <activity android:name=".LunchIncharge" />
         <activity android:name=".WinnersActivity" />
         <activity android:name=".ChooseWinners" />
         <activity android:name=".ViewParticipants" />
-        <activity android:name=".Admin" />
-        <activity android:name=".Referral"></activity>
+        <activity android:name=".Admin" >
+
+        </activity>
+        <activity android:name=".Referral">
+
+        </activity>
     </application>
 
 </manifest>

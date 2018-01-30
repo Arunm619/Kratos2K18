@@ -19,13 +19,13 @@ import java.util.ArrayList;
 
 public class WinnersActivity extends AppCompatActivity {
     TextView tv_paperpresenation, tv_projectdisplay, tv_connections, tv_codewars, tv_trespassers, tv_googleit;
-    TextView  tv_promotions,tv_homicide, tv_prisonbreak, tv_midcitymadness, TV_mathiyosi;
+    TextView tv_promotions, tv_homicide, tv_prisonbreak, tv_midcitymadness, TV_mathiyosi;
 
 
     TextView tv_fp, tv_sp, tv_tp, tvevent;
 
     FirebaseDatabase database;
-    DatabaseReference myRef, userref,proref;
+    DatabaseReference myRef, userref, proref;
 
 
     @Override
@@ -561,11 +561,11 @@ public class WinnersActivity extends AppCompatActivity {
 
                         }
                         assert dswinner != null;
-                        String value=dswinner.getKey().trim();
+                        String value = dswinner.getKey().trim();
 
                         new MaterialDialog.Builder(WinnersActivity.this)
                                 .title(R.string.referral)
-                                .content("Winner - "+value)
+                                .content("Winner - " + value)
                                 .positiveText("Okay")
                                 .show();
 
@@ -595,7 +595,7 @@ public class WinnersActivity extends AppCompatActivity {
         tv_paperpresenation = findViewById(R.id.tvtvpaperpresentation);
         tv_projectdisplay = findViewById(R.id.tvtvprojectdisplay);
         tv_trespassers = findViewById(R.id.tvtvtrespassers);
-tv_promotions=findViewById(R.id.tvtvReferralWinner);
+        tv_promotions = findViewById(R.id.tvtvReferralWinner);
 
     }
 }

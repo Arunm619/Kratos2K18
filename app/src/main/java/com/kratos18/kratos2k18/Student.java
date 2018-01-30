@@ -15,11 +15,11 @@ class Student {
     private String UUID;
     String participatedevents;
 
-    public String getParticipatedevents() {
+    String getParticipatedevents() {
         return participatedevents;
     }
 
-    public void setParticipatedevents(String participatedevents) {
+    void setParticipatedevents(String participatedevents) {
         this.participatedevents = participatedevents;
     }
 

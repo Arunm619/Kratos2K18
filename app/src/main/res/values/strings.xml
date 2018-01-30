@@ -43,4 +43,7 @@
     <string name="referral_page">Referral Page</string>
     <string name="PromotionalKing">Promotions </string>
     <string name="referral">Promotions Winner</string>
+    <string name="app_name_referral">Referral</string>
+    <string name="app_name_incharge">Volunteers</string>
+    <string name="app_name_admin">Admin</string>
 </resources>
