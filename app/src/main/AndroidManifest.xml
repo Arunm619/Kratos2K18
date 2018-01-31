@@ -19,7 +19,10 @@
         </activity>
         <activity android:name=".AllActivities">
 
-
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
         </activity>
 
         <activity android:name=".ScanQRActivity" />
@@ -38,10 +41,7 @@
         <activity android:name=".ChooseWinners" />
         <activity android:name=".ViewParticipants" />
         <activity android:name=".Admin">
-            <intent-filter>
-                <action android:name="android.intent.action.MAIN" />
-                <category android:name="android.intent.category.LAUNCHER" />
-            </intent-filter>
+
 
         </activity>
         <activity android:name=".Referral">

@@ -78,7 +78,7 @@ public class RegisterNew extends AppCompatActivity {
 
                 if (info != null)
 
-                isvalid();
+                    isvalid();
                 else
                     Toast.makeText(RegisterNew.this, "Check Internet. Failed to add.", Toast.LENGTH_SHORT).show();
 

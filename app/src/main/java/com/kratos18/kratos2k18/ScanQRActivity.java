@@ -40,6 +40,7 @@ public class ScanQRActivity extends AppCompatActivity {
     Button btn_viewparticipants;
     String eventname;
     ProgressDialog pd;
+    String key = null;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -47,7 +48,7 @@ public class ScanQRActivity extends AppCompatActivity {
         setContentView(R.layout.activity_scan_qr);
         btn_scanqr = findViewById(R.id.btn_scanqr);
         database = FirebaseDatabase.getInstance();
-        myRef = database.getReferenceFromUrl("https://kratos2k18-896f6.firebaseio.com/Events");
+        myRef = database.getReferenceFromUrl("https://kratos2k18-896f6.firebaseio.com/Users");
         btn_addtoevent = findViewById(R.id.btn_addtoevent);
         SharedPreferences pref = getApplicationContext().getSharedPreferences("MyPref", 0); // 0 - for private mode
         SharedPreferences.Editor editor = pref.edit();
@@ -131,7 +132,7 @@ public class ScanQRActivity extends AppCompatActivity {
         intentIntegrator.setBeepEnabled(false);
         intentIntegrator.setBarcodeImageEnabled(false);
         intentIntegrator.initiateScan();
-
+        pd.show();
     }
 
 
@@ -140,36 +141,31 @@ public class ScanQRActivity extends AppCompatActivity {
         final IntentResult result = IntentIntegrator.parseActivityResult(requestCode, resultCode, data);
         if (result.getContents() != null) {
 
-//the value of qr code.
+            //the value of qr code.
 
-            FirebaseDatabase.getInstance().getReference().child("Users")
-                    .addListenerForSingleValueEvent(new ValueEventListener() {
-                        @Override
-                        public void onDataChange(DataSnapshot dataSnapshot) {
-                            for (DataSnapshot snapshot : dataSnapshot.getChildren()) {
-                                Student student = snapshot.getValue(Student.class);
-//                                if (student != null) {
-//                                    Toast.makeText(ScanQRActivity.this, "Student name"+student.getQrcode(), Toast.LENGTH_SHORT).show();
-//                                }
+            Query query = myRef.orderByChild(getString(R.string.qrcode)).equalTo(result.getContents());
+            query.addListenerForSingleValueEvent(new ValueEventListener() {
+                @Override
+                public void onDataChange(DataSnapshot dataSnapshot) {
 
-                                if (student != null && student.getQrcode().equals(result.getContents())) {
-                                    Toast.makeText(ScanQRActivity.this, "Found...Pls wait.." + student.getTextname(), Toast.LENGTH_SHORT).show();
-                                    Intent intent = new Intent(ScanQRActivity.this, ShowDetailsActivity.class);
-                                    Gson gson = new Gson();
-                                    String studentDataObjectAsAString = gson.toJson(student);
-                                    intent.putExtra("MyStudentObjectAsString", studentDataObjectAsAString);
+                    for (DataSnapshot childSnapshot : dataSnapshot.getChildren()) {
+                        key = childSnapshot.getKey();
+                        getthestudent(key);
+                        // Log.i(TAG,key);
+                    }
+                    //    Toast.makeText(ScanQRActivity.this, key, Toast.LENGTH_SHORT).show();
 
-                                    startActivity(intent);
-                                    break;
-                                }
 
-                            }
-                        }
+                }
 
-                        @Override
-                        public void onCancelled(DatabaseError databaseError) {
-                        }
-                    });
+                @Override
+                public void onCancelled(DatabaseError databaseError) {
+
+                }
+            });
+
+
+
 
 
         } else
@@ -179,6 +175,30 @@ public class ScanQRActivity extends AppCompatActivity {
 
 
         }
+    }
+
+    private void getthestudent(String key) {
+
+        myRef.child(key).addValueEventListener(new ValueEventListener() {
+            @Override
+            public void onDataChange(DataSnapshot dataSnapshot) {
+                Student student = dataSnapshot.getValue(Student.class);
+                Toast.makeText(ScanQRActivity.this, "Pls wait.. " + student.getTextname(), Toast.LENGTH_SHORT).show();
+                Intent intent = new Intent(ScanQRActivity.this, ShowDetailsActivity.class);
+                Gson gson = new Gson();
+                String studentDataObjectAsAString = gson.toJson(student);
+               pd.dismiss();
+                intent.putExtra("MyStudentObjectAsString", studentDataObjectAsAString);
+
+                startActivity(intent);
+
+            }
+
+            @Override
+            public void onCancelled(DatabaseError databaseError) {
+
+            }
+        });
     }
 
 
@@ -238,5 +258,37 @@ public class ScanQRActivity extends AppCompatActivity {
     }
 
 }
+
+
+
+/*
+
+            FirebaseDatabase.getInstance().getReference().child("Users")
+                    .addListenerForSingleValueEvent(new ValueEventListener() {
+                        @Override
+                        public void onDataChange(DataSnapshot dataSnapshot) {
+                            for (DataSnapshot snapshot : dataSnapshot.getChildren()) {
+                                Student student = snapshot.getValue(Student.class);
+
+
+                                if (student != null && student.getQrcode().equals(result.getContents())) {
+                                    Toast.makeText(ScanQRActivity.this, "Pls wait.. " + student.getTextname(), Toast.LENGTH_SHORT).show();
+                                    Intent intent = new Intent(ScanQRActivity.this, ShowDetailsActivity.class);
+                                    Gson gson = new Gson();
+                                    String studentDataObjectAsAString = gson.toJson(student);
+                                    intent.putExtra("MyStudentObjectAsString", studentDataObjectAsAString);
+
+                                    startActivity(intent);
+                                    break;
+                                }
+
+                            }
+                        }
+
+                        @Override
+                        public void onCancelled(DatabaseError databaseError) {
+                        }
+                    });
+*/
 
 

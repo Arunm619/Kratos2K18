@@ -11,7 +11,7 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:gravity="center"
-        android:text="Participants"
+        android:text="@string/participants"
         android:textAppearance="@style/Base.TextAppearance.AppCompat.Medium"
         android:textColor="@color/colorPrimaryDark"
         android:textStyle="bold" />
@@ -19,9 +19,9 @@
     <ListView
         android:id="@+id/lv_participants"
         android:layout_width="match_parent"
-        android:padding="10dp"
-        android:scrollbars="vertical"
-        android:scrollbarSize="0.5dp"
         android:layout_height="wrap_content"
-        android:layout_below="@id/tvparticipants" />
+        android:layout_below="@id/tvparticipants"
+        android:padding="10dp"
+        android:scrollbarSize="0.5dp"
+        android:scrollbars="vertical" />
 </RelativeLayout>

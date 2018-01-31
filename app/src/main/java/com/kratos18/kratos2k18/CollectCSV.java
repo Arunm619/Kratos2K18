@@ -34,7 +34,7 @@ public class CollectCSV extends AppCompatActivity {
 
         database = FirebaseDatabase.getInstance();
         myRef = database.getReferenceFromUrl("https://kratos2k18-896f6.firebaseio.com/Users");
-       // ListRef = database.getReferenceFromUrl("https://kratos2k18-896f6.firebaseio.com/AddedNumbers");
+        // ListRef = database.getReferenceFromUrl("https://kratos2k18-896f6.firebaseio.com/AddedNumbers");
 
         readdata();
         //send the array list to firebase...
@@ -57,32 +57,31 @@ public class CollectCSV extends AppCompatActivity {
                 // Toast.makeText(this, "" + Line, Toast.LENGTH_SHORT).show();
                 String[] tokens = Line.split(",");
 
-
+//Form_id,Form_date,Status,Text-name,College-name,Email-42,Phone,Dept,Mc4wp_checkbox
                 try {
                     Student student = new Student();
 //[152, "2018-01-17 20:00:11", unread, Yamuna.S, "Velammal engineering college", yamunaumai3@gmail.com, CSE, 9790998105, No]
 
-//                    Toast.makeText(this, "FORM ID = " + tokens[0] + " \n DATE =" + tokens[1] + "\nR/U =" + tokens[2] + "\n" +
-//                            "Name =" + tokens[3] + "\nCLG =" + tokens[4] + "\nEMAIL =" + tokens[5] + "\n DEPT =" + tokens[6] + "\n" +
-//                            " Phone =" + tokens[7] + "\n Y/N =" + tokens[8], Toast.LENGTH_SHORT).show();
-
+//
                     // student.setForm_id(Integer.parseInt(tokens[0]));
                     //student.setForm_date(tokens[1]);
                     //student.setStatus(tokens[2]);
+                    if (tokens[6].length() != 10)
+                        continue;
                     student.setTextname(tokens[3]);
                     student.setCollegename(tokens[4]);
                     student.setEmail(tokens[5]);
-                    student.setDept(tokens[6]);
-                    student.setTextphone(Long.parseLong(tokens[7]));
+                    student.setDept(tokens[7]);
+                    student.setTextphone(Long.parseLong(tokens[6]));
                     //student.setMc4wp_checkbox(tokens[8]);
                     student.setParticipatedevents(" ");
-                    student.setUUID("KR-" + tokens[7]);
+                    student.setUUID("KR-" + tokens[6]);
                     student.setQrcode("Null");
                     student.setAte(false);
                     myRef.child(student.getUUID()).setValue(student);
 
-                  //  String rkey = ListRef.push().getKey();
-                 //   ListRef.child(rkey).setValue(Long.parseLong(tokens[7]));
+                    //  String rkey = ListRef.push().getKey();
+                    //   ListRef.child(rkey).setValue(Long.parseLong(tokens[7]));
                     studentsdatafromcsv.add(student);
 
 

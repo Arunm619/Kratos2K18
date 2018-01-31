@@ -62,4 +62,6 @@
     <string name="student_ambassador_id">Student Ambassador ID</string>
     <string name="appforarun">Arun</string>
     <string name="volunteers">Volunteers</string>
+    <string name="qrcode">qrcode</string>
+    <string name="participants">Participants</string>
 </resources>

@@ -1,5 +1,6 @@
 package com.kratos18.kratos2k18;
 
+import android.app.ProgressDialog;
 import android.content.Intent;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
@@ -13,6 +14,7 @@ import com.google.firebase.database.DataSnapshot;
 import com.google.firebase.database.DatabaseError;
 import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
+import com.google.firebase.database.Query;
 import com.google.firebase.database.ValueEventListener;
 import com.google.gson.Gson;
 import com.google.zxing.integration.android.IntentIntegrator;
@@ -27,6 +29,8 @@ public class Admin extends AppCompatActivity {
     DatabaseReference myRef, ListRef;
     String person;
     TextView tv_UUID;
+    String key;
+    ProgressDialog pd;
 
 
     TextView tv_name, tv_clgname, tv_phone, tv_deptname, tv_participatedevents;
@@ -50,6 +54,8 @@ public class Admin extends AppCompatActivity {
         database = FirebaseDatabase.getInstance();
         myRef = database.getReferenceFromUrl("https://kratos2k18-896f6.firebaseio.com/Users");
 
+        pd = new ProgressDialog(Admin.this);
+        pd.setMessage("Loading.");
 
         btn_scanqrfullinfo.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -61,7 +67,7 @@ public class Admin extends AppCompatActivity {
             @Override
             public void onClick(View view) {
                 person = "KR-" + Et_input_uuid.getText().toString();
-                if (person.length() > 4) {
+                if (person.length() > 10) {
 
                     findtheuser();
                 } else {
@@ -84,30 +90,26 @@ public class Admin extends AppCompatActivity {
     private void findtheuser() {
         myRef.child(person).
                 addListenerForSingleValueEvent(new ValueEventListener() {
-            @Override
-            public void onDataChange(DataSnapshot dataSnapshot) {
+                    @Override
+                    public void onDataChange(DataSnapshot dataSnapshot) {
 
-                Student student = dataSnapshot.getValue(Student.class);
+                        Student student = dataSnapshot.getValue(Student.class);
 
-              if (student!=null)
-              {
-                  setviews(student);
+                        if (student != null) {
+                            setviews(student);
 
-              }
+                        } else {
+                            Toast.makeText(Admin.this, "Student does not exist!", Toast.LENGTH_SHORT).show();
 
-else
-              {
-                  Toast.makeText(Admin.this, "Student does not exist!", Toast.LENGTH_SHORT).show();
+                        }////findevents(student);
 
-              }////findevents(student);
+                    }
 
-            }
+                    @Override
+                    public void onCancelled(DatabaseError databaseError) {
 
-            @Override
-            public void onCancelled(DatabaseError databaseError) {
-
-            }
-        });
+                    }
+                });
 
     }
 
@@ -130,7 +132,7 @@ else
         intentIntegrator.setBeepEnabled(false);
         intentIntegrator.setBarcodeImageEnabled(false);
         intentIntegrator.initiateScan();
-
+        pd.show();
     }
 
 
@@ -141,31 +143,56 @@ else
 
 //the value of qr code.
 
-            FirebaseDatabase.getInstance().getReference().child("Users")
-                    .addListenerForSingleValueEvent(new ValueEventListener() {
-                        @Override
-                        public void onDataChange(DataSnapshot dataSnapshot) {
-                            for (DataSnapshot snapshot : dataSnapshot.getChildren()) {
-                                Student student = snapshot.getValue(Student.class);
+            Query query = myRef.orderByChild(getString(R.string.qrcode)).equalTo(result.getContents());
+            query.addListenerForSingleValueEvent(new ValueEventListener() {
+                @Override
+                public void onDataChange(DataSnapshot dataSnapshot) {
 
-                                if (student != null && student.getQrcode().equals(result.getContents())) {
-                                    Toast.makeText(Admin.this, "Found...Pls wait" + result.getContents(), Toast.LENGTH_SHORT).show();
-                                    setviews(student);
-                                    findevents(student);
-
-                                    break;
-                                }
+                    for (DataSnapshot childSnapshot : dataSnapshot.getChildren()) {
+                        key = childSnapshot.getKey();
+                        getthestudent(key);
+                        // Log.i(TAG,key);
+                    }
+                    //    Toast.makeText(ScanQRActivity.this, key, Toast.LENGTH_SHORT).show();
 
 
-                            }
-                        }
+                }
 
-                        @Override
-                        public void onCancelled(DatabaseError databaseError) {
-                        }
-                    });
+                @Override
+                public void onCancelled(DatabaseError databaseError) {
+
+                }
+            });
 
 
         }
+    }
+
+    private void getthestudent(String key) {
+
+
+        myRef.child(key).addValueEventListener(new ValueEventListener() {
+            @Override
+            public void onDataChange(DataSnapshot dataSnapshot) {
+                Student student = dataSnapshot.getValue(Student.class);
+               // Toast.makeText(Admin.this, "Pls wait.. " + student.getTextname(), Toast.LENGTH_SHORT).show();
+                Intent intent = new Intent(Admin.this, ShowDetailsActivity.class);
+                Gson gson = new Gson();
+                String studentDataObjectAsAString = gson.toJson(student);
+
+                setviews(student);
+                findevents(student);
+                pd.dismiss();
+
+
+            }
+
+            @Override
+            public void onCancelled(DatabaseError databaseError) {
+
+            }
+        });
+
+
     }
 }
