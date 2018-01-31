@@ -4,6 +4,9 @@
     <item
         android:id="@+id/choosewinners"
         android:title="@string/ChooseWinners"
-        app:showAsAction="ifRoom" />
-
+        app:showAsAction="never" />
+    <item
+        android:id="@+id/callarun"
+        android:title="@string/help_register"
+        app:showAsAction="never" />
 </menu>

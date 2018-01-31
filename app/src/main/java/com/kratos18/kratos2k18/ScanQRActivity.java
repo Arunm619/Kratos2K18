@@ -3,6 +3,7 @@ package com.kratos18.kratos2k18;
 import android.annotation.SuppressLint;
 import android.content.Intent;
 import android.content.SharedPreferences;
+import android.net.Uri;
 import android.os.Parcelable;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
@@ -177,13 +178,23 @@ public class ScanQRActivity extends AppCompatActivity {
         switch (item.getItemId()) {
             case R.id.choosewinners:
                 startActivity(new Intent(ScanQRActivity.this, ChooseWinners.class));
-
                 return true;
 
+            case R.id.callarun:
+                callanumber("9940245619");
+                return true;
+
+            
 
             default:
                 return super.onOptionsItemSelected(item);
         }
+    }
+
+    private void callanumber(String aphonenumber) {
+
+        Intent intent = new Intent(Intent.ACTION_DIAL, Uri.parse("tel:" + aphonenumber));
+        startActivity(intent);
     }
 
 }
