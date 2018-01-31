@@ -1,6 +1,10 @@
 package com.kratos18.kratos2k18;
 
+import android.content.DialogInterface;
 import android.content.SharedPreferences;
+import android.net.ConnectivityManager;
+import android.net.NetworkInfo;
+import android.support.v7.app.AlertDialog;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.text.TextUtils;
@@ -27,12 +31,12 @@ public class ChooseWinners extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_choose_winners);
-
+        getSupportActionBar().setDisplayHomeAsUpEnabled(true);
         SharedPreferences pref = getApplicationContext().getSharedPreferences("MyPref", 0); // 0 - for private mode
         SharedPreferences.Editor editor = pref.edit();
         database = FirebaseDatabase.getInstance();
         myRef = database.getReferenceFromUrl("https://kratos2k18-896f6.firebaseio.com/Winners");
-
+        isOnline();
         eventname = pref.getString("selectedevent", null);
         tv_eventname = findViewById(R.id.tvtvevent);
         tv_eventname.setText(eventname);
@@ -41,32 +45,36 @@ public class ChooseWinners extends AppCompatActivity {
         et_w2 = findViewById(R.id.et_typewinner2);
         et_w3 = findViewById(R.id.et_typewinner3);
 
+        myRef.child(getString(R.string.paper_presentation)).child("Winner1").setValue("KR-");
+        myRef.child(getString(R.string.paper_presentation)).child("Winner2").setValue("KR-");
+        myRef.child(getString(R.string.paper_presentation)).child("Winner3").setValue("KR-");
+
+
+        myRef.child(getString(R.string.project)).child("Winner1").setValue("KR-");
+        myRef.child(getString(R.string.project)).child("Winner2").setValue("KR-");
+        myRef.child(getString(R.string.project)).child("Winner3").setValue("KR-");
 
         btn_submitwinners.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
 
-                myRef.child(getString(R.string.paper_presentation)).child("Winner1").setValue("KR-" );
-                myRef.child(getString(R.string.paper_presentation)).child("Winner2").setValue("KR-" );
-                myRef.child(getString(R.string.paper_presentation)).child("Winner3").setValue("KR-" );
-
-
-                myRef.child(getString(R.string.project)).child("Winner1").setValue("KR-" );
-                myRef.child(getString(R.string.project)).child("Winner2").setValue("KR-" );
-                myRef.child(getString(R.string.project)).child("Winner3").setValue("KR-" );
-
 
                 String winner1 = et_w1.getText().toString(), winner2 = et_w2.getText().toString(), winner3 = et_w3.getText().toString();
-                if (TextUtils.isEmpty(winner1)
-                        ||
-                        TextUtils.isEmpty(winner2) ||
-                        TextUtils.isEmpty(winner3))
 
-                {
-                    Toast.makeText(ChooseWinners.this, "Enter all three.  ", Toast.LENGTH_SHORT).show();
+                if (TextUtils.isEmpty(winner1) || TextUtils.isEmpty(winner2) ||
+                        TextUtils.isEmpty(winner3)) {
+                    Toast.makeText(ChooseWinners.this, "Fill all the fields.  ", Toast.LENGTH_SHORT).show();
+                } else if (winner1.length() != 10)
+                    Toast.makeText(ChooseWinners.this, "Check winner 1", Toast.LENGTH_SHORT).show();
+                else if (winner2.length() != 10)
+                    Toast.makeText(ChooseWinners.this, "Check winner 2", Toast.LENGTH_SHORT).show();
+                else if (winner3.length() != 10)
+                    Toast.makeText(ChooseWinners.this, "Check winner 3", Toast.LENGTH_SHORT).show();
+            /*   if (isvalid(winner1)  )
+                   Toast.makeText(ChooseWinners.this, "Invalid Numbers", Toast.LENGTH_SHORT).show();
+            */
 
-
-                } else {
+                else {
                     switch (eventname) {
                         case "Connections":
                             myRef.child(getString(R.string.connections)).child("Winner1").setValue("KR-" + winner1);
@@ -123,12 +131,43 @@ public class ChooseWinners extends AppCompatActivity {
                     }
 
 
-                    Toast.makeText(ChooseWinners.this, "Winners successfully.", Toast.LENGTH_SHORT).show();
+                    Toast.makeText(ChooseWinners.this, "Winners added successfully for " + eventname, Toast.LENGTH_SHORT).show();
                 }
 
             }
         });
 
 
+    }
+
+    private void isOnline() {
+        ConnectivityManager manager = (ConnectivityManager) getSystemService(CONNECTIVITY_SERVICE);
+        NetworkInfo info = null;
+        if (manager != null) {
+            info = manager.getActiveNetworkInfo();
+        }
+
+        if (info == null) {
+            new AlertDialog.Builder(ChooseWinners.this)
+                    .setTitle(getResources().getString(R.string.internet_error))
+                    .setMessage(getResources().getString(R.string.internet_error_long)).setCancelable(false)
+                    .setNeutralButton("Reload", new DialogInterface.OnClickListener() {
+                        @Override
+                        public void onClick(DialogInterface dialog, int which) {
+
+                            isOnline();
+                        }
+
+                    })
+                    .show();
+
+        }
+
+    }
+
+    @Override
+    public boolean onSupportNavigateUp() {
+        finish();
+        return true;
     }
 }

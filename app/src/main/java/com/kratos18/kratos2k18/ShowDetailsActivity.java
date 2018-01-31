@@ -19,7 +19,7 @@ public class ShowDetailsActivity extends AppCompatActivity {
     TextView tv_name, tv_food, tv_phone, tv_UUID, tv_clgname, tv_deptname, tv_eventname;
     Button btn_participate;
     FirebaseDatabase database;
-    DatabaseReference myRef,homeref;
+    DatabaseReference myRef, homeref;
     String event;
     RelativeLayout rl_showdetails;
 
@@ -34,7 +34,7 @@ public class ShowDetailsActivity extends AppCompatActivity {
         Gson gson = new Gson();
         String studentDataObjectAsAString = getIntent().getStringExtra("MyStudentObjectAsString");
         final Student student = gson.fromJson(studentDataObjectAsAString, Student.class);
-        rl_showdetails=findViewById(R.id.rl_showdetails);
+        rl_showdetails = findViewById(R.id.rl_showdetails);
         tv_eventname = findViewById(R.id.tv_eventname);
         tv_clgname = findViewById(R.id.tv_clgname);
         tv_deptname = findViewById(R.id.tv_deptname);
@@ -47,7 +47,7 @@ public class ShowDetailsActivity extends AppCompatActivity {
         database = FirebaseDatabase.getInstance();
 
         myRef = database.getReferenceFromUrl("https://kratos2k18-896f6.firebaseio.com/Events");
-        homeref=database.getReferenceFromUrl("https://kratos2k18-896f6.firebaseio.com/Users");
+        homeref = database.getReferenceFromUrl("https://kratos2k18-896f6.firebaseio.com/Users");
 
         tv_UUID.setText(student.getUUID());
         tv_clgname.setText(student.getCollegename());
@@ -90,11 +90,11 @@ public class ShowDetailsActivity extends AppCompatActivity {
                         myRef.child(getString(R.string.midcity)).child(student.getUUID()).setValue(student);
                         break;
                 }
-                Snackbar.make(rl_showdetails, "Awesome! Succesfully Added...", Snackbar.LENGTH_INDEFINITE).setAction("Okay", new View.OnClickListener() {
+                Snackbar.make(rl_showdetails, "Participating..  " + event, Snackbar.LENGTH_INDEFINITE).setAction("Okay", new View.OnClickListener() {
                     @Override
                     public void onClick(View view) {
-                     startActivity(new Intent(ShowDetailsActivity.this,ScanQRActivity.class));
-                     finish();
+                        startActivity(new Intent(ShowDetailsActivity.this, ScanQRActivity.class));
+                        finish();
 
 
                     }

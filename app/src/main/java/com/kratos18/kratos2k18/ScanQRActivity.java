@@ -1,10 +1,15 @@
 package com.kratos18.kratos2k18;
 
 import android.annotation.SuppressLint;
+import android.app.ProgressDialog;
+import android.content.DialogInterface;
 import android.content.Intent;
 import android.content.SharedPreferences;
+import android.net.ConnectivityManager;
+import android.net.NetworkInfo;
 import android.net.Uri;
 import android.os.Parcelable;
+import android.support.v7.app.AlertDialog;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.Menu;
@@ -12,6 +17,7 @@ import android.view.MenuInflater;
 import android.view.MenuItem;
 import android.view.View;
 import android.widget.Button;
+import android.widget.ProgressBar;
 import android.widget.TextView;
 import android.widget.Toast;
 
@@ -33,6 +39,7 @@ public class ScanQRActivity extends AppCompatActivity {
     TextView tv_memberscount;
     Button btn_viewparticipants;
     String eventname;
+    ProgressDialog pd;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -51,7 +58,11 @@ public class ScanQRActivity extends AppCompatActivity {
         tv_memberscount = findViewById(R.id.tvmemberscount);
         tv_memberscount.setText(R.string.Loading);
 
+        pd = new ProgressDialog(ScanQRActivity.this);
+        pd.setMessage("Loading Please Wait!");
+        pd.show();
 
+        isOnline();
         myRef.child(eventname).addValueEventListener(new ValueEventListener() {
             @Override
             public void onDataChange(DataSnapshot dataSnapshot) {
@@ -61,15 +72,21 @@ public class ScanQRActivity extends AppCompatActivity {
                 // int count;
                 if (dataSnapshot.getValue() == null) {
                     tv_memberscount.setText(getString(R.string.zerocountparticipants));
+                    btn_viewparticipants.setEnabled(false);
+                    pd.dismiss();
+
 
                 } else {
                     int count = (int) dataSnapshot.getChildrenCount();
                     // Toast.makeText(ScanQRActivity.this, "" + dataSnapshot.getValue(), Toast.LENGTH_SHORT).show();
-                    if (count == 0)
+                    if (count == 0) {
                         tv_memberscount.setText(getString(R.string.zerocountparticipants));
-                    else if (count > 0) {
+                        btn_viewparticipants.setEnabled(false);
+                        pd.dismiss();
+                    } else if (count > 0) {
+                        btn_viewparticipants.setEnabled(true);
                         tv_memberscount.setText(getString(R.string.NoofParticipants) + count);
-
+                        pd.dismiss();
                     }
                 }
             }
@@ -158,7 +175,7 @@ public class ScanQRActivity extends AppCompatActivity {
         } else
 
         {
-            Toast.makeText(this, "cancelled", Toast.LENGTH_SHORT).show();
+            Toast.makeText(this, "Scanning has been cancelled", Toast.LENGTH_SHORT).show();
 
 
         }
@@ -184,7 +201,6 @@ public class ScanQRActivity extends AppCompatActivity {
                 callanumber("9940245619");
                 return true;
 
-            
 
             default:
                 return super.onOptionsItemSelected(item);
@@ -195,6 +211,30 @@ public class ScanQRActivity extends AppCompatActivity {
 
         Intent intent = new Intent(Intent.ACTION_DIAL, Uri.parse("tel:" + aphonenumber));
         startActivity(intent);
+    }
+
+    private void isOnline() {
+        ConnectivityManager manager = (ConnectivityManager) getSystemService(CONNECTIVITY_SERVICE);
+        NetworkInfo info = null;
+        if (manager != null) {
+            info = manager.getActiveNetworkInfo();
+        }
+
+        if (info == null) {
+            new AlertDialog.Builder(ScanQRActivity.this)
+                    .setTitle(getResources().getString(R.string.internet_error))
+                    .setMessage(getResources().getString(R.string.internet_error_long)).setCancelable(false)
+                    .setNeutralButton("Reload", new DialogInterface.OnClickListener() {
+                        @Override
+                        public void onClick(DialogInterface dialog, int which) {
+
+                            isOnline();
+                        }
+
+                    })
+                    .show();
+
+        }
     }
 
 }

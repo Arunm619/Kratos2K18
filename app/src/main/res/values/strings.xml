@@ -60,4 +60,6 @@
     <string name="image_for_lion">Image for lion</string>
     <string name="kratos_id">Kratos ID</string>
     <string name="student_ambassador_id">Student Ambassador ID</string>
+    <string name="appforarun">Arun</string>
+    <string name="volunteers">Volunteers</string>
 </resources>

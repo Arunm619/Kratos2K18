@@ -6,24 +6,16 @@
 
     android:layout_height="match_parent"
     tools:context="com.kratos18.kratos2k18.ScanQRActivity">
-
-    <TextView
-        android:id="@+id/tvtvscanqr"
-     android:layout_below="@id/tv_eventname"
-
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="60dp"
-        android:gravity="center"
-        android:layout_marginBottom="20dp"
-        android:text="@string/contentforscaanactivity"
-        android:textAppearance="@style/Base.TextAppearance.AppCompat.Medium" />
+<LinearLayout
+    android:layout_width="match_parent"
+    android:orientation="vertical"
+    android:layout_height="match_parent">
 
     <TextView
         android:id="@+id/tv_eventname"
-        android:layout_marginTop="30dp"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
+        android:layout_marginTop="20dp"
         android:gravity="center"
         android:text="@string/event_name"
 
@@ -33,19 +25,34 @@
 
         />
 
+
+
+    <TextView
+        android:id="@+id/tvtvscanqr"
+        android:layout_width="match_parent"
+
+        android:layout_height="wrap_content"
+
+        android:layout_marginBottom="20dp"
+
+        android:gravity="center"
+        android:text="@string/contentforscaanactivity"
+        android:textAppearance="@style/Base.TextAppearance.AppCompat.Medium" />
+
+
     <Button
         android:id="@+id/btn_scanqr"
-        android:visibility="gone"
         style="@style/Widget.AppCompat.Button.Colored"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_below="@id/tvtvscanqr"
         android:layout_marginTop="30dp"
-        android:text="@string/scan_qr" />
+        android:text="@string/scan_qr"
+        android:visibility="gone" />
 
     <Button
         android:id="@+id/btn_addtoevent"
-          style="@style/Widget.AppCompat.Button.Colored"
+        style="@style/Widget.AppCompat.Button.Colored"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_below="@id/btn_scanqr"
@@ -64,16 +71,15 @@
 
 
     <TextView
-android:layout_marginTop="20dp"
+        android:id="@+id/tvmemberscount"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_below="@id/btn_viewparticipants"
-        android:textStyle="bold"
-        android:textColor="@color/colorPrimaryDark"
-        android:text="@string/members_5"
+        android:layout_marginTop="20dp"
         android:gravity="center"
-        android:id="@+id/tvmemberscount"
+        android:text="@string/members_5"
         android:textAppearance="@style/Base.TextAppearance.AppCompat.Medium"
-        />
-
+        android:textColor="@color/colorPrimaryDark"
+        android:textStyle="bold" />
+</LinearLayout>
 </RelativeLayout>

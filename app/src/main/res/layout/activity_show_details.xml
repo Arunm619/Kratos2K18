@@ -2,10 +2,10 @@
 <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/rl_showdetails"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:padding="10dp"
-   android:id="@+id/rl_showdetails"
     tools:context="com.kratos18.kratos2k18.ShowDetailsActivity">
 
 
@@ -15,7 +15,9 @@
         android:layout_height="wrap_content"
         android:gravity="center"
         android:text="Event"
-        android:textAppearance="@style/Base.TextAppearance.AppCompat.Large" />
+        android:textAppearance="@style/Base.TextAppearance.AppCompat.Large"
+        android:textColor="@color/colorPrimaryDark"
+        android:textStyle="bold" />
 
     <LinearLayout
         android:id="@+id/ll"
@@ -132,9 +134,9 @@
         </RelativeLayout>
 
         <RelativeLayout
-            android:visibility="gone"
             android:layout_width="match_parent"
-            android:layout_height="wrap_content">
+            android:layout_height="wrap_content"
+            android:visibility="gone">
 
             <TextView
                 android:id="@+id/tvtvfood"
@@ -157,7 +159,7 @@
 
                 />
 
-            />
+
 
 
         </RelativeLayout>
