@@ -64,4 +64,5 @@
     <string name="volunteers">Volunteers</string>
     <string name="qrcode">qrcode</string>
     <string name="participants">Participants</string>
+    <string name="total">Total Registered :</string>
 </resources>

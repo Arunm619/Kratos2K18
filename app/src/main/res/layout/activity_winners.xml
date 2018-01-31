@@ -205,11 +205,11 @@
 
                 android:layout_height="wrap_content"
                 android:layout_below="@id/tvtvfp"
+                android:layout_toEndOf="@id/tvtvsp"
                 android:layout_toRightOf="@id/tvtvsp"
-                android:text="@string/Winner"
 
-                android:textAppearance="@style/Base.TextAppearance.AppCompat.Medium"
-                android:layout_toEndOf="@id/tvtvsp" />
+                android:text="@string/Winner"
+                android:textAppearance="@style/Base.TextAppearance.AppCompat.Medium" />
 
             <TextView
                 android:id="@+id/tvtp"
@@ -254,6 +254,18 @@
 
 
         </RelativeLayout>
+
+        <TextView
+            android:id="@+id/totalcount"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:gravity="center"
+            android:text="Total Count"
+            android:textAppearance="@style/Base.TextAppearance.AppCompat.Large"
+            android:textSize="24sp"
+            android:textStyle="bold"
+
+            />
 
 
     </LinearLayout>

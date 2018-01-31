@@ -34,7 +34,7 @@ import com.google.zxing.integration.android.IntentResult;
 public class ScanQRActivity extends AppCompatActivity {
     Button btn_scanqr, btn_addtoevent;
     FirebaseDatabase database;
-    DatabaseReference myRef;
+    DatabaseReference myRef,userref;
     TextView tv_eventname;
     TextView tv_memberscount;
     Button btn_viewparticipants;
@@ -49,6 +49,7 @@ public class ScanQRActivity extends AppCompatActivity {
         btn_scanqr = findViewById(R.id.btn_scanqr);
         database = FirebaseDatabase.getInstance();
         myRef = database.getReferenceFromUrl("https://kratos2k18-896f6.firebaseio.com/Users");
+        userref=database.getReferenceFromUrl("https://kratos2k18-896f6.firebaseio.com/Events");
         btn_addtoevent = findViewById(R.id.btn_addtoevent);
         SharedPreferences pref = getApplicationContext().getSharedPreferences("MyPref", 0); // 0 - for private mode
         SharedPreferences.Editor editor = pref.edit();
@@ -64,11 +65,12 @@ public class ScanQRActivity extends AppCompatActivity {
         pd.show();
 
         isOnline();
-        myRef.child(eventname).addValueEventListener(new ValueEventListener() {
+        userref.child(eventname).addValueEventListener(new ValueEventListener() {
+            @SuppressLint("SetTextI18n")
             @Override
             public void onDataChange(DataSnapshot dataSnapshot) {
 
-                // Toast.makeText(ScanQRActivity.this, "" + dataSnapshot.getChildrenCount(), Toast.LENGTH_SHORT).show();
+               //  Toast.makeText(ScanQRActivity.this, eventname+" " + dataSnapshot.getChildrenCount(), Toast.LENGTH_SHORT).show();
 
                 // int count;
                 if (dataSnapshot.getValue() == null) {
@@ -79,6 +81,7 @@ public class ScanQRActivity extends AppCompatActivity {
 
                 } else {
                     int count = (int) dataSnapshot.getChildrenCount();
+
                     // Toast.makeText(ScanQRActivity.this, "" + dataSnapshot.getValue(), Toast.LENGTH_SHORT).show();
                     if (count == 0) {
                         tv_memberscount.setText(getString(R.string.zerocountparticipants));

@@ -1,5 +1,6 @@
 package com.kratos18.kratos2k18;
 
+import android.annotation.SuppressLint;
 import android.content.Intent;
 import android.net.Uri;
 import android.support.v7.app.AppCompatActivity;
@@ -22,7 +23,7 @@ public class WinnersActivity extends AppCompatActivity {
     TextView tv_promotions, tv_homicide, tv_prisonbreak, tv_midcitymadness, TV_mathiyosi;
 
 
-    TextView tv_fp, tv_sp, tv_tp, tvevent;
+    TextView tv_fp, tv_sp, tv_tp, tvevent, tv_totalcount;
 
     FirebaseDatabase database;
     DatabaseReference myRef, userref, proref;
@@ -38,15 +39,34 @@ public class WinnersActivity extends AppCompatActivity {
         tv_sp = findViewById(R.id.tvsp);
         tv_tp = findViewById(R.id.tvtp);
 
+        tv_totalcount = findViewById(R.id.totalcount);
+
 
         tv_fp.setText("1");
         tv_sp.setText("2");
         tv_tp.setText("3");
 
+
         database = FirebaseDatabase.getInstance();
         myRef = database.getReferenceFromUrl("https://kratos2k18-896f6.firebaseio.com/Winners");
         userref = database.getReferenceFromUrl("https://kratos2k18-896f6.firebaseio.com/Users");
         proref = database.getReferenceFromUrl("https://kratos2k18-896f6.firebaseio.com/Referral");
+
+        userref.addValueEventListener(new ValueEventListener() {
+            @SuppressLint("SetTextI18n")
+            @Override
+            public void onDataChange(DataSnapshot dataSnapshot) {
+                Long a = dataSnapshot.getChildrenCount();
+                //Toast.makeText(WinnersActivity.this, "Size count:"+dataSnapshot.getChildrenCount(), Toast.LENGTH_SHORT).show();
+                tv_totalcount.setText(getString(R.string.total) + a);
+            }
+
+            @Override
+            public void onCancelled(DatabaseError databaseError) {
+
+            }
+        });
+
         tv_fp.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
