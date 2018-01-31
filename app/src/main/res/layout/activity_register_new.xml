@@ -5,7 +5,9 @@
     android:id="@+id/rl_reg"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:background="@color/white"
     tools:context="com.kratos18.kratos2k18.RegisterNew">
+
 
     <LinearLayout
         android:layout_width="match_parent"
@@ -21,9 +23,10 @@
             android:layout_height="wrap_content"
             android:layout_gravity="center"
             android:gravity="center"
-            android:text="NEW REGISTRATION"
+            android:text="New Registration"
             android:textAppearance="@style/Base.TextAppearance.AppCompat.Medium"
             android:textColor="@color/colorPrimaryDark"
+            android:textSize="24sp"
             android:typeface="serif" />
         <!--NAME-->
         <android.support.design.widget.TextInputLayout
@@ -103,12 +106,12 @@
 
 
         <Button
-            android:layout_marginTop="10dp"
-
             android:id="@+id/btn_validatenumber"
+
             style="@style/Widget.AppCompat.Button.Colored"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
+            android:layout_marginTop="10dp"
             android:text="Validate Account" />
 
         <Button
@@ -119,5 +122,15 @@
             android:layout_marginTop="10dp"
             android:text="Create Account!" />
 
+        <ImageView
+            android:id="@+id/img_lion"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+
+            android:scaleType="centerInside"
+            android:src="@drawable/roundlogo" />
     </LinearLayout>
+
+
+
 </RelativeLayout>

@@ -1,87 +1,132 @@
 <?xml version="1.0" encoding="utf-8"?>
 <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:card_view="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/rl_marqr"
     android:layout_width="match_parent"
-  android:id="@+id/rl_marqr"
     android:layout_height="match_parent"
+    android:background="@color/white"
+
     tools:context="com.kratos18.kratos2k18.MarkQRActivity">
 
+
     <TextView
-       android:id="@+id/tvtvScan"
+        android:id="@+id/tvtvScan"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:gravity="center"
-        android:textStyle="bold"
-        android:text="SET QR - Registration Desk2"
+
+        android:text="@string/mar_qr_registration_desk_2"
         android:textAppearance="@style/Base.TextAppearance.AppCompat.Large"
-        android:textColor="@color/colorPrimaryDark"/>
+        android:textColor="@color/colorPrimaryDark"
+        android:textStyle="bold" />
+
     <TextView
-        android:layout_below="@id/tvtvScan"
         android:id="@+id/tvtvscanqr"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
+        android:layout_below="@id/tvtvScan"
+        android:layout_marginTop="20dp"
         android:gravity="center"
 
-        android:text="Type UUID and Scan"
+        android:text="@string/type_phone_number"
         android:textAppearance="@style/Base.TextAppearance.AppCompat.Large"
         android:textColor="@color/colorPrimaryDark" />
-    <!-- UUID -->
 
-    <LinearLayout
 
+    <android.support.v7.widget.CardView
+        android:id="@+id/cv_main"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_below="@id/tvtvscanqr"
-        android:id="@+id/llholder"
-        android:layout_marginTop="100dp"
-        android:gravity="center"
-        android:orientation="horizontal">
+        android:layout_centerInParent="true"
+        android:layout_centerVertical="true"
+        android:layout_gravity="center"
+        android:layout_marginTop="20dp"
+        android:clickable="true"
+        android:focusable="true"
+        card_view:cardCornerRadius="2dp"
+        card_view:contentPadding="10dp">
 
-        <TextView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="KR-"
-            android:textAppearance="@style/Base.TextAppearance.AppCompat.Large" />
-
-
-        <EditText
-            android:id="@+id/input_uuid"
+        <RelativeLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:hint="Phone number"
-            android:inputType="number" />
+            android:layout_gravity="center"
+            android:layout_marginTop="10dp">
+
+            <LinearLayout
+
+                android:id="@+id/llinternal"
+
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:gravity="center"
+                android:orientation="horizontal">
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="@string/kr"
+                    android:textAppearance="@style/Base.TextAppearance.AppCompat.Large" />
 
 
-    </LinearLayout>
+                <EditText
+                    android:id="@+id/input_uuid"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:hint="@string/phone_number"
+                    android:inputType="number" />
 
 
-    <LinearLayout
-        android:layout_centerHorizontal="true"
-        android:orientation="vertical"
-        android:layout_marginTop="100dp"
-       android:layout_below="@id/llholder"
+            </LinearLayout>
+
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_below="@id/llinternal"
+                android:orientation="horizontal"
+
+                android:padding="3dp"
+                android:weightSum="2">
+
+                <Button
+                    android:id="@+id/btn_checkredundancy"
+
+                    style="@style/Widget.AppCompat.Button.Colored"
+
+
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center"
+
+                    android:layout_weight="1"
+                    android:gravity="center"
+
+                    android:text="@string/verify" />
+
+                <Button
+                    android:id="@+id/btn_setqrcode"
+                    style="@style/Widget.AppCompat.Button.Colored"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center"
+
+                    android:layout_weight="1"
+                    android:text="@string/mark_qr" />
+            </LinearLayout>
+
+        </RelativeLayout>
+
+    </android.support.v7.widget.CardView>
+
+    <ImageView
+        android:id="@+id/img_lion"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content">
+        android:layout_below="@id/cv_main"
+        android:layout_height="match_parent"
 
-
-        <Button
-            android:layout_gravity="center"
-            style="@style/Widget.AppCompat.Button.Colored"
-            android:id="@+id/btn_checkredundancy"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-
-            android:text="Approval" />
-
-        <Button
-            android:layout_gravity="center"
-            android:id="@+id/btn_setqrcode"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-
-            style="@style/Widget.AppCompat.Button.Colored"
-            android:text="Set QR" />
-    </LinearLayout>
-
+        android:scaleType="fitCenter"
+        android:src="@drawable/roundlogo" />
 </RelativeLayout>

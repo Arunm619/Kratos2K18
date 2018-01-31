@@ -1,6 +1,6 @@
 <resources>
     <string name="app_name_register">Registration</string>
-    <string name="app_name_markqr">Registration 2</string>
+    <string name="app_name_markqr">Mark QR</string>
     <string name="app_name_eventname">Events</string>
 
     <string name="paper_presentation">Paper Presentation</string>
@@ -37,13 +37,27 @@
     <string name="noofparticipants">No of Participants</string>
     <string name="p">Participants</string>
     <string name="m" />
-    <string name="Loading">Loading...</string>
+    <string name="Loading">Loading…</string>
     <string name="zerocountparticipants">Yet To Begin.</string>
     <string name="NoofParticipants">No of Participants :</string>
     <string name="referral_page">Referral Page</string>
     <string name="PromotionalKing">Promotions </string>
     <string name="referral">Promotions Winner</string>
-    <string name="app_name_referral">Referral</string>
+    <string name="app_name_referral">Referral App</string>
     <string name="app_name_incharge">Volunteers</string>
     <string name="app_name_admin">Admin</string>
+    <string name="internet_error">Internet Error</string>
+    <string name="internet_error_long">Please Connect to Wifi or Turn on Mobile Internet or ask your friend to tether hotspot</string>
+    <string name="help_register">Help?</string>
+    <string name="surehelp">Are you sure want to call Arun? </string>
+    <string name="mar_qr_registration_desk_2">Mark QR </string>
+    <string name="type_phone_number">Type Phone number</string>
+    <string name="phone_number">Phone number</string>
+    <string name="verify">Verify</string>
+    <string name="mark_qr">Mark QR</string>
+    <string name="kr">KR-</string>
+    <string name="submit">Submit</string>
+    <string name="image_for_lion">Image for lion</string>
+    <string name="kratos_id">Kratos ID</string>
+    <string name="student_ambassador_id">Student Ambassador ID</string>
 </resources>

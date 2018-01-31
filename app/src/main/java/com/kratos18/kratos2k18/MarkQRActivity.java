@@ -1,14 +1,24 @@
 package com.kratos18.kratos2k18;
 
+import android.content.DialogInterface;
 import android.content.Intent;
+import android.media.Image;
+import android.net.ConnectivityManager;
+import android.net.NetworkInfo;
+import android.net.Uri;
 import android.support.design.widget.Snackbar;
+import android.support.v7.app.AlertDialog;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.text.TextUtils;
 import android.util.Log;
+import android.view.Menu;
+import android.view.MenuInflater;
+import android.view.MenuItem;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
+import android.widget.ImageView;
 import android.widget.RelativeLayout;
 import android.widget.Toast;
 
@@ -38,6 +48,7 @@ public class MarkQRActivity extends AppCompatActivity {
     String userid;
     EditText et_uuid;
     RelativeLayout rl_marqr;
+    ImageView img_lion;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -47,42 +58,43 @@ public class MarkQRActivity extends AppCompatActivity {
         et_uuid = findViewById(R.id.input_uuid);
         database = FirebaseDatabase.getInstance();
         myRef = database.getReferenceFromUrl("https://kratos2k18-896f6.firebaseio.com/Users");
-        //  ListRef = database.getReferenceFromUrl("https://kratos2k18-896f6.firebaseio.com/AddedNumbers");
-        // listofnumbers = new ArrayList<>();
 
-//        ListRef.addValueEventListener(new ValueEventListener() {
-//            @Override
-//            public void onDataChange(DataSnapshot dataSnapshot) {
-//                Map<String, Object> td = (HashMap<String, Object>) dataSnapshot.getValue();
-//
-//
-//                Collection<Object> values = td.values();
-//                Toast.makeText(MarkQRActivity.this, "" + dataSnapshot.getValue(), Toast.LENGTH_SHORT).show();
-//
-//            }
-//
-//            @Override
-//            public void onCancelled(DatabaseError databaseError) {
-//
-//            }
-//        });
+        img_lion = findViewById(R.id.img_lion);
 
         btn_scan = findViewById(R.id.btn_setqrcode);
         btn_scan.setEnabled(false);
         btn_checkredundancy = findViewById(R.id.btn_checkredundancy);
         //Toast.makeText(MarkQRActivity.this, "Size" + listofnumbers.size(), Toast.LENGTH_SHORT).show();
-
+        isOnline();
 
         btn_checkredundancy.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
 
-                userid = et_uuid.getText().toString();
-                if (TextUtils.isEmpty(userid))
-                    Snackbar.make(rl_marqr, "Please Enter a Number!", Snackbar.LENGTH_SHORT).
-                       show();
+
+                ConnectivityManager manager = (ConnectivityManager) getSystemService(CONNECTIVITY_SERVICE);
+                NetworkInfo info = null;
+                if (manager != null) {
+                    info = manager.getActiveNetworkInfo();
+                }
+                if (info!=null)
+
+
+                {
+                    userid = et_uuid.getText().toString();
+                    if (TextUtils.isEmpty(userid))
+                        Snackbar.make(rl_marqr, "Please Enter a Number!", Snackbar.LENGTH_SHORT).
+                                show();
+
+                    else if (userid.length() != 10) {
+                        Snackbar.make(rl_marqr, "Please Check the Number!", Snackbar.LENGTH_SHORT).
+                                show();
+
+                    } else
+                        ispresentalready(userid);
+                }
                 else
-                    ispresentalready(userid);
+                    Toast.makeText(MarkQRActivity.this, "Please Check Internet Connection!", Toast.LENGTH_SHORT).show();
 
 
             }
@@ -91,14 +103,29 @@ public class MarkQRActivity extends AppCompatActivity {
         btn_scan.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                userid = et_uuid.getText().toString();
 
+                /*userid = et_uuid.getText().toString();
 
                 if (TextUtils.isEmpty(userid))
                     Snackbar.make(rl_marqr, "Enter Number...", Snackbar.LENGTH_SHORT).show();
 
+                else if (userid.length() < 10)
+                    Snackbar.make(rl_marqr, "Check Number ", Snackbar.LENGTH_SHORT).show();
+
                 else
+                */
+
+                ConnectivityManager manager = (ConnectivityManager) getSystemService(CONNECTIVITY_SERVICE);
+                NetworkInfo info = null;
+                if (manager != null) {
+                    info = manager.getActiveNetworkInfo();
+                }
+                if (info!=null)
                     checkqr();
+                else
+                    Toast.makeText(MarkQRActivity.this, "Check Internet. Failed to add.", Toast.LENGTH_SHORT).show();
+
+
 
             }
         });
@@ -117,7 +144,21 @@ public class MarkQRActivity extends AppCompatActivity {
                     Snackbar.make(rl_marqr, "Good to go.", Snackbar.LENGTH_SHORT).show();
                     btn_scan.setEnabled(true);
                 } else
+
+                {
+                    img_lion.setImageResource(R.drawable.failed);
+                    Snackbar.make(rl_marqr, "Please Register First", Snackbar.LENGTH_INDEFINITE)
+                            .setAction("Got it!", new View.OnClickListener() {
+                                @Override
+                                public void onClick(View view) {
+                                    img_lion.setImageResource(R.drawable.roundlogo);
+                                    clearall();
+                                }
+                            })
+                            .show();
                     Toast.makeText(MarkQRActivity.this, "Please Register First.", Toast.LENGTH_SHORT).show();
+
+                }
             }
 
             @Override
@@ -167,6 +208,66 @@ public class MarkQRActivity extends AppCompatActivity {
     private void clearall() {
         et_uuid.setText("");
         btn_scan.setEnabled(false);
+    }
+
+
+    @Override
+    public boolean onCreateOptionsMenu(Menu menu) {
+        new MenuInflater(this).inflate(R.menu.registermenu, menu);
+        return (super.onCreateOptionsMenu(menu));
+    }
+
+    @Override
+    public boolean onOptionsItemSelected(MenuItem item) {
+
+        if (item.getItemId() == R.id.callarun) {
+            new AlertDialog.Builder(MarkQRActivity.this)
+                    .setTitle(getResources().getString(R.string.help_register))
+                    .setMessage(getResources().getString(R.string.surehelp)).setCancelable(false)
+                    .setPositiveButton("Call", new DialogInterface.OnClickListener() {
+                        @Override
+                        public void onClick(DialogInterface dialog, int which) {
+                            callanumber("9940245619");
+
+                        }
+
+                    })
+                    .setNegativeButton("Nope", null)
+
+                    .show();
+        }
+        return super.onOptionsItemSelected(item);
+    }
+
+    private void callanumber(String aphonenumber) {
+
+        Intent intent = new Intent(Intent.ACTION_DIAL, Uri.parse("tel:" + aphonenumber));
+        startActivity(intent);
+    }
+
+
+    private void isOnline() {
+        ConnectivityManager manager = (ConnectivityManager) getSystemService(CONNECTIVITY_SERVICE);
+        NetworkInfo info = null;
+        if (manager != null) {
+            info = manager.getActiveNetworkInfo();
+        }
+
+        if (info == null) {
+            new AlertDialog.Builder(MarkQRActivity.this)
+                    .setTitle(getResources().getString(R.string.internet_error))
+                    .setMessage(getResources().getString(R.string.internet_error_long)).setCancelable(false)
+                    .setNeutralButton("Reload", new DialogInterface.OnClickListener() {
+                        @Override
+                        public void onClick(DialogInterface dialog, int which) {
+
+                            isOnline();
+                        }
+
+                    })
+                    .show();
+
+        }
     }
 }
 
