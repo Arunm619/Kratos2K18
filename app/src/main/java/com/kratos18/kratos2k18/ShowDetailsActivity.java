@@ -93,7 +93,8 @@ public class ShowDetailsActivity extends AppCompatActivity {
                 Snackbar.make(rl_showdetails, "Participating..  " + event, Snackbar.LENGTH_INDEFINITE).setAction("Okay", new View.OnClickListener() {
                     @Override
                     public void onClick(View view) {
-                        startActivity(new Intent(ShowDetailsActivity.this, ScanQRActivity.class));
+
+                       // startActivity(new Intent(ShowDetailsActivity.this, ScanQRActivity.class));
                         finish();
 
 

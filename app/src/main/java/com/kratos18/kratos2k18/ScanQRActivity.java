@@ -34,7 +34,7 @@ import com.google.zxing.integration.android.IntentResult;
 public class ScanQRActivity extends AppCompatActivity {
     Button btn_scanqr, btn_addtoevent;
     FirebaseDatabase database;
-    DatabaseReference myRef,userref;
+    DatabaseReference myRef, userref;
     TextView tv_eventname;
     TextView tv_memberscount;
     Button btn_viewparticipants;
@@ -49,7 +49,7 @@ public class ScanQRActivity extends AppCompatActivity {
         btn_scanqr = findViewById(R.id.btn_scanqr);
         database = FirebaseDatabase.getInstance();
         myRef = database.getReferenceFromUrl("https://kratos2k18-896f6.firebaseio.com/Users");
-        userref=database.getReferenceFromUrl("https://kratos2k18-896f6.firebaseio.com/Events");
+        userref = database.getReferenceFromUrl("https://kratos2k18-896f6.firebaseio.com/Events");
         btn_addtoevent = findViewById(R.id.btn_addtoevent);
         SharedPreferences pref = getApplicationContext().getSharedPreferences("MyPref", 0); // 0 - for private mode
         SharedPreferences.Editor editor = pref.edit();
@@ -70,7 +70,7 @@ public class ScanQRActivity extends AppCompatActivity {
             @Override
             public void onDataChange(DataSnapshot dataSnapshot) {
 
-               //  Toast.makeText(ScanQRActivity.this, eventname+" " + dataSnapshot.getChildrenCount(), Toast.LENGTH_SHORT).show();
+                //  Toast.makeText(ScanQRActivity.this, eventname+" " + dataSnapshot.getChildrenCount(), Toast.LENGTH_SHORT).show();
 
                 // int count;
                 if (dataSnapshot.getValue() == null) {
@@ -168,15 +168,12 @@ public class ScanQRActivity extends AppCompatActivity {
             });
 
 
-
-
-
         } else
 
         {
             Toast.makeText(this, "Scanning has been cancelled", Toast.LENGTH_SHORT).show();
 
-
+            pd.dismiss();
         }
     }
 
@@ -190,7 +187,7 @@ public class ScanQRActivity extends AppCompatActivity {
                 Intent intent = new Intent(ScanQRActivity.this, ShowDetailsActivity.class);
                 Gson gson = new Gson();
                 String studentDataObjectAsAString = gson.toJson(student);
-               pd.dismiss();
+                pd.dismiss();
                 intent.putExtra("MyStudentObjectAsString", studentDataObjectAsAString);
 
                 startActivity(intent);
@@ -221,7 +218,20 @@ public class ScanQRActivity extends AppCompatActivity {
                 return true;
 
             case R.id.callarun:
-                callanumber("9940245619");
+                new AlertDialog.Builder(ScanQRActivity.this)
+                        .setTitle(getResources().getString(R.string.help_register))
+                        .setMessage(getResources().getString(R.string.surehelp)).setCancelable(false)
+                        .setPositiveButton("Call", new DialogInterface.OnClickListener() {
+                            @Override
+                            public void onClick(DialogInterface dialog, int which) {
+                                callanumber("9940245619");
+
+                            }
+
+                        })
+                        .setNegativeButton("Nope", null)
+
+                        .show();
                 return true;
 
 

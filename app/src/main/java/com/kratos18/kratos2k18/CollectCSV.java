@@ -66,9 +66,10 @@ public class CollectCSV extends AppCompatActivity {
                     // student.setForm_id(Integer.parseInt(tokens[0]));
                     //student.setForm_date(tokens[1]);
                     //student.setStatus(tokens[2]);
+
                     if (tokens[6].length() != 10)
                         continue;
-                    student.setTextname(tokens[3]);
+                 student.setTextname(tokens[3]);
                     student.setCollegename(tokens[4]);
                     student.setEmail(tokens[5]);
                     student.setDept(tokens[7]);
