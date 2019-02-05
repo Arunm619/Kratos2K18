@@ -151,10 +151,16 @@ public class ScanQRActivity extends AppCompatActivity {
                 @Override
                 public void onDataChange(DataSnapshot dataSnapshot) {
 
+                    if(dataSnapshot.getChildrenCount()>0)
                     for (DataSnapshot childSnapshot : dataSnapshot.getChildren()) {
                         key = childSnapshot.getKey();
                         getthestudent(key);
                         // Log.i(TAG,key);
+                    }
+                    else
+                    {
+                        Toast.makeText(ScanQRActivity.this, "Student Not found , Contact Admin", Toast.LENGTH_SHORT).show();
+                        pd.dismiss();
                     }
                     //    Toast.makeText(ScanQRActivity.this, key, Toast.LENGTH_SHORT).show();
 

@@ -23,7 +23,7 @@
             android:id="@+id/teams"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_below="@id/tvWinnersTV"
+            android:layout_margin="10dp"
             android:baselineAligned="false"
             android:orientation="horizontal"
 
@@ -33,7 +33,9 @@
             <LinearLayout
                 android:id="@+id/Technicalevents"
                 android:layout_width="0dp"
+
                 android:layout_height="match_parent"
+
                 android:layout_weight="1"
                 android:orientation="vertical">
 
@@ -41,11 +43,12 @@
                     android:id="@+id/tvtvtechnical"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-
+                    android:layout_margin="20dp"
                     android:gravity="center"
                     android:text="@string/technical_events"
                     android:textAppearance="@style/Base.TextAppearance.AppCompat.Large"
-                    android:textColor="@color/colorPrimary" />
+                    android:textColor="@color/colorPrimary"
+                    android:textStyle="bold" />
 
                 <TextView
                     android:id="@+id/tvtvpaperpresentation"
@@ -57,39 +60,30 @@
                     android:textAppearance="@style/Base.TextAppearance.AppCompat.Medium" />
 
                 <TextView
-                    android:id="@+id/tvtvprojectdisplay"
+                    android:id="@+id/tvtvclashofcodes"
                     android:layout_width="match_parent"
 
                     android:layout_height="wrap_content"
                     android:gravity="center"
-                    android:text="@string/project"
+                    android:text="@string/clash_of_codes"
                     android:textAppearance="@style/Base.TextAppearance.AppCompat.Medium" />
 
                 <TextView
-                    android:id="@+id/tvtvconnections"
+                    android:id="@+id/tvtvtechtreasurehunt"
                     android:layout_width="match_parent"
 
                     android:layout_height="wrap_content"
                     android:gravity="center"
-                    android:text="@string/Connections"
+                    android:text="@string/tech_treasure_hunt"
                     android:textAppearance="@style/Base.TextAppearance.AppCompat.Medium" />
 
                 <TextView
-                    android:id="@+id/tvtvcodewars"
+                    android:id="@+id/tvtvdeadlockeddb"
                     android:layout_width="match_parent"
 
                     android:layout_height="wrap_content"
                     android:gravity="center"
-                    android:text="@string/codears"
-                    android:textAppearance="@style/Base.TextAppearance.AppCompat.Medium" />
-
-                <TextView
-                    android:id="@+id/tvtvtrespassers"
-                    android:layout_width="match_parent"
-
-                    android:layout_height="wrap_content"
-                    android:gravity="center"
-                    android:text="@string/trespassers"
+                    android:text="@string/dead_locked_db"
                     android:textAppearance="@style/Base.TextAppearance.AppCompat.Medium" />
 
                 <TextView
@@ -98,7 +92,16 @@
 
                     android:layout_height="wrap_content"
                     android:gravity="center"
-                    android:text="@string/Googleit"
+                    android:text="@string/google_it"
+                    android:textAppearance="@style/Base.TextAppearance.AppCompat.Medium" />
+
+                <TextView
+                    android:id="@+id/tvtvGadgetsandgizmo"
+                    android:layout_width="match_parent"
+
+                    android:layout_height="wrap_content"
+                    android:gravity="center"
+                    android:text="@string/gadgets_and_gizmos"
                     android:textAppearance="@style/Base.TextAppearance.AppCompat.Medium" />
 
 
@@ -114,23 +117,25 @@
                 <TextView
                     android:id="@+id/tvtvnontechnical"
                     android:layout_width="match_parent"
+
                     android:layout_height="wrap_content"
+                    android:layout_margin="20dp"
                     android:gravity="center"
                     android:text="@string/non_technical_events"
                     android:textAppearance="@style/Base.TextAppearance.AppCompat.Large"
                     android:textColor="@color/colorPrimary" />
 
                 <TextView
-                    android:id="@+id/tvtvhomicide"
+                    android:id="@+id/tvtvmurderinmultiplayer"
                     android:layout_width="match_parent"
 
                     android:layout_height="wrap_content"
                     android:gravity="center"
-                    android:text="@string/Homicide"
+                    android:text="@string/murder_in_multiplayer"
                     android:textAppearance="@style/Base.TextAppearance.AppCompat.Medium" />
 
                 <TextView
-                    android:id="@+id/tvtvPrisonBreak"
+                    android:id="@+id/tvtvprisonbreak"
                     android:layout_width="match_parent"
 
                     android:layout_height="wrap_content"
@@ -139,30 +144,39 @@
                     android:textAppearance="@style/Base.TextAppearance.AppCompat.Medium" />
 
                 <TextView
-                    android:id="@+id/tvtvMaathiyosi"
+                    android:id="@+id/tvtvpitchimpossible"
                     android:layout_width="match_parent"
 
                     android:layout_height="wrap_content"
                     android:gravity="center"
-                    android:text="@string/Maathiyosi"
+                    android:text="@string/pitch_impossible"
                     android:textAppearance="@style/Base.TextAppearance.AppCompat.Medium" />
 
                 <TextView
-                    android:id="@+id/tvtvMidcity"
+                    android:id="@+id/tvtvcomicquiz"
                     android:layout_width="match_parent"
 
                     android:layout_height="wrap_content"
                     android:gravity="center"
-                    android:text="@string/Midcity"
+                    android:text="@string/comic_quiz"
                     android:textAppearance="@style/Base.TextAppearance.AppCompat.Medium" />
 
                 <TextView
-                    android:id="@+id/tvtvReferralWinner"
+                    android:id="@+id/tvtvboxcricket"
                     android:layout_width="match_parent"
 
                     android:layout_height="wrap_content"
                     android:gravity="center"
-                    android:text="@string/PromotionalKing"
+                    android:text="@string/box_cricket_futsal"
+                    android:textAppearance="@style/Base.TextAppearance.AppCompat.Medium" />
+
+                <TextView
+                    android:id="@+id/tvtvgaming"
+                    android:layout_width="match_parent"
+
+                    android:layout_height="wrap_content"
+                    android:gravity="center"
+                    android:text="@string/gaming"
                     android:textAppearance="@style/Base.TextAppearance.AppCompat.Medium" />
 
             </LinearLayout>

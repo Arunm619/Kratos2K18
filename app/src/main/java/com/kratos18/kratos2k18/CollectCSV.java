@@ -56,29 +56,21 @@ public class CollectCSV extends AppCompatActivity {
             while ((Line = reader.readLine()) != null) {
                 // Toast.makeText(this, "" + Line, Toast.LENGTH_SHORT).show();
                 String[] tokens = Line.split(",");
+                // Name , College , Email , Dept, Phone
 
-//Form_id,Form_date,Status,Text-name,College-name,Email-42,Phone,Dept,Mc4wp_checkbox
                 try {
                     Student student = new Student();
-//[152, "2018-01-17 20:00:11", unread, Yamuna.S, "Velammal engineering college", yamunaumai3@gmail.com, CSE, 9790998105, No]
-
-//
-                    // student.setForm_id(Integer.parseInt(tokens[0]));
-                    //student.setForm_date(tokens[1]);
-                    //student.setStatus(tokens[2]);
 
                     if (tokens[6].length() != 10)
                         continue;
-                 student.setTextname(tokens[3]);
+                    student.setTextname(tokens[3]);
                     student.setCollegename(tokens[4]);
                     student.setEmail(tokens[5]);
                     student.setDept(tokens[7]);
                     student.setTextphone(Long.parseLong(tokens[6]));
-                    //student.setMc4wp_checkbox(tokens[8]);
-                    student.setParticipatedevents(" ");
+                    student.setParticipatedevents("null");
                     student.setUUID("KR-" + tokens[6]);
                     student.setQrcode("Null");
-                    student.setAte(false);
                     myRef.child(student.getUUID()).setValue(student);
 
                     //  String rkey = ListRef.push().getKey();
@@ -93,9 +85,6 @@ public class CollectCSV extends AppCompatActivity {
                 }
 
 
-                //Form_id,Form_date,Status,Text-name,College-name,Email-42,Dept,Text-phone,Mc4wp_checkbox
-//                14,"2018-01-13 15:32:23",unread,"syed jafer","st. joseph's institute of technology",syedjafer1997@gmail.com,IT,9176409201,No
-                //
             }
         } catch (IOException e) {
             e.printStackTrace();

@@ -28,7 +28,7 @@
             android:layout_height="wrap_content"
             android:layout_marginTop="30dp"
             android:gravity="center"
-            android:text="Technical Events"
+            android:text="@string/technical_events"
             android:textAppearance="@style/Base.TextAppearance.AppCompat.Medium"
             android:textColor="@color/colorPrimaryDark"
             android:textStyle="bold" />
@@ -42,30 +42,45 @@ android:id="@+id/rg_events"
             android:layout_height="match_parent">
 
             <RadioButton
-                android:id="@+id/rb_connections"
+                android:id="@+id/rb_paperpresentation"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="Connections" />
+                android:text="@string/paper_presentation" />
 
             <RadioButton
-                android:id="@+id/rb_codewars"
+                android:id="@+id/rb_clash_of_codes"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="Code wars" />
+                android:text="@string/clash_of_codes" />
 
             <RadioButton
-                android:id="@+id/rb_trespassers"
+                android:id="@+id/rb_tech_treasure_hunt"
 
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="Trespassers" />
+                android:text="@string/tech_treasure_hunt" />
+
+            <RadioButton
+                android:id="@+id/rb_dead_locked_db"
+
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/dead_locked_db" />
+
 
             <RadioButton
                 android:id="@+id/rb_googleit"
 
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="Google it" />
+                android:text="@string/google_it" />
+
+            <RadioButton
+                android:id="@+id/rb_gadgets_gizmos"
+
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/gadgets_and_gizmos" />
 
 
             <TextView
@@ -73,25 +88,18 @@ android:id="@+id/rg_events"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:gravity="center"
-                android:text="Non-Technical Events"
+                android:text="@string/non_technical_events"
                 android:textAppearance="@style/Base.TextAppearance.AppCompat.Medium"
                 android:textColor="@color/colorPrimaryDark"
                 android:textStyle="bold" />
 
+
             <RadioButton
-                android:visibility="gone"
-                android:id="@+id/rb_futsal"
+                android:id="@+id/rb_murder_in_multiplayer"
 
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="Futsal / box cricket" />
-
-            <RadioButton
-                android:id="@+id/rb_midcitymadness"
-
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="@string/Midcity" />
+                android:text="@string/murder_in_multiplayer" />
 
             <RadioButton
                 android:id="@+id/rb_prisonbreak"
@@ -101,24 +109,31 @@ android:id="@+id/rg_events"
                 android:text="@string/PrisonBreak" />
 
             <RadioButton
-                android:id="@+id/rb_maathiyosi"
+                android:id="@+id/rb_pitch_impossible"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="@string/Maathiyosi" />
+                android:text="@string/pitch_impossible" />
 
             <RadioButton
-                android:id="@+id/rb_homicide"
+                android:id="@+id/rb_comic_quiz"
 
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="@string/Homicide" />
+                android:text="@string/comic_quiz" />
+
+
+
+            <RadioButton
+                android:id="@+id/rb_box_cricket"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/box_cricket_futsal" />
 
             <RadioButton
                 android:id="@+id/rb_gaming"
-android:visibility="gone"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="Gaming" />
+                android:text="@string/gaming" />
 
         </RadioGroup>
 

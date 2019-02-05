@@ -15,8 +15,8 @@
         android:orientation="vertical"
 
         android:padding="10dp"
-        android:paddingBottom="100dp"
-        android:paddingTop="100dp">
+        android:paddingTop="100dp"
+        android:paddingBottom="100dp">
 
         <TextView
             android:layout_width="match_parent"
@@ -122,6 +122,7 @@
             android:layout_marginTop="10dp"
             android:text="Create Account!" />
 
+
         <ImageView
             android:id="@+id/img_lion"
             android:layout_width="match_parent"
@@ -131,6 +132,16 @@
             android:src="@drawable/roundlogo" />
     </LinearLayout>
 
+    <ImageButton
+        android:id="@+id/btn_clear"
+        android:layout_width="100dp"
+        android:layout_height="100dp"
+        android:layout_alignParentEnd="true"
+        android:layout_alignParentRight="true"
+
+        android:layout_alignParentBottom="true"
+        android:src="@android:drawable/ic_menu_delete"
+        android:visibility="invisible" />
 
 
 </RelativeLayout>

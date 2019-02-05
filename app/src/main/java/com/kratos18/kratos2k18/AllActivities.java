@@ -26,7 +26,7 @@ btn_choosewinner = findViewById(R.id.btn_choosewinner);
         btn_referral.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                startActivity(new Intent(AllActivities.this, Referral.class));
+              //  startActivity(new Intent(AllActivities.this, Referral.class));
 
             }
         });

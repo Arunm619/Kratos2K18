@@ -3,7 +3,6 @@
     <string name="app_name_markqr">Mark QR</string>
     <string name="app_name_eventname">Events</string>
 
-    <string name="paper_presentation">Paper Presentation</string>
     <string name="Winners">Winners List</string>
     <string name="project">Project Display</string>
     <string name="Connections">Connections</string>
@@ -21,7 +20,6 @@
     <string name="third_prize">Third Prize -</string>
     <string name="Winner">Winner goes here</string>
     <string name="homicie">Homicide</string>
-    <string name="prison">Prison  Break</string>
     <string name="mathi">Maathi Yosi</string>
     <string name="midcity">Midcity Madness</string>
     <string name="connections">Connections</string>
@@ -47,7 +45,7 @@
     <string name="app_name_incharge">Volunteers</string>
     <string name="app_name_admin">Admin</string>
     <string name="internet_error">Internet Error</string>
-    <string name="internet_error_long">Please Connect to Wifi or Turn on Mobile Internet or ask your friend to tether hotspot</string>
+    <string name="internet_error_long">Please Connect to Wifi or Turn on Mobile Internet</string>
     <string name="help_register">Help?</string>
     <string name="surehelp">Are you sure want to call Arun? </string>
     <string name="mar_qr_registration_desk_2">Mark QR </string>
@@ -65,4 +63,21 @@
     <string name="qrcode">qrcode</string>
     <string name="participants">Participants</string>
     <string name="total">Total Registered :</string>
+
+    <string name="paper_presentation">Paper Presentation</string>
+    <string name="clash_of_codes">Clash of Codes</string>
+    <string name="tech_treasure_hunt">Tech Treasure Hunt</string>
+    <string name="dead_locked_db">Dead Locked DB</string>
+    <string name="google_it">Google it</string>
+    <string name="gadgets_and_gizmos">Gadgets and Gizmos</string>
+
+
+    <string name="murder_in_multiplayer">Murder in Multiplayer</string>
+    <string name="pitch_impossible">Pitch Impossible</string>
+    <string name="comic_quiz">Comic Quiz</string>
+    <string name="gaming">Gaming</string>
+    <string name="box_cricket_futsal">Box Cricket-Futsal</string>
+    <string name="prison">Prison Break</string>
+    <string name="select_event">Select Event</string>
+
 </resources>

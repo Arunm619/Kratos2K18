@@ -1,10 +1,13 @@
 package com.kratos18.kratos2k18;
 
 import android.app.ProgressDialog;
+import android.content.Context;
 import android.content.Intent;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+import android.util.Log;
 import android.view.View;
+import android.view.inputmethod.InputMethodManager;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.TextView;
@@ -23,6 +26,7 @@ import com.google.zxing.integration.android.IntentResult;
 public class Admin extends AppCompatActivity {
 
 
+    private static final String TAG ="ADMIN ACTIVITY " ;
     Button btn_scanqrfullinfo, btn_submit;
     EditText Et_input_uuid;
     FirebaseDatabase database;
@@ -57,6 +61,8 @@ public class Admin extends AppCompatActivity {
         pd = new ProgressDialog(Admin.this);
         pd.setMessage("Loading.");
 
+        //Log.wtf("Cookie","Casper");
+
         btn_scanqrfullinfo.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
@@ -66,8 +72,11 @@ public class Admin extends AppCompatActivity {
         btn_submit.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
+                InputMethodManager mgr = (InputMethodManager) getSystemService(Context.INPUT_METHOD_SERVICE);
+                mgr.hideSoftInputFromWindow(Et_input_uuid.getWindowToken(), 0);
+
                 person = "KR-" + Et_input_uuid.getText().toString();
-                if (person.length() > 10) {
+                if (person.length() != 10) {
 
                     findtheuser();
                 } else {
@@ -79,11 +88,11 @@ public class Admin extends AppCompatActivity {
     }
 
     void findevents(final Student student) {
-        final StringBuffer events = new StringBuffer();
-        DatabaseReference eref = database.getReferenceFromUrl("https://kratos2k18-896f6.firebaseio.com/Events");
+        //final StringBuffer events = new StringBuffer();
+     //   DatabaseReference eref = database.getReferenceFromUrl("https://kratos2k18-896f6.firebaseio.com/Events");
 
 
-        tv_participatedevents.setText(new String(events));
+      //  tv_participatedevents.setText(new String(events));
 
     }
 
@@ -99,6 +108,7 @@ public class Admin extends AppCompatActivity {
                             setviews(student);
 
                         } else {
+
                             Toast.makeText(Admin.this, "Student does not exist!", Toast.LENGTH_SHORT).show();
 
                         }////findevents(student);
@@ -114,6 +124,8 @@ public class Admin extends AppCompatActivity {
     }
 
     private void setviews(Student student) {
+
+
 
         tv_name.setText(student.getTextname());
         tv_phone.setText(String.valueOf(student.getTextphone()));
@@ -144,19 +156,33 @@ public class Admin extends AppCompatActivity {
 //the value of qr code.
 
             Query query = myRef.orderByChild(getString(R.string.qrcode)).equalTo(result.getContents());
+
             query.addListenerForSingleValueEvent(new ValueEventListener() {
                 @Override
                 public void onDataChange(DataSnapshot dataSnapshot) {
 
+                    Log.i(TAG,dataSnapshot.getChildrenCount()+"");
+                    if(dataSnapshot.getChildrenCount()>0)
+
+
                     for (DataSnapshot childSnapshot : dataSnapshot.getChildren()) {
                         key = childSnapshot.getKey();
                         getthestudent(key);
-                        // Log.i(TAG,key);
+                         Log.i(TAG,key);
                     }
-                    //    Toast.makeText(ScanQRActivity.this, key, Toast.LENGTH_SHORT).show();
+
+                    else
+                    {
+                        pd.dismiss();
+                        Toast.makeText(Admin.this, "QR CODE IS NULL , Please MARK QR", Toast.LENGTH_SHORT).show();
+                        Log.i(TAG,"NOT FOUND SUDENT");
+                       // Toast.makeText(this, "Student Not Found", Toast.LENGTH_SHORT).show();
+                    }                    //
+
 
 
                 }
+
 
                 @Override
                 public void onCancelled(DatabaseError databaseError) {
@@ -165,6 +191,11 @@ public class Admin extends AppCompatActivity {
             });
 
 
+        }
+        else
+        {
+            Toast.makeText(this, "Cancelled Scanning!", Toast.LENGTH_SHORT).show();
+            pd.dismiss();
         }
     }
 
@@ -181,7 +212,7 @@ public class Admin extends AppCompatActivity {
                 String studentDataObjectAsAString = gson.toJson(student);
 
                 setviews(student);
-                findevents(student);
+               // findevents(student);
                 pd.dismiss();
 
 

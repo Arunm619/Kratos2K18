@@ -19,9 +19,9 @@ import com.google.firebase.database.ValueEventListener;
 import java.util.ArrayList;
 
 public class WinnersActivity extends AppCompatActivity {
-    TextView tv_paperpresenation, tv_projectdisplay, tv_connections, tv_codewars, tv_trespassers, tv_googleit;
-    TextView tv_promotions, tv_homicide, tv_prisonbreak, tv_midcitymadness, TV_mathiyosi;
+    TextView tv_paperpresenation, tv_clashofcodes, tv_tech_treasurehunt, tv_deadlockdb, tv_googleit, tv_gadgets;
 
+    TextView tv_murderinmulti, tv_prisonbreak, tv_pitchimpossible, tv_comicquiz, tv_boxcricket, tv_gaming;
 
     TextView tv_fp, tv_sp, tv_tp, tvevent, tv_totalcount;
 
@@ -42,9 +42,9 @@ public class WinnersActivity extends AppCompatActivity {
         tv_totalcount = findViewById(R.id.totalcount);
 
 
-        tv_fp.setText("1");
-        tv_sp.setText("2");
-        tv_tp.setText("3");
+        tv_fp.setText(R.string.select_event);
+        tv_sp.setText(R.string.select_event);
+        tv_tp.setText(R.string.select_event);
 
 
         database = FirebaseDatabase.getInstance();
@@ -72,7 +72,7 @@ public class WinnersActivity extends AppCompatActivity {
             public void onClick(View view) {
                 final String user = tv_fp.getText().toString();
 
-                if (!user.equals("1"))
+                if (!user.equals(R.string.select_event))
                     userref.child(user).addValueEventListener(new ValueEventListener() {
                         @Override
                         public void onDataChange(DataSnapshot ds) {
@@ -114,7 +114,7 @@ public class WinnersActivity extends AppCompatActivity {
             @Override
             public void onClick(View view) {
                 final String user = tv_sp.getText().toString();
-                if (!user.equals("2"))
+                if (!user.equals(R.string.select_event))
                     userref.child(user).addValueEventListener(new ValueEventListener() {
                         @Override
                         public void onDataChange(DataSnapshot ds) {
@@ -157,7 +157,7 @@ public class WinnersActivity extends AppCompatActivity {
             public void onClick(View view) {
                 final String user = tv_tp.getText().toString();
 //                Toast.makeText(WinnersActivity.this, ""+user, Toast.LENGTH_SHORT).show();
-                if (!user.equals("3"))
+                if (!user.equals(R.string.select_event))
                     userref.child(user).addValueEventListener(new ValueEventListener() {
                         @Override
                         public void onDataChange(DataSnapshot ds) {
@@ -194,9 +194,10 @@ public class WinnersActivity extends AppCompatActivity {
             }
         });
 
-        tv_paperpresenation.setOnClickListener(new View.OnClickListener()
 
-        {
+        //technical
+
+       /* tv_paperpresenation.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
                 tvevent.setText(getString(R.string.paper_presentation));
@@ -214,12 +215,12 @@ public class WinnersActivity extends AppCompatActivity {
                         tv_sp.setText(winner2);
                         tv_tp.setText(winner3);
 
-                     /*   String[] Details = {"Winner 1: " + winner1, "Winner 2: " + winner2, "Winner 3: " + winner3};
+                     *//*   String[] Details = {"Winner 1: " + winner1, "Winner 2: " + winner2, "Winner 3: " + winner3};
 
                         new MaterialDialog.Builder(WinnersActivity.this)
                                 .title("Details of " + getString(R.string.paper_presentation))
                                 .items(Details)
-                                .show();*/
+                                .show();*//*
 
 
                     }
@@ -232,17 +233,16 @@ public class WinnersActivity extends AppCompatActivity {
 
 
             }
-        });
+        });*/
 
+//tech
 
-        tv_projectdisplay.setOnClickListener(new View.OnClickListener()
-
-        {
+        tv_paperpresenation.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                tvevent.setText(getString(R.string.project));
+                tvevent.setText(getString(R.string.paper_presentation));
 
-                myRef.child(getString(R.string.project)).addValueEventListener(new ValueEventListener() {
+                myRef.child(getString(R.string.paper_presentation)).addValueEventListener(new ValueEventListener() {
                     @Override
                     public void onDataChange(DataSnapshot dataSnapshot) {
 
@@ -272,14 +272,12 @@ public class WinnersActivity extends AppCompatActivity {
         });
 
 
-        tv_connections.setOnClickListener(new View.OnClickListener()
-
-        {
+        tv_clashofcodes.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                tvevent.setText(R.string.connections);
+                tvevent.setText(R.string.clash_of_codes);
 
-                myRef.child(getString(R.string.connections)).addValueEventListener(new ValueEventListener() {
+                myRef.child(getString(R.string.clash_of_codes)).addValueEventListener(new ValueEventListener() {
                     @Override
                     public void onDataChange(DataSnapshot dataSnapshot) {
 
@@ -308,14 +306,12 @@ public class WinnersActivity extends AppCompatActivity {
             }
         });
 
-        tv_codewars.setOnClickListener(new View.OnClickListener()
-
-        {
+        tv_tech_treasurehunt.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                tvevent.setText(getString(R.string.codears));
+                tvevent.setText(getString(R.string.tech_treasure_hunt));
 
-                myRef.child(getString(R.string.codears)).addValueEventListener(new ValueEventListener() {
+                myRef.child(getString(R.string.tech_treasure_hunt)).addValueEventListener(new ValueEventListener() {
                     @Override
                     public void onDataChange(DataSnapshot dataSnapshot) {
                         String winner1 = dataSnapshot.child("Winner1").getValue(String.class);
@@ -343,14 +339,12 @@ public class WinnersActivity extends AppCompatActivity {
             }
         });
 
-        tv_trespassers.setOnClickListener(new View.OnClickListener()
-
-        {
+        tv_deadlockdb.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                tvevent.setText(getString(R.string.trespassers));
+                tvevent.setText(getString(R.string.dead_locked_db));
 
-                myRef.child(getString(R.string.trespassers)).addValueEventListener(new ValueEventListener() {
+                myRef.child(getString(R.string.dead_locked_db)).addValueEventListener(new ValueEventListener() {
                     @Override
                     public void onDataChange(DataSnapshot dataSnapshot) {
 
@@ -379,9 +373,7 @@ public class WinnersActivity extends AppCompatActivity {
             }
         });
 
-        tv_googleit.setOnClickListener(new View.OnClickListener()
-
-        {
+        tv_googleit.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
                 tvevent.setText(R.string.Google_it);
@@ -415,14 +407,12 @@ public class WinnersActivity extends AppCompatActivity {
             }
         });
 
-        tv_homicide.setOnClickListener(new View.OnClickListener()
-
-        {
+        tv_gadgets.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                tvevent.setText(getString(R.string.homicie));
+                tvevent.setText(getString(R.string.gadgets_and_gizmos));
 
-                myRef.child(getString(R.string.homicie)).addValueEventListener(new ValueEventListener() {
+                myRef.child(getString(R.string.gadgets_and_gizmos)).addValueEventListener(new ValueEventListener() {
                     @Override
                     public void onDataChange(DataSnapshot dataSnapshot) {
                         String winner1 = dataSnapshot.child("Winner1").getValue(String.class);
@@ -450,14 +440,15 @@ public class WinnersActivity extends AppCompatActivity {
             }
         });
 
-        tv_prisonbreak.setOnClickListener(new View.OnClickListener()
 
-        {
+        //non tech
+
+        tv_murderinmulti.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                tvevent.setText(getString(R.string.prison));
+                tvevent.setText(getString(R.string.murder_in_multiplayer));
 
-                myRef.child(getString(R.string.prison)).addValueEventListener(new ValueEventListener() {
+                myRef.child(getString(R.string.murder_in_multiplayer)).addValueEventListener(new ValueEventListener() {
                     @Override
                     public void onDataChange(DataSnapshot dataSnapshot) {
 
@@ -487,14 +478,12 @@ public class WinnersActivity extends AppCompatActivity {
         });
 
 
-        TV_mathiyosi.setOnClickListener(new View.OnClickListener()
-
-        {
+        tv_prisonbreak.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                tvevent.setText(getString(R.string.mathi));
+                tvevent.setText(getString(R.string.prison));
 
-                myRef.child(getString(R.string.mathi)).addValueEventListener(new ValueEventListener() {
+                myRef.child(getString(R.string.prison)).addValueEventListener(new ValueEventListener() {
                     @Override
                     public void onDataChange(DataSnapshot dataSnapshot) {
 
@@ -523,14 +512,12 @@ public class WinnersActivity extends AppCompatActivity {
             }
         });
 
-        tv_midcitymadness.setOnClickListener(new View.OnClickListener()
-
-        {
+        tv_pitchimpossible.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                tvevent.setText(getString(R.string.midcity));
+                tvevent.setText(getString(R.string.pitch_impossible));
 
-                myRef.child(getString(R.string.midcity)).addValueEventListener(new ValueEventListener() {
+                myRef.child(getString(R.string.pitch_impossible)).addValueEventListener(new ValueEventListener() {
                     @Override
                     public void onDataChange(DataSnapshot dataSnapshot) {
 
@@ -559,35 +546,30 @@ public class WinnersActivity extends AppCompatActivity {
             }
         });
 
-        tv_promotions.setOnClickListener(new View.OnClickListener() {
+
+        tv_comicquiz.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                proref.addValueEventListener(new ValueEventListener() {
+                tvevent.setText(getString(R.string.comic_quiz));
+
+                myRef.child(getString(R.string.comic_quiz)).addValueEventListener(new ValueEventListener() {
                     @Override
                     public void onDataChange(DataSnapshot dataSnapshot) {
 
+                        String winner1 = dataSnapshot.child("Winner1").getValue(String.class);
+                        String winner2 = dataSnapshot.child("Winner2").getValue(String.class);
+                        String winner3 = dataSnapshot.child("Winner3").getValue(String.class);
 
-                        //parent index
-
-                        int max = -1;
-
-                        DataSnapshot dswinner = null;
-                        for (DataSnapshot ds : dataSnapshot.getChildren()) {
-                            if ((int) ds.getChildrenCount() > max) {
-                                max = (int) ds.getChildrenCount();
-                                dswinner = ds;
-                            }
-
-
-                        }
-                        assert dswinner != null;
-                        String value = dswinner.getKey().trim();
+                        tv_fp.setText(winner1);
+                        tv_sp.setText(winner2);
+                        tv_tp.setText(winner3);
+/*
+                        String[] Details = {"Winner 1: " + winner1, "Winner 2: " + winner2, "Winner 3: " + winner3};
 
                         new MaterialDialog.Builder(WinnersActivity.this)
-                                .title(R.string.referral)
-                                .content("Winner - " + value)
-                                .positiveText("Okay")
-                                .show();
+                                .title("Details of " + getString(R.string.Midcity))
+                                .items(Details)
+                                .show();*/
 
                     }
 
@@ -596,26 +578,101 @@ public class WinnersActivity extends AppCompatActivity {
 
                     }
                 });
-
-
             }
         });
+
+
+        tv_boxcricket.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                tvevent.setText(getString(R.string.box_cricket_futsal));
+
+                myRef.child(getString(R.string.box_cricket_futsal)).addValueEventListener(new ValueEventListener() {
+                    @Override
+                    public void onDataChange(DataSnapshot dataSnapshot) {
+
+                        String winner1 = dataSnapshot.child("Winner1").getValue(String.class);
+                        String winner2 = dataSnapshot.child("Winner2").getValue(String.class);
+                        String winner3 = dataSnapshot.child("Winner3").getValue(String.class);
+
+                        tv_fp.setText(winner1);
+                        tv_sp.setText(winner2);
+                        tv_tp.setText(winner3);
+/*
+                        String[] Details = {"Winner 1: " + winner1, "Winner 2: " + winner2, "Winner 3: " + winner3};
+
+                        new MaterialDialog.Builder(WinnersActivity.this)
+                                .title("Details of " + getString(R.string.Midcity))
+                                .items(Details)
+                                .show();*/
+
+                    }
+
+                    @Override
+                    public void onCancelled(DatabaseError databaseError) {
+
+                    }
+                });
+            }
+        });
+
+
+        tv_gaming.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                tvevent.setText(getString(R.string.gaming));
+
+                myRef.child(getString(R.string.gaming)).addValueEventListener(new ValueEventListener() {
+                    @Override
+                    public void onDataChange(DataSnapshot dataSnapshot) {
+
+                        String winner1 = dataSnapshot.child("Winner1").getValue(String.class);
+                        String winner2 = dataSnapshot.child("Winner2").getValue(String.class);
+                        String winner3 = dataSnapshot.child("Winner3").getValue(String.class);
+
+                        tv_fp.setText(winner1);
+                        tv_sp.setText(winner2);
+                        tv_tp.setText(winner3);
+/*
+                        String[] Details = {"Winner 1: " + winner1, "Winner 2: " + winner2, "Winner 3: " + winner3};
+
+                        new MaterialDialog.Builder(WinnersActivity.this)
+                                .title("Details of " + getString(R.string.Midcity))
+                                .items(Details)
+                                .show();*/
+
+                    }
+
+                    @Override
+                    public void onCancelled(DatabaseError databaseError) {
+
+                    }
+                });
+            }
+        });
+
+
     }
 
 
     private void callviews() {
-
-        tv_codewars = findViewById(R.id.tvtvcodewars);
-        tv_connections = findViewById(R.id.tvtvconnections);
-        tv_googleit = findViewById(R.id.tvtvGoogleit);
-        tv_homicide = findViewById(R.id.tvtvhomicide);
-        tv_midcitymadness = findViewById(R.id.tvtvMidcity);
-        tv_prisonbreak = findViewById(R.id.tvtvPrisonBreak);
-        TV_mathiyosi = findViewById(R.id.tvtvMaathiyosi);
+        //tech
         tv_paperpresenation = findViewById(R.id.tvtvpaperpresentation);
-        tv_projectdisplay = findViewById(R.id.tvtvprojectdisplay);
-        tv_trespassers = findViewById(R.id.tvtvtrespassers);
-        tv_promotions = findViewById(R.id.tvtvReferralWinner);
+        tv_clashofcodes = findViewById(R.id.tvtvclashofcodes);
+        tv_tech_treasurehunt = findViewById(R.id.tvtvtechtreasurehunt);
+        tv_deadlockdb = findViewById(R.id.tvtvdeadlockeddb);
+        tv_googleit = findViewById(R.id.tvtvGoogleit);
+        tv_gadgets = findViewById(R.id.tvtvGadgetsandgizmo);
+
+
+        //non tech
+        tv_murderinmulti = findViewById(R.id.tvtvmurderinmultiplayer);
+        tv_prisonbreak = findViewById(R.id.tvtvprisonbreak);
+        tv_pitchimpossible = findViewById(R.id.tvtvpitchimpossible);
+        tv_comicquiz = findViewById(R.id.tvtvcomicquiz);
+        tv_boxcricket = findViewById(R.id.tvtvboxcricket);
+        tv_gaming = findViewById(R.id.tvtvgaming);
+
 
     }
 }

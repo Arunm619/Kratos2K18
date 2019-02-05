@@ -63,34 +63,59 @@ public class ShowDetailsActivity extends AppCompatActivity {
 
 
                 switch (event) {
-                    case "Connections":
-                        myRef.child(getString(R.string.connections)).child(student.getUUID()).setValue(student);
-                        homeref.child(student.getUUID()).child("participatedevents").setValue("Connections");
+
+                    //technical events
+                    case "Paper Presentation":
+                        myRef.child(getString(R.string.paper_presentation)).child(student.getUUID()).setValue(student);
+                        //homeref.child(student.getUUID()).child("participatedevents").setValue("Connections");
                         break;
-                    case "Code wars":
-                        myRef.child(getString(R.string.codears)).child(student.getUUID()).setValue(student);
+                    case "Clash of Codes":
+                        myRef.child(getString(R.string.clash_of_codes)).child(student.getUUID()).setValue(student);
                         break;
-                    case "Trespassers":
-                        myRef.child(getString(R.string.trespassers)).child(student.getUUID()).setValue(student);
+                    case "Tech Treasure Hunt":
+                        myRef.child(getString(R.string.tech_treasure_hunt)).child(student.getUUID()).setValue(student);
+                        break;
+                    case "Dead Locked DB":
+                        myRef.child(getString(R.string.dead_locked_db)).child(student.getUUID()).setValue(student);
                         break;
                     case "Google it":
-                        myRef.child(getString(R.string.Google_it)).child(student.getUUID()).setValue(student);
+                        myRef.child(getString(R.string.google_it)).child(student.getUUID()).setValue(student);
                         break;
-                    case "Homicide":
-                        myRef.child(getString(R.string.homicie)).child(student.getUUID()).setValue(student);
+                    case "Gadgets and Gizmos":
+                        myRef.child(getString(R.string.gadgets_and_gizmos)).child(student.getUUID()).setValue(student);
+                        break;
+
+
+
+                    //non-technical events
+
+
+                    case "Murder in Multiplayer":
+                        myRef.child(getString(R.string.murder_in_multiplayer)).child(student.getUUID()).setValue(student);
+                        //homeref.child(student.getUUID()).child("participatedevents").setValue("Connections");
                         break;
                     case "Prison Break":
                         myRef.child(getString(R.string.prison)).child(student.getUUID()).setValue(student);
                         break;
 
-                    case "Maathi Yosi":
-                        myRef.child(getString(R.string.mathi)).child(student.getUUID()).setValue(student);
+                    case "Pitch Impossible":
+                        myRef.child(getString(R.string.pitch_impossible)).child(student.getUUID()).setValue(student);
                         break;
-                    case "Midcity Madness":
-                        myRef.child(getString(R.string.midcity)).child(student.getUUID()).setValue(student);
+                    case "Comic Quiz":
+                        myRef.child(getString(R.string.comic_quiz)).child(student.getUUID()).setValue(student);
                         break;
+
+                    case "Box Cricket-Futsal":
+                        myRef.child(getString(R.string.box_cricket_futsal)).child(student.getUUID()).setValue(student);
+                        break;
+
+                    case "Gaming":
+                        myRef.child(getString(R.string.gaming)).child(student.getUUID()).setValue(student);
+                        break;
+
+
                 }
-                Snackbar.make(rl_showdetails, "Participating..  " + event, Snackbar.LENGTH_INDEFINITE).setAction("Okay", new View.OnClickListener() {
+                Snackbar.make(rl_showdetails, "Participating in  " + event, Snackbar.LENGTH_INDEFINITE).setAction("Okay", new View.OnClickListener() {
                     @Override
                     public void onClick(View view) {
 

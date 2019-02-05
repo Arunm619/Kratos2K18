@@ -15,14 +15,11 @@ import java.util.Objects;
 
 public class SelectEvent extends AppCompatActivity {
     RadioGroup rg_events;
-    RadioButton rb_connections, rb_codewars, rb_trespassers,
-            rb_googleit,
-            rb_futsal,
-            rb_midcitymadness,
-            rb_prisonbreak,
-            rb_maathiyosi,
-            rb_homicide,
-            rb_gaming;
+    RadioButton rb_paperpresentation,
+                rb_clashofcodes,
+        rb_techtreasurehunt,rb_deadlockeddb, rb_googleit, rb_gadgetandgizmos,
+    rb_murderinmultiplayer, rb_prisonbreak, rb_pitchimpossible,rb_comicquiz,
+    rb_boxcricket,rb_gaming;
 
     Button btn_selectevent;
 
@@ -30,7 +27,7 @@ public class SelectEvent extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_select_event);
-
+        setuprb();
 
         SharedPreferences pref = getApplicationContext().getSharedPreferences("MyPref", 0); // 0 - for private mode
         final SharedPreferences.Editor editor = pref.edit();
@@ -64,23 +61,35 @@ public class SelectEvent extends AppCompatActivity {
                 }
             }
         });
-        setuprb();
+
 
 
     }
 
     private void setuprb() {
-        rg_events = findViewById(R.id.rg_events);
-        rb_connections = findViewById(R.id.rb_connections);
-        rb_codewars = findViewById(R.id.rb_codewars);
-        rb_trespassers = findViewById(R.id.rb_trespassers);
+       //tech
+        rb_paperpresentation = findViewById(R.id.rb_paperpresentation);
+        rb_clashofcodes = findViewById(R.id.rb_clash_of_codes);
+
+        rb_techtreasurehunt = findViewById(R.id.rb_tech_treasure_hunt);
+        rb_deadlockeddb = findViewById(R.id.rb_dead_locked_db);
+
         rb_googleit = findViewById(R.id.rb_googleit);
-        rb_futsal = findViewById(R.id.rb_futsal);
-        rb_midcitymadness = findViewById(R.id.rb_midcitymadness);
+        rb_gadgetandgizmos = findViewById(R.id.rb_gadgets_gizmos);
+
+
+        //non tech
+
+        rb_murderinmultiplayer = findViewById(R.id.rb_murder_in_multiplayer);
         rb_prisonbreak = findViewById(R.id.rb_prisonbreak);
-        rb_maathiyosi = findViewById(R.id.rb_maathiyosi);
-        rb_homicide = findViewById(R.id.rb_homicide);
+
+        rb_pitchimpossible = findViewById(R.id.rb_pitch_impossible);
+        rb_comicquiz = findViewById(R.id.rb_comic_quiz);
+
+        rb_boxcricket = findViewById(R.id.rb_box_cricket);
         rb_gaming = findViewById(R.id.rb_gaming);
 
+
+        rg_events = findViewById(R.id.rg_events);
     }
 }

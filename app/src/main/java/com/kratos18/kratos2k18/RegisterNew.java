@@ -17,6 +17,7 @@ import android.view.MenuItem;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
+import android.widget.ImageButton;
 import android.widget.ImageView;
 import android.widget.RelativeLayout;
 import android.widget.Toast;
@@ -33,6 +34,7 @@ public class RegisterNew extends AppCompatActivity {
     String phonenumber;
     Button btn_register, btn_validatenumber;
 
+    ImageButton btn_clear;
     FirebaseDatabase database;
     DatabaseReference myRef;
 
@@ -54,6 +56,7 @@ public class RegisterNew extends AppCompatActivity {
 
         btn_register = findViewById(R.id.btn_submit);
         btn_validatenumber = findViewById(R.id.btn_validatenumber);
+        btn_clear = findViewById(R.id.btn_clear);
         database = FirebaseDatabase.getInstance();
         myRef = database.getReferenceFromUrl("https://kratos2k18-896f6.firebaseio.com/Users");
         // ListRef = database.getReferenceFromUrl("https://kratos2k18-896f6.firebaseio.com/AddedNumbers");
@@ -117,6 +120,14 @@ public class RegisterNew extends AppCompatActivity {
             }
         });
 
+        btn_clear.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                clearall();
+                btn_clear.setVisibility(View.GONE);
+            }
+        });
+
 
     }
 
@@ -166,11 +177,11 @@ public class RegisterNew extends AppCompatActivity {
             @Override
             public void onDataChange(DataSnapshot dataSnapshot) {
                 if (dataSnapshot.exists()) {
-                    Toast.makeText(RegisterNew.this, "Already Number exixts", Toast.LENGTH_SHORT).show();
-
+                    Toast.makeText(RegisterNew.this, "Number Already Exists, Proceed to Marking QR", Toast.LENGTH_SHORT).show();
+                    btn_clear.setVisibility(View.VISIBLE);
 
                 } else {
-                    Toast.makeText(RegisterNew.this, "okay all cool", Toast.LENGTH_SHORT).show();
+                    Toast.makeText(RegisterNew.this, "Okay All Cool!", Toast.LENGTH_SHORT).show();
                     btn_register.setEnabled(true);
                 }
 
@@ -206,22 +217,25 @@ public class RegisterNew extends AppCompatActivity {
         if (TextUtils.isEmpty(name)) {
             Toast.makeText(this, "Enter Name", Toast.LENGTH_SHORT).show();
             return -1;
-        } else if (TextUtils.isEmpty(clgname)) {
-            Toast.makeText(this, "Enter College Name", Toast.LENGTH_SHORT).show();
-            return -1;
-        } else if (phonenumber.length() != 10) {
-            Toast.makeText(this, "Phone number should be of 10 digits.", Toast.LENGTH_SHORT).show();
+        } else if (TextUtils.isEmpty(email)) {
+            Toast.makeText(this, "Enter email", Toast.LENGTH_SHORT).show();
             return -1;
         } else if (TextUtils.isEmpty(String.valueOf(phonenumber))) {
             Toast.makeText(this, "Enter Phone number", Toast.LENGTH_SHORT).show();
             return -1;
+        } else if (phonenumber.length() != 10) {
+            Toast.makeText(this, "Phone number should be of 10 digits.", Toast.LENGTH_SHORT).show();
+            return -1;
+        } else if (TextUtils.isEmpty(clgname)) {
+            Toast.makeText(this, "Enter College Name", Toast.LENGTH_SHORT).show();
+            return -1;
         } else if (TextUtils.isEmpty(deptname)) {
             Toast.makeText(this, "Enter dept name", Toast.LENGTH_SHORT).show();
             return -1;
-        }
+        } else
 
 
-        return 0;
+            return 0;
     }
 
 
