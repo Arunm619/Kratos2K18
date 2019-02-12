@@ -160,7 +160,7 @@ public class MarkQRActivity extends AppCompatActivity {
                                 }
                             })
                             .show();
-                    Toast.makeText(MarkQRActivity.this, "Please Register First.", Toast.LENGTH_SHORT).show();
+                   // Toast.makeText(MarkQRActivity.this, "Please Register First.", Toast.LENGTH_SHORT).show();
 
                 }
             }

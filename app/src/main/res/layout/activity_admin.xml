@@ -33,6 +33,19 @@
             android:text="Scan" />
 
 
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:layout_marginBottom="20dp"
+            android:gravity="center"
+            android:text="Or\n Enter Phone Number"
+
+            android:textAppearance="@style/Base.TextAppearance.AppCompat.Medium"
+            android:textColor="@color/colorPrimary"
+            android:textStyle="bold" />
+
+
         <LinearLayout
 
             android:layout_width="match_parent"
@@ -75,7 +88,8 @@
         android:layout_below="@id/llforscanning">
 
         <LinearLayout
-            android:id="@+id/ll"
+
+            android:id="@+id/ll_card"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_marginTop="100dp"
@@ -83,14 +97,16 @@
             android:padding="10dp"
             tools:ignore="UselessParent">
 
-            <RelativeLayout
+            <LinearLayout
                 android:layout_width="match_parent"
-                android:layout_height="wrap_content">
+                android:layout_height="wrap_content"
+                android:weightSum="2">
 
                 <TextView
                     android:id="@+id/tvtvname"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
+                    android:layout_weight="1"
                     android:text="Name:"
                     android:textAppearance="@style/Base.TextAppearance.AppCompat.Large"
 
@@ -100,23 +116,24 @@
                     android:id="@+id/tv_name"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:layout_marginLeft="10dp"
-                    android:layout_toRightOf="@id/tvtvname"
-                    android:text="Loading"
+                    android:layout_weight="1"
+                    android:text="@string/Loading"
                     android:textAppearance="@style/Base.TextAppearance.AppCompat.Large"
 
                     />
 
-            </RelativeLayout>
+            </LinearLayout>
 
-            <RelativeLayout
+            <LinearLayout
                 android:layout_width="match_parent"
-                android:layout_height="wrap_content">
+                android:layout_height="wrap_content"
+                android:weightSum="2">
 
                 <TextView
                     android:id="@+id/tvtvcollegename"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
+                    android:layout_weight="0"
                     android:text="College:"
                     android:textAppearance="@style/Base.TextAppearance.AppCompat.Large"
 
@@ -126,23 +143,24 @@
                     android:id="@+id/tv_clgname"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:layout_marginLeft="10dp"
-                    android:layout_toRightOf="@id/tvtvcollegename"
+                    android:layout_weight="1"
                     android:text="Loading"
                     android:textAppearance="@style/Base.TextAppearance.AppCompat.Large"
 
                     />
 
-            </RelativeLayout>
+            </LinearLayout>
 
-            <RelativeLayout
+            <LinearLayout
                 android:layout_width="match_parent"
-                android:layout_height="wrap_content">
+                android:layout_height="wrap_content"
+                android:weightSum="2">
 
                 <TextView
                     android:id="@+id/tvtvphone"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
+                    android:layout_weight="1"
                     android:text="Phone:"
                     android:textAppearance="@style/Base.TextAppearance.AppCompat.Large"
 
@@ -152,23 +170,24 @@
                     android:id="@+id/tv_phonenumber"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:layout_marginLeft="10dp"
-                    android:layout_toRightOf="@id/tvtvphone"
+                    android:layout_weight="1"
                     android:text="Loading"
                     android:textAppearance="@style/Base.TextAppearance.AppCompat.Large"
 
                     />
 
-            </RelativeLayout>
+            </LinearLayout>
 
-            <RelativeLayout
+            <LinearLayout
                 android:layout_width="match_parent"
-                android:layout_height="wrap_content">
+                android:layout_height="wrap_content"
+                android:weightSum="2">
 
                 <TextView
                     android:id="@+id/tvtvdept"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
+                    android:layout_weight="1"
                     android:text="Dept:"
                     android:textAppearance="@style/Base.TextAppearance.AppCompat.Large"
 
@@ -176,17 +195,16 @@
 
                 <TextView
                     android:id="@+id/tv_deptname"
-
                     android:layout_width="wrap_content"
+
                     android:layout_height="wrap_content"
-                    android:layout_marginLeft="10dp"
-                    android:layout_toRightOf="@id/tvtvdept"
+                    android:layout_weight="1"
                     android:text="Loading"
                     android:textAppearance="@style/Base.TextAppearance.AppCompat.Large"
 
                     />
 
-            </RelativeLayout>
+            </LinearLayout>
 
             <RelativeLayout
                 android:layout_width="match_parent"

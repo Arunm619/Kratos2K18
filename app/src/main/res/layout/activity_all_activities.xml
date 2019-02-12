@@ -62,6 +62,7 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:text="Lunch "
+            android:visibility="gone"
 
             />
 
@@ -88,7 +89,7 @@
             style="@style/Widget.AppCompat.Button.Colored"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:text="Admin"
+            android:text="Volunteer"
 
             />
         <Button
@@ -97,6 +98,7 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:text="Referral"
+            android:visibility="gone"
 
         />
 

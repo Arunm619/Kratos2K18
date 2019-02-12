@@ -10,6 +10,7 @@ import android.view.View;
 import android.view.inputmethod.InputMethodManager;
 import android.widget.Button;
 import android.widget.EditText;
+import android.widget.LinearLayout;
 import android.widget.TextView;
 import android.widget.Toast;
 
@@ -38,7 +39,7 @@ public class Admin extends AppCompatActivity {
 
 
     TextView tv_name, tv_clgname, tv_phone, tv_deptname, tv_participatedevents;
-
+    LinearLayout ll;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -49,7 +50,7 @@ public class Admin extends AppCompatActivity {
         tv_clgname = findViewById(R.id.tv_clgname);
         tv_deptname = findViewById(R.id.tv_deptname);
         tv_participatedevents = findViewById(R.id.tv_particapatedevents);
-        tv_participatedevents.setText("Loading...Events");
+        tv_participatedevents.setText(R.string.loading);
         tv_phone = findViewById(R.id.tv_phonenumber);
         tv_name = findViewById(R.id.tv_name);
 
@@ -60,6 +61,11 @@ public class Admin extends AppCompatActivity {
 
         pd = new ProgressDialog(Admin.this);
         pd.setMessage("Loading.");
+
+         ll = findViewById(R.id.ll_card);
+
+        if(tv_name.getText().equals(getString(R.string.Loading)))
+            ll.setVisibility(View.GONE);
 
         //Log.wtf("Cookie","Casper");
 
@@ -76,11 +82,12 @@ public class Admin extends AppCompatActivity {
                 mgr.hideSoftInputFromWindow(Et_input_uuid.getWindowToken(), 0);
 
                 person = "KR-" + Et_input_uuid.getText().toString();
-                if (person.length() != 10) {
+                if (person.length() == 13) {
 
                     findtheuser();
                 } else {
                     Toast.makeText(Admin.this, "Check Phone Number", Toast.LENGTH_SHORT).show();
+                    ll.setVisibility(View.GONE);
                 }
             }
         });
@@ -106,10 +113,12 @@ public class Admin extends AppCompatActivity {
 
                         if (student != null) {
                             setviews(student);
+                            ll.setVisibility(View.VISIBLE);
 
                         } else {
 
                             Toast.makeText(Admin.this, "Student does not exist!", Toast.LENGTH_SHORT).show();
+                            ll.setVisibility(View.GONE);
 
                         }////findevents(student);
 
@@ -174,7 +183,9 @@ public class Admin extends AppCompatActivity {
                     else
                     {
                         pd.dismiss();
-                        Toast.makeText(Admin.this, "QR CODE IS NULL , Please MARK QR", Toast.LENGTH_SHORT).show();
+
+                        ll.setVisibility(View.GONE);
+                        Toast.makeText(Admin.this, "QR CODE IS NULL , Please MARK QR", Toast.LENGTH_LONG).show();
                         Log.i(TAG,"NOT FOUND SUDENT");
                        // Toast.makeText(this, "Student Not Found", Toast.LENGTH_SHORT).show();
                     }                    //
@@ -212,6 +223,8 @@ public class Admin extends AppCompatActivity {
                 String studentDataObjectAsAString = gson.toJson(student);
 
                 setviews(student);
+
+                ll.setVisibility(View.VISIBLE);
                // findevents(student);
                 pd.dismiss();
 

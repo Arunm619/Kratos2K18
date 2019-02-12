@@ -32,10 +32,10 @@ public class SelectEvent extends AppCompatActivity {
         SharedPreferences pref = getApplicationContext().getSharedPreferences("MyPref", 0); // 0 - for private mode
         final SharedPreferences.Editor editor = pref.edit();
         String a = pref.getString("selectedevent", null);
-        if (a != null) {
+      /*  if (a != null) {
             startActivity(new Intent(SelectEvent.this, ScanQRActivity.class));
             finish();
-        }
+        }*/
 
         btn_selectevent = findViewById(R.id.btn_selecteventbtn);
         btn_selectevent.setOnClickListener(new View.OnClickListener() {

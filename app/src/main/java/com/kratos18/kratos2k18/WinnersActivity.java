@@ -42,11 +42,6 @@ public class WinnersActivity extends AppCompatActivity {
         tv_totalcount = findViewById(R.id.totalcount);
 
 
-        tv_fp.setText(R.string.select_event);
-        tv_sp.setText(R.string.select_event);
-        tv_tp.setText(R.string.select_event);
-
-
         database = FirebaseDatabase.getInstance();
         myRef = database.getReferenceFromUrl("https://kratos2k18-896f6.firebaseio.com/Winners");
         userref = database.getReferenceFromUrl("https://kratos2k18-896f6.firebaseio.com/Users");
@@ -72,31 +67,39 @@ public class WinnersActivity extends AppCompatActivity {
             public void onClick(View view) {
                 final String user = tv_fp.getText().toString();
 
-                if (!user.equals(R.string.select_event))
+                if (!user.equals(getString(R.string.select_event)))
                     userref.child(user).addValueEventListener(new ValueEventListener() {
                         @Override
                         public void onDataChange(DataSnapshot ds) {
 
 
                             Student student = ds.getValue(Student.class);
+                            if(student!=null)
+                            {
+                                String name = student.getTextname();
+                                String clg = student.getCollegename();
+                                String Phone = String.valueOf(student.getTextphone());
+                                String Dept = student.getDept();
 
-                            String name = student.getTextname();
-                            String clg = student.getCollegename();
-                            String Phone = String.valueOf(student.getTextphone());
-                            String Dept = student.getDept();
 
+                                String[] Title = {"Name", "Phone", "College", "Dept"};
+                                String[] Details = {"Name : " + name
+                                        , "Phone : " + Phone,
+                                        "Clg   : " + clg,
+                                        "Dept  : " + Dept};
 
-                            String[] Title = {"Name", "Phone", "College", "Dept"};
-                            String[] Details = {"Name : " + name
-                                    , "Phone : " + Phone,
-                                    "Clg   : " + clg,
-                                    "Dept  : " + Dept};
+                                new MaterialDialog.Builder(WinnersActivity.this)
+                                        .title("Details of " + user)
+                                        .items(Details)
+                                        .show();
 
-                            new MaterialDialog.Builder(WinnersActivity.this)
-                                    .title("Details of " + user)
-                                    .items(Details)
-                                    .show();
+                            }
+                            else
+                            {
+                                Toast.makeText(WinnersActivity.this, "Check the number", Toast.LENGTH_SHORT).show();
+                            }
                         }
+
 
                         @Override
                         public void onCancelled(DatabaseError databaseError) {
@@ -114,30 +117,37 @@ public class WinnersActivity extends AppCompatActivity {
             @Override
             public void onClick(View view) {
                 final String user = tv_sp.getText().toString();
-                if (!user.equals(R.string.select_event))
+                if (!user.equals( getString(R.string.select_event)))
                     userref.child(user).addValueEventListener(new ValueEventListener() {
                         @Override
                         public void onDataChange(DataSnapshot ds) {
 
 
                             Student student = ds.getValue(Student.class);
+                            if(student!=null)
+                            {
+                                String name = student.getTextname();
+                                String clg = student.getCollegename();
+                                String Phone = String.valueOf(student.getTextphone());
+                                String Dept = student.getDept();
 
-                            String name = student.getTextname();
-                            String clg = student.getCollegename();
-                            String Phone = String.valueOf(student.getTextphone());
-                            String Dept = student.getDept();
 
+                                String[] Title = {"Name", "Phone", "College", "Dept"};
+                                String[] Details = {"Name : " + name
+                                        , "Phone : " + Phone,
+                                        "Clg   : " + clg,
+                                        "Dept  : " + Dept};
 
-                            String[] Title = {"Name", "Phone", "College", "Dept"};
-                            String[] Details = {"Name : " + name
-                                    , "Phone : " + Phone,
-                                    "Clg   : " + clg,
-                                    "Dept  : " + Dept};
+                                new MaterialDialog.Builder(WinnersActivity.this)
+                                        .title("Details of " + user)
+                                        .items(Details)
+                                        .show();
 
-                            new MaterialDialog.Builder(WinnersActivity.this)
-                                    .title("Details of " + user)
-                                    .items(Details)
-                                    .show();
+                            }
+                            else
+                            {
+                                Toast.makeText(WinnersActivity.this, "Check the number", Toast.LENGTH_SHORT).show();
+                            }
                         }
 
                         @Override
@@ -157,7 +167,7 @@ public class WinnersActivity extends AppCompatActivity {
             public void onClick(View view) {
                 final String user = tv_tp.getText().toString();
 //                Toast.makeText(WinnersActivity.this, ""+user, Toast.LENGTH_SHORT).show();
-                if (!user.equals(R.string.select_event))
+                if (!user.equals(getString(R.string.select_event)))
                     userref.child(user).addValueEventListener(new ValueEventListener() {
                         @Override
                         public void onDataChange(DataSnapshot ds) {
@@ -165,22 +175,30 @@ public class WinnersActivity extends AppCompatActivity {
 
                             Student student = ds.getValue(Student.class);
 
-                            String name = student.getTextname();
-                            String clg = student.getCollegename();
-                            String Phone = String.valueOf(student.getTextphone());
-                            String Dept = student.getDept();
+                            if(student!=null)
+                            {
+                                String name = student.getTextname();
+                                String clg = student.getCollegename();
+                                String Phone = String.valueOf(student.getTextphone());
+                                String Dept = student.getDept();
 
 
-                            String[] Title = {"Name", "Phone", "College", "Dept"};
-                            String[] Details = {"Name : " + name
-                                    , "Phone : " + Phone,
-                                    "Clg   : " + clg,
-                                    "Dept  : " + Dept};
+                                String[] Title = {"Name", "Phone", "College", "Dept"};
+                                String[] Details = {"Name : " + name
+                                        , "Phone : " + Phone,
+                                        "Clg   : " + clg,
+                                        "Dept  : " + Dept};
 
-                            new MaterialDialog.Builder(WinnersActivity.this)
-                                    .title("Details of " + user)
-                                    .items(Details)
-                                    .show();
+                                new MaterialDialog.Builder(WinnersActivity.this)
+                                        .title("Details of " + user)
+                                        .items(Details)
+                                        .show();
+
+                            }
+                            else
+                            {
+                                Toast.makeText(WinnersActivity.this, "Check the number", Toast.LENGTH_SHORT).show();
+                            }
                         }
 
                         @Override
